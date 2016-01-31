@@ -1,0 +1,22 @@
+.bs-sidebar:after {
+	content:url('../images/sporklogomenu.png');
+	display: block;
+    margin: 40px auto 50px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+code {
+	background:#e8e8e8;
+	color: rgb(44, 62, 80);
+}​
+
+code .hljs-title {
+	color: rgb(68, 85, 136);
+}
+
+.hljs-title, .hljs-id, .scss .hljs-preprocessor {
+  color: rgb(68, 85, 136);
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+site_name: Spork Library
+site_description: Spork is a field and method binding library
+site_author: Ken Van Hoeylandt
+site_favicon: images/sporklogosmall.png
+site_url: https://sporklibrary.github.io
+repo_url: https://github.com/sporklibrary
+theme: flatly
+extra_css:
+  - css/extra.css
+site_dir: site
+markdown_extensions:
+  - markdown.extensions.fenced_code
+pages:
+  - 'Introduction': 'index.md'
+  - 'Installation': 'installation.md'
+  - 'Annotations': 'annotations.md'
