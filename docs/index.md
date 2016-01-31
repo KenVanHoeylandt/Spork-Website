@@ -10,10 +10,10 @@ Spork aims to be different by binding at runtime, providing Android bindings and
 Advantages
 
 - **light-weight**: only one small external dependency (slf4j-api)
-- **extensible**: create your own annotations with little effort (@BindView is about 100 lines of code!)
-- **no code generation** (as opposed to Android Annotations or Butter Knife)
-- **no manual book-keeping** (as opposed to Dagger ObjectGraph/Modules)
-- **no need to extend classess** from custom Activity/Fragment base class (as opposed to RoboGuice)
+- **extensible**: create your own annotations with little effort (`@BindView` is about 100 lines of code!)
+- **no code generation** (as opposed to [Android Annotations](http://androidannotations.org) or [Butter Knife](http://jakewharton.github.io/butterknife/))
+- **no manual book-keeping** (as opposed to [Dagger](http://square.github.io/dagger/) ObjectGraph/Modules)
+- **no need to extend classess** from custom Activity/Fragment base class (as opposed to [RoboGuice](https://github.com/roboguice/roboguice))
 
 Disadvantages
 

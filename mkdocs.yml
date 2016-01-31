@@ -14,3 +14,4 @@ pages:
   - 'Introduction': 'index.md'
   - 'Installation': 'installation.md'
   - 'Annotations': 'annotations.md'
+  - 'Contributing': 'contributing.md'
