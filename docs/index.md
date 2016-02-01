@@ -5,7 +5,7 @@ It allows you to write less boilerplate code to simplify your applications.
 
 Spork aims to be different by binding at runtime, providing Android bindings and extensibility.
 
-[Spork for Android](https://github.com/SporkLibrary/Spork) is based on [Spork for Java](https://github.com/SporkLibrary/Spork).
+[Spork for Android](https://github.com/SporkLibrary/Spork-Android) is based on [Spork for Java](https://github.com/SporkLibrary/Spork).
 
 Advantages
 
