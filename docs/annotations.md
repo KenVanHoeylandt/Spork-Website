@@ -21,15 +21,10 @@ public class Parent
 	}
 }
 
-@Component
 public class Child
 {
 }
 ```
-
-The component scope can be customized: `@Component(scope = Component.Scope.SINGLETON)`
-
-The default scope creates a new instance for each binding.
 
 You can also inject to a base class or interface as long as you specify the implementation. For example:
 
@@ -37,6 +32,17 @@ You can also inject to a base class or interface as long as you specify the impl
 @BindComponent(implementation = SomeServiceImplementation.class)
 private SomeService mService;
 ```
+
+You could specify a scope for `Child` by declaring it as follows:
+
+```java
+@ComponentScope(scope = ComponentScope.Scope.SINGLETON)`
+public class Child
+{
+}
+```
+
+The default scope creates a new instance for each binding.
 
 # Spork for Android
 
