@@ -59,8 +59,6 @@ public class MyActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.my_activity);
-		
 		Spork.bind(this);
 	}
 }
@@ -79,8 +77,6 @@ public class MyActivity extends Activity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.my_activity);
 		
 		Spork.bind(this);
 	}
@@ -112,8 +108,6 @@ public class MyActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.my_activity);
-		
 		Spork.bind(this);
 	}
 }
@@ -159,8 +153,37 @@ public class MyActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.my_activity);
+		Spork.bind(this);
+	}
+}
+```
+
+### @BindLayout
+
+Layout binding works with `Activity` and `ViewGroup` classes.
+When using it for `ViewGroup`, a `FrameLayout` is preferred as the layout will be added as a child to it.
+
+```java
+@BindLayout(R.layout.activity_custom)
+public class CustomActivity extends Activity
+{
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
 		
+		Spork.bind(this);
+	}
+}
+```
+
+```java
+@BindLayout(R.layout.view_custom)
+public class CustomView extends FrameLayout
+{
+	public MyView(Context context)
+	{
+		super(context);
+
 		Spork.bind(this);
 	}
 }

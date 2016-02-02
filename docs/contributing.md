@@ -33,9 +33,7 @@ public class BindViewBinder implements FieldBinder<BindView>
 }
 ```
 
-Check out the `@BindView` annotation binder: `BindViewBinder`.
-
-It can be found [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java)
+Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java).
 
 # MethodBinder example
 
@@ -67,6 +65,43 @@ public class BindClickBinder implements MethodBinder<BindClick>
 }
 ```
 
-Check out the `@BindClick` annotation binder: `BindClickBinder`.
+Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java).
 
-It can be found [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java)
+# TypeBinder example
+
+```java
+public interface IntSettable
+{
+	void setValue(int value);
+}
+
+
+public class ValueBinder implements TypeBinder<BindValue>
+{
+	@Override
+	public Class<BindValue> getAnnotationClass()
+	{
+		return BindValue.class;
+	}
+
+	@Override
+	public void bind(Object object, AnnotatedType<BindValue> annotatedClass)
+	{
+		// @BindValue only works with IntSettable implementations
+		if (!IntSettable.class.isAssignableFrom(object.getClass()))
+		{
+			throw new BindException(...);
+		}
+
+		// Safely convert to IntSettable
+		IntSettable value_holder = (IntSettable)object;
+
+		// Set the integer value
+		int value = annotatedClass.getAnnotation().value();
+		value_holder.setValue(value);
+	}
+}
+
+```
+
+Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindLayoutBinder.java).
