@@ -36,7 +36,7 @@ private SomeService mService;
 You could specify a scope for `Child` by declaring it as follows:
 
 ```java
-@ComponentScope(scope = ComponentScope.Scope.SINGLETON)`
+@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
 public class Child
 {
 }
