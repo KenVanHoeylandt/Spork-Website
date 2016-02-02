@@ -1,16 +1,16 @@
 # Introduction
 
-Spork is an open source library to speed up development with field/method binding (dependency injection).
+Spork is an annotation processing library to speed up development on your projects.
 It allows you to write less boilerplate code to simplify your applications.
 
-Spork aims to be different by binding at runtime, providing Android bindings and extensibility.
+Spork aims to be different by overcoming the shortcomings of its alternatives.
 
-[Spork for Android](https://github.com/SporkLibrary/Spork-Android) is based on [Spork for Java](https://github.com/SporkLibrary/Spork).
+Spork comes in two flavors: [Spork for Android](https://github.com/SporkLibrary/Spork-Android) and [Spork for Java](https://github.com/SporkLibrary/Spork).
 
 Advantages
 
 - **light-weight**: only one small external dependency (slf4j-api)
-- **extensible**: create your own annotations with little effort (`@BindView` is about 100 lines of code!)
+- **extensible**: create your own annotations with little effort (`@BindLayout` is less than 50 lines of code!)
 - **no code generation** (as opposed to [Android Annotations](http://androidannotations.org) or [Butter Knife](http://jakewharton.github.io/butterknife/))
 - **no manual book-keeping** (as opposed to [Dagger](http://square.github.io/dagger/) ObjectGraph/Modules)
 - **no need to extend classess** from custom Activity/Fragment base class (as opposed to [RoboGuice](https://github.com/roboguice/roboguice))
