@@ -148,12 +148,6 @@ public class MyActivity extends Activity
 	
 	@BindResource
 	private Drawable spork_test_drawable;
-	
-	@BindFragment(R.id.resourcebindingfragment)
-	private TestFragment mResourceBindingFragment;
-	
-	@BindView(R.id.resourcebindingview)
-	private TestView mResourceBindingView;
 
 	public void onCreate(Bundle savedInstanceState)
 	{
