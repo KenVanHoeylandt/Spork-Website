@@ -22,6 +22,7 @@ Disadvantages
 
 # Example
 ```java
+@BindLayout(R.layout.activity_download)
 public class DownloadActivity extends Activity
 {
 	@BindView(R.id.download_button)
@@ -37,10 +38,7 @@ public class DownloadActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_download);
-
-		// Spork does its magic
-		Spork.bind(this);
+		Spork.bind(this); // Spork does its magic
 	}
 
 	@BindClick(R.id.other_button)
@@ -50,7 +48,7 @@ public class DownloadActivity extends Activity
 	}
 }
 
-@Component(scope = Component.Scope.SINGLETON)
+@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
 public class DownloadService
 {
 	public void download() {}
