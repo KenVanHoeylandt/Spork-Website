@@ -4,10 +4,11 @@ The Spork for Java components are of course also available on Spork on the Andro
 
 ### @BindComponent
 
-Any Java object can become a component. Components can be easily bound anywhere.
-Classes need a `@Component` annotation to enable `@BindComponent` usage for them.
+Any class can become a component instance.
+Components need to have a default constructor available (either specified or implied) with 0 or 1 arguments.
+Components don't need to call `Spork.bind()` itself, but it is perfectly fine to do so.
 
-For example:
+This is the simplest component that you could create:
 
 ```java
 public class Parent
@@ -26,19 +27,49 @@ public class Child
 }
 ```
 
-You can also inject to a base class or interface as long as you specify the implementation. For example:
+#### Base types and interfaces
+
+You can inject to any assignable type, as long as you specify the implementation.
+
+For example:
 
 ```java
 @BindComponent(implementation = SomeServiceImplementation.class)
 private SomeService mService;
 ```
 
-You could specify a scope for `Child` by declaring it as follows:
+#### Scope
+
+You could specify a scope for `Child` by declaring in an annotation.
+
+The default scope means that a new instance of the component is created for each time it is bound somewhere.
+
+The singleton scope means that there will be at most 1 instance.
 
 ```java
 @ComponentScope(scope = ComponentScope.Scope.SINGLETON)
 public class Child
 {
+	// ...
+}
+```
+
+#### Parent
+
+If you want to inject the component's parent, you can add it as a constructor parameter.
+It is also not required to call Spork.bind() on the referenced component.
+
+It's important that you always use the `@ComponentParent` annotation on the parameter.
+
+```java
+public class Child
+{
+	final private Parent mParent;
+
+	public Child(@ComponentParent Parent parent)
+	{
+		mParent = parent;
+	}
 }
 ```
 
