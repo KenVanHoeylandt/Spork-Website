@@ -77,6 +77,8 @@ The default scope creates a new instance for each binding.
 
 # Spork for Android
 
+All annotations that work on `Activity` and `Fragment` types also work on `support-v4` and `appcompat-v7` library Fragments and Activities.
+
 ### @BindView
 
 View binding works with classes derived from `Activity`, `Fragment` and `View`.
