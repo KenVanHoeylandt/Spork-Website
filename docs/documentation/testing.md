@@ -15,7 +15,7 @@ MockingComponentFactory mocking_factory = new MockingComponentFactory()
 ComponentInstanceManager.setComponentFactory(mocking_factory);
 ```
 
-That's it! Instead of injecting `RegularImplementation*` classes, `MockedImplementation*` classes will be instantiated and injected insetad!
+That's it! Instead of injecting `RegularImplementation*` classes, `MockedImplementation*` classes will be instantiated and injected instead!
 
 ## Mockito support
 
