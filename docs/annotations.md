@@ -34,8 +34,8 @@ You can inject to any assignable type, as long as you specify the implementation
 For example:
 
 ```java
-@BindComponent(implementation = SomeServiceImplementation.class)
-private SomeService mService;
+@BindComponent(ServiceImplementation.class)
+private ServiceInterface mService;
 ```
 
 #### Scope
