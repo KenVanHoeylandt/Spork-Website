@@ -1,4 +1,6 @@
-# Android Installation
+# Getting Started
+
+## Android Installation
 
 Edit your build.gradle file and add the repository:
 
@@ -29,7 +31,7 @@ SporkAndroid.initialize();
 
 This registers all Android annotations with Spork. The best place to call this is in an Application class, but you can also call it in your `Activity` in an `onCreate()` method before `Spork.bind()`.
 
-# Android Usage
+## Android Usage
 
 Use `Spork.bind()` as follows:
 
@@ -39,7 +41,7 @@ Use `Spork.bind()` as follows:
 - `Application`: bind in `void onCreate()`
 - Components: bind in all constructors
 
-# Java Installation
+## Java Installation
 
 Edit your `build.gradle` file and add the repository:
 
@@ -60,7 +62,7 @@ compile 'io.github.sporklibrary:spork:*'
 
 It's recommended to use the actual latest version instead of `*`
 
-# Direct downloads
+## Direct downloads
 
 Download the dependencies here:
 

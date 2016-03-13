@@ -12,6 +12,8 @@ markdown_extensions:
   - markdown.extensions.fenced_code
 pages:
   - 'Introduction': 'index.md'
-  - 'Getting Started': 'gettingstarted.md'
-  - 'Annotations': 'annotations.md'
+  - 'Documentation':
+    - 'Getting Started': 'documentation/getting-started.md'
+    - 'Annotations': 'documentation/annotations.md'
+    - 'Testing' : 'documentation/testing.md'
   - 'Contributing': 'contributing.md'

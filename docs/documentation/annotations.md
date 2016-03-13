@@ -1,4 +1,4 @@
-# Spork for Java
+## Java Annotations
 
 The Spork for Java components are of course also available on Spork on the Android platform.
 
@@ -75,7 +75,7 @@ public class Child
 
 The default scope creates a new instance for each binding.
 
-# Spork for Android
+## Android Annotations
 
 All annotations that work on `Activity` and `Fragment` types also work on `support-v4` and `appcompat-v7` library Fragments and Activities.
 
