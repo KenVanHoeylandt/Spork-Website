@@ -6,7 +6,7 @@ Spork provides basic support for unit-testing. Specifically for creating mock/st
 
 The default implementation for mocks/stubs with Spork is by injecting alternative classes into objects:
 
-```
+```java
 // Create a ComponentFactory for mocking
 MockingComponentFactory mocking_factory = new MockingComponentFactory()
 	.register(RegularImplementationA.class, MockedImplementationA.class)
@@ -23,7 +23,7 @@ That's it! Instead of injecting `RegularImplementation*` classes, `MockedImpleme
 
 To enable Mockito support, add the following dependency:
 
-```
+```groovy
 dependencies {
 	compile ('io.github.sporklibrary:spork-mockito:*') {
 		exclude group: 'io.github.sporklibrary'
@@ -37,7 +37,7 @@ It's recommended to use the actual latest version instead of `*`
 
 Consider the following classes:
 
-```
+```java
 public class Component
 {
 	public int getValue()
@@ -65,7 +65,7 @@ public class Parent
 
 To start mocking, this needs to be done:
 
-```
+```java
 // Enable mocking for the specified class(es)
 SporkMockito.initialize(Component.class);
 // This can be called multiple times to reset the mocking classes.
@@ -88,7 +88,7 @@ It's possible to implement your own mocking behavior.
 
 All you need to do is implement your own `ComponentFactory` and implement the required methods:
 
-```
+```java
 public class CustomMockingComponentFactory implements ComponentFactory
 {
 	@Override
@@ -101,6 +101,6 @@ public class CustomMockingComponentFactory implements ComponentFactory
 
 All that is left is registering it:
 
-```
+```java
 ComponentInstanceManager.setComponentFactory(custom_component_factory);
 ```
