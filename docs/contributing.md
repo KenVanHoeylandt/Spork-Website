@@ -75,7 +75,6 @@ public interface IntSettable
 	void setValue(int value);
 }
 
-
 public class ValueBinder implements TypeBinder<BindValue>
 {
 	@Override

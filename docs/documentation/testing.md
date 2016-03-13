@@ -73,8 +73,8 @@ SporkMockito.initialize(Component.class);
 // SporkMockito.initialize()
 
 // Object instantiation
-Parent mocked_parent = new Parent();
-Component mocked_component = mocked_parent.getComponent();
+Parent parent = new Parent();
+Component mocked_component = parent.getComponent();
 
 // Run Mockito tests
 assertEquals("mocked default value", 0, mocked_component.getValue());
