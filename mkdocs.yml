@@ -14,7 +14,7 @@ pages:
   - 'Introduction': 'index.md'
   - 'Documentation':
     - 'Getting Started': 'documentation/getting-started.md'
-    - 'Annotations': 'documentation/annotations.md'
+    - 'Annotation list': 'documentation/annotations.md'
     - 'Advanced Topics': 'documentation/advanced-topics.md'
     - 'Creating Annotations': 'documentation/creating-annotations.md'
     - 'Testing' : 'documentation/testing.md'
