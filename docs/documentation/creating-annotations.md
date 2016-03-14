@@ -1,11 +1,16 @@
-# Overview
+# Creating Annotations
 
-Spork annotations are bound through a `MethodBinder` and/or a `FieldBinder`.
+## Overview
+
+Spork annotations are bound through a `MethodBinder` and/or `FieldBinder` and/or `TypeBinder`.
 
 These binders are registered through a `BinderManager` which is accessible through `Spork.getBinderManager()`
 
-# FieldBinder example
+## FieldBinder
 
+FieldBinders are used for annotations that target `ElementType.FIELD`.
+
+### Example
 ```java
 public class BindViewBinder implements FieldBinder<BindView>
 {
@@ -35,7 +40,11 @@ public class BindViewBinder implements FieldBinder<BindView>
 
 Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java).
 
-# MethodBinder example
+## MethodBinder
+
+FieldBinders are used for annotations that target `ElementType.METHOD`.
+
+### Example
 
 ```java
 public class BindClickBinder implements MethodBinder<BindClick>
@@ -67,7 +76,11 @@ public class BindClickBinder implements MethodBinder<BindClick>
 
 Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java).
 
-# TypeBinder example
+## TypeBinder
+
+FieldBinders are used for annotations that target `ElementType.TYPE`.
+
+### Example
 
 ```java
 public interface IntSettable
@@ -104,3 +117,63 @@ public class ValueBinder implements TypeBinder<BindValue>
 ```
 
 Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindLayoutBinder.java).
+
+## Binder registration
+
+### Single target binders
+
+For binders that only bind to a single annotation target (e.g. `ElementType.FIELD`, `ElementType.METHOD` or `ElementType.TYPE`). The following code demonstrates this.
+
+**YourAnnotation.java**
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface YourAnnotation
+{
+}
+```
+
+**YourAnnotationBinder.java**
+```java
+class YourAnnotationBinder implements MethodBinder<YourAnnotation>
+{
+	// implementation
+}
+```
+
+**Main.java**
+```java
+Spork.getBinderManager().register(new YourAnnotationBinder());
+```
+
+### Multi-target binders
+
+For binders that only bind to multiple annotation targets (e.g. `ElementType.FIELD`, `ElementType.METHOD` or `ElementType.TYPE`). The following code demonstrates this.
+
+**YourAnnotation.java**
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, Element.FIELD })
+public @interface YourAnnotation
+{
+}
+```
+
+**YourAnnotationBinder.java**
+```java
+class YourAnnotationBinder
+	implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation>
+{
+	// implementation
+}
+```
+
+**Main.java**
+```java
+YourAnnotationBinder binder = new YourAnnotationBinder();
+
+Spork.getBinderManager().register(
+	binder, // FieldBinder
+	binder, // MethodBinder
+	null);  // TypeBinder (YourAnnotationBinder doesn't implement TypeBinder)
+```
