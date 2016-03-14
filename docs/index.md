@@ -16,7 +16,8 @@ Advantages:
 - **no need to extend classess** from custom Activity/Fragment base class (as opposed to [RoboGuice](https://github.com/roboguice/roboguice))
 - **test** your injected components by [mocking/stubbing](http://localhost:8000/documentation/testing/) them (even with custom mocking frameworks)
 
-# Example
+Example:
+
 ```java
 @BindLayout(R.layout.activity_download)
 public class DownloadActivity extends Activity
