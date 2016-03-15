@@ -41,6 +41,8 @@ Use `Spork.bind()` as follows:
 - `Fragment`: bind in `void onViewCreated(View, Bundle)`
 - `View`: bind in all constructors
 - `Application`: bind in `void onCreate()`
+- `Service`: bind in `void onCreate()`
+- `ContentProvider`: bind in `boolean onCreate()`
 - Components: bind in constructor
 
 ## Java
