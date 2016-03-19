@@ -33,6 +33,9 @@ dependencies {
 
 It's recommended to use the actual latest version instead of `*`
 
+The latest version is [![Spork Mockito version][mockito-version-svg]][mockito-version-link]
+with a test coverage of [![Spork Mockito coverage][mockito-coverage-svg]][mockito-coverage-link]
+
 ### Example
 
 Consider the following classes:
@@ -104,3 +107,8 @@ All that is left is registering it:
 ```java
 ComponentInstanceManager.setComponentFactory(custom_component_factory);
 ```
+
+[mockito-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork-mockito.svg?style=flat
+[mockito-version-link]: https://bintray.com/sporklibrary/spork/spork-mockito/_latestVersion
+[mockito-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork-Mockito/badge.svg?branch=master
+[mockito-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork-Mockito?branch=master

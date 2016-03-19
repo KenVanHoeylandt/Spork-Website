@@ -2,7 +2,7 @@
 
 ## Download
 
-Edit your build.gradle file and add the repository:
+Edit your `build.gradle` file and add the repository:
 
 ```groovy
 repositories {
@@ -23,16 +23,11 @@ dependencies {
 
 It's recommended to use the actual latest version instead of `*`
 
-The last step is to initialize at least once. You can do this anywhere before calling `Spork.bind()`:
 
-```java
-SporkAndroid.initialize();
-```
+If want need to download the libraries manually, you can find the Spork core [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and Spork for Android [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion).
 
-This registers all Android annotations with Spork. The best place to call this is in an Application class, but you can also call it in your `Activity` in an `onCreate()` method before `Spork.bind()`.
-
-
-If want need to download the libraries manually, you can find them Spork [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and Spork-Android [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion).
+[![Spork for Android version][android-version-svg]][android-version-link]
+[![Spork for Android coverage][android-coverage-svg]][android-coverage-link]
 
 ## Usage
 
@@ -45,4 +40,9 @@ Use `Spork.bind()` as follows:
 - `Service`: bind in `void onCreate()`
 - `ContentProvider`: bind in `boolean onCreate()`
 - Components: bind in constructor
+
+[android-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork-android.svg?style=flat
+[android-version-link]: https://bintray.com/sporklibrary/spork/spork-android/_latestVersion
+[android-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork-Android/badge.svg?branch=master
+[android-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork-Android?branch=master
 

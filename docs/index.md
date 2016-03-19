@@ -51,30 +51,3 @@ public class DownloadService
 	public void download() {}
 }
 ```
-
-## Status
-
-###Spork for Android
-[![Spork for Android version][android-version-svg]][android-version-link]
-[![Spork for Android coverage][android-coverage-svg]][android-coverage-link]
-
-###Spork for Java
-[![Spork for Java version][java-version-svg]][java-version-link]
-[![Spork for Java coverage][java-coverage-svg]][java-coverage-link]
-
-###Spork Mockito
-[![Spork Mockito version][mockito-version-svg]][mockito-version-link]
-[![Spork Mockito coverage][mockito-coverage-svg]][mockito-coverage-link]
-
-[java-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork.svg?style=flat
-[java-version-link]: https://bintray.com/sporklibrary/spork/spork/_latestVersion
-[java-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork/badge.svg?branch=master
-[java-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork?branch=master
-[android-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork-android.svg?style=flat
-[android-version-link]: https://bintray.com/sporklibrary/spork/spork-android/_latestVersion
-[android-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork-Android/badge.svg?branch=master
-[android-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork-Android?branch=master
-[mockito-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork-mockito.svg?style=flat
-[mockito-version-link]: https://bintray.com/sporklibrary/spork/spork-mockito/_latestVersion
-[mockito-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork-Mockito/badge.svg?branch=master
-[mockito-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork-Mockito?branch=master

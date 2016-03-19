@@ -20,7 +20,7 @@ pages:
     - 'Getting Started': 'documentation/current/android/getting-started.md'
     - 'Annotations':
       - 'BindClick': 'documentation/current/android/annotations/bindclick.md'
-      - 'BindComponent': 'documentation/current/android/annotations/bindcomponent.md'
+      - 'BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
       - 'BindFragment': 'documentation/current/android/annotations/bindfragment.md'
       - 'BindLayout': 'documentation/current/android/annotations/bindlayout.md'
       - 'BindResource': 'documentation/current/android/annotations/bindresource.md'
@@ -28,7 +28,7 @@ pages:
     - 'Examples':
       - 'Application': 'documentation/current/android/examples/application.md'
       - 'Activity': 'documentation/current/android/examples/activity.md'
-      - 'Component': 'documentation/current/android/examples/component.md'
+      - 'Component': 'documentation/current/java/examples/component.md'
       - 'ContentProvider': 'documentation/current/android/examples/contentprovider.md'
       - 'Fragment': 'documentation/current/android/examples/fragment.md'
       - 'RecyclerView': 'documentation/current/android/examples/recyclerview.md'
