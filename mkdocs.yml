@@ -1,20 +1,53 @@
+# Submenus require a new version of MkDocs:
+# pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+# Reference: https://github.com/mkdocs/mkdocs/issues/6
+
 site_name: Spork Library
 site_description: Spork is a field and method binding library
 site_author: Ken Van Hoeylandt
 site_favicon: images/sporklogosmall.png
 site_url: https://sporklibrary.github.io
 repo_url: https://github.com/sporklibrary
-theme: flatly
+theme: mkdocs
 extra_css:
   - css/extra.css
 site_dir: site
 markdown_extensions:
   - markdown.extensions.fenced_code
 pages:
-  - 'Introduction': 'index.md'
-  - 'Documentation':
-    - 'Getting Started': 'documentation/getting-started.md'
-    - 'Annotation list': 'documentation/annotations.md'
-    - 'Advanced Topics': 'documentation/advanced-topics.md'
-    - 'Creating Annotations': 'documentation/creating-annotations.md'
-    - 'Testing' : 'documentation/testing.md'
+  - Introduction: index.md
+  - 'Android Guide':
+    - 'Getting Started': 'documentation/current/android/getting-started.md'
+    - 'Annotations':
+      - 'BindClick': 'documentation/current/android/annotations/bindclick.md'
+      - 'BindComponent': 'documentation/current/android/annotations/bindcomponent.md'
+      - 'BindFragment': 'documentation/current/android/annotations/bindfragment.md'
+      - 'BindLayout': 'documentation/current/android/annotations/bindlayout.md'
+      - 'BindResource': 'documentation/current/android/annotations/bindresource.md'
+      - 'BindView': 'documentation/current/android/annotations/bindview.md'
+    - 'Examples':
+      - 'Application': 'documentation/current/android/examples/application.md'
+      - 'Activity': 'documentation/current/android/examples/activity.md'
+      - 'Component': 'documentation/current/android/examples/component.md'
+      - 'ContentProvider': 'documentation/current/android/examples/contentprovider.md'
+      - 'Fragment': 'documentation/current/android/examples/fragment.md'
+      - 'RecyclerView': 'documentation/current/android/examples/recyclerview.md'
+      - 'Service': 'documentation/current/android/examples/service.md'
+      - 'View': 'documentation/current/android/examples/view.md'
+    - 'Testing' : 'documentation/current/android/testing.md'
+    - 'Advanced Topics':
+      - 'Creating Annotations': 'documentation/current/android/advanced/creating-annotations.md'
+      - 'ProGuard': 'documentation/current/android/advanced/proguard.md'
+      - 'Binding order': 'documentation/current/android/advanced/binding-order.md'
+  - 'Java Guide':
+    - 'Getting Started': 'documentation/current/java/getting-started.md'
+    - 'Annotations':
+      - 'BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
+    - 'Examples':
+      - 'Component': 'documentation/current/java/examples/component.md'
+    - 'Testing' : 'documentation/current/java/testing.md'
+    - 'Advanced Topics':
+      - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
+      - 'ProGuard': 'documentation/current/java/advanced/proguard.md'
+      - 'Binding order': 'documentation/current/java/advanced/binding-order.md'
+  - License: license.md

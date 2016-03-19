@@ -7,32 +7,6 @@
     width: 100%;
 }
 
-code {
-	background:#e8e8e8;
-	color: rgb(44, 62, 80);
-}​
-
-code .hljs-title {
-	color: rgb(68, 85, 136);
-}
-
-.hljs-title, .hljs-id, .scss .hljs-preprocessor {
-  color: rgb(68, 85, 136);
-  font-weight: bold;
-}
-
 .bs-sidebar.affix-bottom, .bs-sidebar.affix {
   width: 230px;
-}
-
-.dropdown-menu>li>a {
-  color: rgb(68, 85, 136)!important;
-}
-
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
-  color: rgb(255, 255, 255)!important;
-}
-
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-  color: rgb(255, 255, 255)!important;
 }

@@ -1,12 +1,12 @@
-# Advanced Topics
+# Binding Order
+
+Components are bound by the order they are registered in. This means that components are bound first and any other registered annotations are bound after that.
 
 ## Components 
 
-### Binding order
-
 When `Spork.bind()` is called, the `@BindComponent` annotations are processed first. This means that when the component is bound, the `@ComponentParent` passed in the constructor can be acccessed, but the injection on `@ComponentParent` fields might not have finished.
 
-#### Example
+### Example
 
 ```java
 public class ExampleActivity extends Activity
@@ -40,7 +40,7 @@ public class Component
 }
 ```
 
-#### Solution 1
+### Solution 1
 
 Store the component parent and access its properties only by reference.
 
@@ -68,7 +68,7 @@ public class Component
 }
 ```
 
-#### Solution 2
+### Solution 2
 
 Cache the fields when any of the component methods are called.
 
@@ -106,7 +106,7 @@ public class Component
 }
 ```
 
-#### Solution 3
+### Solution 3
 
 Give your component an initializing method and call it after the parent's `Spork.bind()`
 
@@ -180,15 +180,4 @@ class Parent
 		Spork.bind(this);
 	}
 }
-```
-
-## ProGuard
-
-ProGuard's shrinking process might remove your components, because they are instantiated by reflection instead of the regular way. To avoid this, you need to specify the classes and interfaces to keep in your proguard configuration.
-
-For example:
-
-```java
--keep class com.yourapp.components.** { *; }
--keep interface com.yourapp.components.** { *; }
 ```
