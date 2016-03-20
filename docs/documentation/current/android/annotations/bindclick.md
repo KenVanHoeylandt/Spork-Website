@@ -20,7 +20,6 @@ private void onClickDownload()
 Alternatively, you can imply the view id by the method name:
 
 ```java
-// View id `R.id.download_button` is implied by the method name
 @BindClick
 private void download_button()
 {
