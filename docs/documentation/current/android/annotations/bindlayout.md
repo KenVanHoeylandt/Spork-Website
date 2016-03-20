@@ -5,7 +5,7 @@ This annotation can be used with classes derived from:
 - android.app.`Activity`
 - android.view.`ViewGroup`
 
-When using it for `ViewGroup`, a `FrameLayout` is preferred as the layout will be added as a child to it.
+When using it for `ViewGroup`, a `FrameLayout` is preferred as the inflated layout will be added as a child to it.
 
 ## Example: Activity
 
@@ -13,6 +13,7 @@ When using it for `ViewGroup`, a `FrameLayout` is preferred as the layout will b
 @BindLayout(R.layout.activity_custom)
 public class CustomActivity extends Activity
 {
+	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
