@@ -12,11 +12,11 @@ The following annotations are supported:
 ```java
 public class MyApplication extends android.app.Application
 {
-	@BindResource(R.dimen.some_dimension)
-	private Float mDimension;
-
 	@BindComponent
-	private SomeComponent mComponent;
+	private MyComponent mComponent;
+
+	@BindResource(R.string.app_name)
+	private String mAppName;
 
 	@Override
 	public void onCreate()
@@ -27,8 +27,7 @@ public class MyApplication extends android.app.Application
 	}
 }
 
-public class SomeComponent
+public class MyComponent
 {
-	// ...	
 }
 ```

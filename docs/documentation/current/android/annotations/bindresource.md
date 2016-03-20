@@ -1,22 +1,45 @@
 # @BindResoure
 
-Resource binding works within `Application`, `Activity`, `Fragment`, `Fragment`, `View` and `RecyclerView.ViewHolder`.
+This annotation can be used with classes derived from:
+
+- android.app.`Activity`
+- android.app.`Application`
+- android.app.`Fragment`
+- android.app.`Service`
+- android.content.`ContentProvider`
+- android.support.v4.app.`Fragment`
+- android.support.v7.widget.`RecyclerView.ViewHolder`
+- android.view.`View`
+- io.github.sporklibrary.interfaces.`ContextProvider`
 
 It can bind:
+
 - `R.dimen.*` to `Float` or `float` fields
 - `R.string.*` to `String` fields
 - `R.drawable.*` to `Drawable` fields
+
+You can bind a resource by specifying its id:
+
+```java
+@BindResource(R.string.app_name)
+private String mAppName;
+```
+
+Alternatively, you can imply the view id by the field name:
+
+```java
+@BindResource
+private String app_name;
+```
 
 ## Example
 
 ```java
 public class MyActivity extends Activity 
 {
-	// Bind by specified id
 	@BindResource(R.string.app_name)
 	private String mAppName;
 	
-	// Bind by implied id ("app_name")
 	@BindResource
 	private String app_name;
 	
@@ -32,6 +55,7 @@ public class MyActivity extends Activity
 	@BindResource
 	private Drawable spork_test_drawable;
 
+	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);

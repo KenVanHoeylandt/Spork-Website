@@ -1,32 +1,37 @@
 # @BindClick
 
-Click binding works within `Activity`, `Fragment`, `android.support.v4.app.Fragment`, `View` and `RecyclerView.ViewHolder`. The `View` can optionally be specified in the method as argument.
+This annotation can be used with classes derived from:
 
-The method can be either without arguments or with exactly 1 argument that accepts any class or subclass that is compatible with the bound view.
+- android.app.`Activity`
+- android.app.`Fragment`
+- android.support.v4.app.`Fragment`
+- android.support.v7.widget.`RecyclerView.ViewHolder`
+- android.view.`View`
 
-## Example
+You can specify the view id as the annotation value:
 
 ```java
-public class MyActivity extends Activity
+@BindClick(R.id.download_button)
+private void onClickDownload()
 {
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+}
+```
 
-		Spork.bind(this);
-	}
+Alternatively, you can imply the view id by the method name:
 
-	// Bind by specified id
-	@BindClick(R.id.first_button)
-	private void onClickMyButton()
-	{
-	}
+```java
+// View id `R.id.download_button` is implied by the method name
+@BindClick
+private void download_button()
+{
+}
+```
 
-	// Bind by implied id (method name)
-	@BindClick
-	private void second_button(Button button)
-	{
-	}
+You can also pass the any compatible View instance as method argument:
+
+```java
+@BindClick(R.id.download_button)
+private void onClickDownload(Button button)
+{
 }
 ```

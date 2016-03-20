@@ -1,6 +1,9 @@
 # @BindLayout
 
-Layout binding is supported for `Activity` and `ViewGroup` classes.
+This annotation can be used with classes derived from:
+
+- android.app.`Activity`
+- android.view.`ViewGroup`
 
 When using it for `ViewGroup`, a `FrameLayout` is preferred as the layout will be added as a child to it.
 

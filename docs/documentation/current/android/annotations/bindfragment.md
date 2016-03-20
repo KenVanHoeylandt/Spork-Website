@@ -1,22 +1,21 @@
 # @BindFragment
 
-Fragment binding works within classes derived from `android.app.Fragment`, `android.support.v4.app.Fragment` and `Activity`.
+This annotation can be used with classes derived from:
 
-Binding a fragment is done by specifying its id.
+- android.app.`Activity`
+- android.app.`Fragment`
+- android.support.v4.app.`Fragment`
 
-## Example
+You can bind a fragment by specifying its id:
 
 ```java
-public class MyActivity extends Activity
-{
-	@BindFragment(R.id.my_fragment)
-	private Fragment mFragment;
+@BindFragment(R.id.my_fragment)
+private Fragment mMyFragment;
+```
 
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		
-		Spork.bind(this);
-	}
-}
+Alternatively, you can imply the fragment id by the field name:
+
+```java
+@BindFragment
+private Fragment my_fragment;
 ```

@@ -1,25 +1,23 @@
 # @BindView
 
-View binding works with classes derived from `Activity`, `Fragment`, `android.support.v4.app.Fragment`, `View` and `RecyclerView.ViewHolder`.
+This annotation can be used with classes derived from:
 
-## Example
+- android.app.`Activity`
+- android.app.`Fragment`
+- android.support.v4.app.`Fragment`
+- android.support.v7.widget.`RecyclerView.ViewHolder`
+- android.view.`View`
+
+You can bind a view by specifying its id:
 
 ```java
-public class MyActivity extends Activity
-{
-	// Bind by specified id
-	@BindView(R.id.my_button)
-	private Button mButton;
+@BindView(R.id.my_button)
+private Button mButton;
+```
 
-	// Bind by implied id (field name)
-	@BindView
-	private Button button;
+Alternatively, you can imply the view id by the field name:
 
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-
-		Spork.bind(this);
-	}
-}
+```java
+@BindView
+private Button my_button;
 ```
