@@ -45,13 +45,3 @@ It's recommended to use the actual latest version instead of `*`
 ## Manually
 
 Download the dependencies [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion).
-
-## Status
-
-[![Spork for Java version][java-version-svg]][java-version-link]
-[![Spork for Java coverage][java-coverage-svg]][java-coverage-link]
-
-[java-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork.svg?style=flat
-[java-version-link]: https://bintray.com/sporklibrary/spork/spork/_latestVersion
-[java-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork/badge.svg?branch=master
-[java-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork?branch=master

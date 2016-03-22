@@ -26,9 +26,6 @@ It's recommended to use the actual latest version instead of `*`
 
 If want need to download the libraries manually, you can find the Spork core [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and Spork for Android [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion).
 
-[![Spork for Android version][android-version-svg]][android-version-link]
-[![Spork for Android coverage][android-coverage-svg]][android-coverage-link]
-
 ## Usage
 
 Use `Spork.bind()` as follows:
@@ -40,9 +37,3 @@ Use `Spork.bind()` as follows:
 - `Service`: bind in `void onCreate()`
 - `ContentProvider`: bind in `boolean onCreate()`
 - Components: bind in constructor
-
-[android-version-svg]: https://img.shields.io/bintray/v/sporklibrary/spork/spork-android.svg?style=flat
-[android-version-link]: https://bintray.com/sporklibrary/spork/spork-android/_latestVersion
-[android-coverage-svg]: https://coveralls.io/repos/github/SporkLibrary/Spork-Android/badge.svg?branch=master
-[android-coverage-link]: https://coveralls.io/github/SporkLibrary/Spork-Android?branch=master
-
