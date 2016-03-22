@@ -3,7 +3,7 @@
 # Reference: https://github.com/mkdocs/mkdocs/issues/6
 
 site_name: Spork Library
-site_description: Spork is a field and method binding library
+site_description: Spork is an annotation binding library
 site_author: Ken Van Hoeylandt
 site_favicon: images/sporklogosmall.png
 site_url: https://sporklibrary.github.io
@@ -51,4 +51,7 @@ pages:
       - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
       - 'ProGuard': 'documentation/current/java/advanced/proguard.md'
       - 'Binding order': 'documentation/current/java/advanced/binding-order.md'
-  - License: license.md
+  - About:
+    - Comparison: about/comparison.md 
+    - Releases: about/releases.md
+    - License: about/license.md
