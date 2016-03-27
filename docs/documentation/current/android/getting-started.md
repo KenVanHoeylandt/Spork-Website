@@ -17,12 +17,9 @@ The next step is to add dependencies:
 
 ```groovy
 dependencies {
-    compile 'io.github.sporklibrary:spork-android:*'
+    compile 'io.github.sporklibrary:spork-android:2.4.0'
 }
 ```
-
-It's recommended to use the actual latest version instead of `*`
-
 
 If want need to download the libraries manually, you can find the Spork core [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and Spork for Android [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion).
 

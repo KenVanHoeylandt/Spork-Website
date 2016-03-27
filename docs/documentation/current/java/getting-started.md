@@ -17,11 +17,9 @@ The next step is to add dependencies:
 
 ```groovy
 dependencies {
-	compile 'io.github.sporklibrary:spork:*'
+	compile 'io.github.sporklibrary:spork:3.0.0'
 }
 ```
-
-It's recommended to use the actual latest version instead of `*`
 
 ## Maven
 
@@ -29,7 +27,7 @@ It's recommended to use the actual latest version instead of `*`
 <dependency>
   <groupId>io.github.sporklibrary</groupId>
   <artifactId>spork</artifactId>
-  <version>[VERSION]</version>
+  <version>3.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -37,7 +35,7 @@ It's recommended to use the actual latest version instead of `*`
 ## Ivy
 
 ```xml
-<dependency org='io.github.sporklibrary' name='spork' rev='[VERSION]'>
+<dependency org='io.github.sporklibrary' name='spork' rev='3.0.0'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
