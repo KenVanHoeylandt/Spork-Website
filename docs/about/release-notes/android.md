@@ -1,5 +1,17 @@
 # Release Notes
 
+## 2.4.2
+
+### Improvements
+
+- added ProGuard file
+
+## 2.4.1
+
+### Improvements
+
+- implemented a better way to check for optional dependencies
+
 ## 2.4.0
 
 ### Improvements
