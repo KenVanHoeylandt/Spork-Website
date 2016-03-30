@@ -5,17 +5,6 @@
 Edit your `build.gradle` file and add the repository:
 
 ```groovy
-repositories {
-    mavenCentral()
-    maven {
-        url "https://dl.bintray.com/sporklibrary/spork"
-    }
-}
-```
-
-The next step is to add dependencies:
-
-```groovy
 dependencies {
     compile 'io.github.sporklibrary:spork-android:2.4.3'
 }

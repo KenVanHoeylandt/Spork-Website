@@ -2,22 +2,9 @@
 
 ## Gradle
 
-Edit your `build.gradle` file and add the repository:
-
-```groovy
-repositories {
-    mavenCentral()
-    maven {
-        url "https://dl.bintray.com/sporklibrary/spork"
-    }
-}
-```
-
-The next step is to add dependencies:
-
 ```groovy
 dependencies {
-	compile 'io.github.sporklibrary:spork:3.0.1'
+	compile 'io.github.sporklibrary:spork:3.0.2'
 }
 ```
 
@@ -27,7 +14,7 @@ dependencies {
 <dependency>
   <groupId>io.github.sporklibrary</groupId>
   <artifactId>spork</artifactId>
-  <version>3.0.1</version>
+  <version>3.0.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,7 +22,7 @@ dependencies {
 ## Ivy
 
 ```xml
-<dependency org='io.github.sporklibrary' name='spork' rev='3.0.1'>
+<dependency org='io.github.sporklibrary' name='spork' rev='3.0.2'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
