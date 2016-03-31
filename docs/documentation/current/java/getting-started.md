@@ -29,4 +29,4 @@ dependencies {
 
 ## Manually
 
-Download the dependencies [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion).
+You may also download the libraries manually through [maven.org](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).

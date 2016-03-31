@@ -20,12 +20,12 @@ pages:
   - 'Android Guide':
     - 'Getting Started': 'documentation/current/android/getting-started.md'
     - 'Annotations':
-      - 'BindClick': 'documentation/current/android/annotations/bindclick.md'
-      - 'BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
-      - 'BindFragment': 'documentation/current/android/annotations/bindfragment.md'
-      - 'BindLayout': 'documentation/current/android/annotations/bindlayout.md'
-      - 'BindResource': 'documentation/current/android/annotations/bindresource.md'
-      - 'BindView': 'documentation/current/android/annotations/bindview.md'
+      - '@BindClick': 'documentation/current/android/annotations/bindclick.md'
+      - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
+      - '@BindFragment': 'documentation/current/android/annotations/bindfragment.md'
+      - '@BindLayout': 'documentation/current/android/annotations/bindlayout.md'
+      - '@BindResource': 'documentation/current/android/annotations/bindresource.md'
+      - '@BindView': 'documentation/current/android/annotations/bindview.md'
     - 'Examples':
       - 'Application': 'documentation/current/android/examples/application.md'
       - 'Activity': 'documentation/current/android/examples/activity.md'
@@ -43,7 +43,7 @@ pages:
   - 'Java Guide':
     - 'Getting Started': 'documentation/current/java/getting-started.md'
     - 'Annotations':
-      - 'BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
+      - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
     - 'Examples':
       - 'Component': 'documentation/current/java/examples/component.md'
     - 'Testing' : 'documentation/current/java/testing.md'

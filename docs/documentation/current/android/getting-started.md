@@ -2,7 +2,7 @@
 
 ## Download
 
-Edit your `build.gradle` file and add the repository:
+Edit `build.gradle` and add the following dependency:
 
 ```groovy
 dependencies {
@@ -10,16 +10,6 @@ dependencies {
 }
 ```
 
-If want need to download the libraries manually, you can find the Spork core [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and Spork for Android [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion).
+You may also download the libraries manually through [maven.org](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
 
-## Usage
-
-Use `Spork.bind()` as follows:
-
-- `Activity`: bind in `void onCreate(Bundle)`
-- `Fragment`: bind in `void onViewCreated(View, Bundle)`
-- `View`: bind in all constructors
-- `Application`: bind in `void onCreate()`
-- `Service`: bind in `void onCreate()`
-- `ContentProvider`: bind in `boolean onCreate()`
-- Components: bind in constructor
+That's it! Check out the menu to see some examples or the list of annotations.
