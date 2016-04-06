@@ -37,7 +37,7 @@ pages:
       - 'View': 'documentation/current/android/examples/view.md'
     - 'Testing' : 'documentation/current/android/testing.md'
     - 'Advanced Topics':
-      - 'Creating Annotations': 'documentation/current/android/advanced/creating-annotations.md'
+      - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
       - 'ProGuard': 'documentation/current/android/advanced/proguard.md'
       - 'Binding order': 'documentation/current/android/advanced/binding-order.md'
   - 'Java Guide':

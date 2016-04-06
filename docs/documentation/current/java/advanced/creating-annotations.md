@@ -38,11 +38,11 @@ public class BindViewBinder implements FieldBinder<BindView>
 }
 ```
 
-Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java).
+Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java).
 
 ## MethodBinder
 
-FieldBinders are used for annotations that target `ElementType.METHOD`.
+MethodBinders are used for annotations that target `ElementType.METHOD`.
 
 ### Example
 
@@ -74,11 +74,11 @@ public class BindClickBinder implements MethodBinder<BindClick>
 }
 ```
 
-Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java).
+Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java).
 
 ## TypeBinder
 
-FieldBinders are used for annotations that target `ElementType.TYPE`.
+TypeBinders are used for annotations that target `ElementType.TYPE`.
 
 ### Example
 
@@ -116,7 +116,7 @@ public class ValueBinder implements TypeBinder<BindValue>
 
 ```
 
-Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/src/main/java/io/github/sporklibrary/binders/BindLayoutBinder.java).
+Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindLayoutBinder.java).
 
 ## Binder registration
 
@@ -172,8 +172,8 @@ class YourAnnotationBinder
 ```java
 YourAnnotationBinder binder = new YourAnnotationBinder();
 
-Spork.getBinderManager().register(
-	binder, // FieldBinder
-	binder, // MethodBinder
-	null);  // TypeBinder (YourAnnotationBinder doesn't implement TypeBinder)
+// register as MethodBinder
+Spork.getBinderManager().register((MethodBinder<YourAnnotation>)binder);
+// register as FieldBinder
+Spork.getBinderManager().register((FieldBinder<YourAnnotation>)binder);
 ```
