@@ -6,7 +6,7 @@ Edit `build.gradle` and add the following dependency:
 
 ```groovy
 dependencies {
-    compile 'io.github.sporklibrary:spork-android:2.4.3'
+    compile 'io.github.sporklibrary:spork-android:2.4.4'
 }
 ```
 
