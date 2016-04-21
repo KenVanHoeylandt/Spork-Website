@@ -45,7 +45,7 @@ The default scope means that a new instance of the component is created for each
 The singleton scope means that there will be at most 1 instance.
 
 ```java
-@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
+@ComponentScope(ComponentScope.Scope.SINGLETON)
 public class Child
 {
 	// ...
