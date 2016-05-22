@@ -35,7 +35,7 @@ pages:
       - 'RecyclerView': 'documentation/current/android/examples/recyclerview.md'
       - 'Service': 'documentation/current/android/examples/service.md'
       - 'View': 'documentation/current/android/examples/view.md'
-    - 'Testing' : 'documentation/current/android/testing.md'
+    - 'Testing' : 'documentation/current/java/testing.md'
     - 'Advanced Topics':
       - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
       - 'ProGuard': 'documentation/current/android/advanced/proguard.md'

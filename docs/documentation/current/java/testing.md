@@ -25,13 +25,11 @@ To enable Mockito support, add the following dependency:
 
 ```groovy
 dependencies {
-	compile ('io.github.sporklibrary:spork-mockito:*') {
+	compile ('io.github.sporklibrary:spork-mockito:1.1.0') {
 		exclude group: 'io.github.sporklibrary'
 	}
 }
 ```
-
-It's recommended to use the actual latest version instead of `*`
 
 ### Example
 
