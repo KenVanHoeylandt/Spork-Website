@@ -34,7 +34,7 @@ Create new functionality without having to re-build the library.
 (6) Based on method count and dex:
 
 - Spork: 262 methods, 45kB dex (verify [here](http://www.methodscount.com/?lib=io.github.sporklibrary%3Aspork-android%3A3.0.0))
-- Android Annotations: (excluding generated code!) +- 6029 methods, 741kB dex (verify [here](http://www.methodscount.com/?lib=org.androidannotations%3Aandroidannotations%3A4.1.0))
+- Android Annotations: (excluding generated code!) 6029 methods, 741kB dex (verify [here](http://www.methodscount.com/?lib=org.androidannotations%3Aandroidannotations%3A4.1.0))
 - Butter Knife: (excluding generated code!) 196 methods, 37kB dex (verify [here](http://www.methodscount.com/?lib=com.jakewharton%3Abutterknife%3A8.3.0))
 - Dagger: (excluding generated code!) 117 methods, 20kB dex (verify [here](http://www.methodscount.com/?lib=com.google.dagger%3Adagger%3A2.1))
 - RoboGuice: 10280 methods, 1344kB dex (verify [here](http://www.methodscount.com/?lib=org.roboguice%3Aroboguice%3A4.0.0))
