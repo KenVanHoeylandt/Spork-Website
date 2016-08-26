@@ -8,7 +8,6 @@
 | **POJO injection** | v | v | x | v | v |
 | **POJO mocking/stubbing** (4) | v | x | x | x | x |
 | **Easily extensible** (5) | v | x | x | x | x |
-| **Supported features** | fewer | more | fewer | more | more |
 | **Small library** (6) | v | x | v | v | x |
 
 

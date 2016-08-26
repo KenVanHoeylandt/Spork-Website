@@ -53,7 +53,6 @@ pages:
       - 'Binding order': 'documentation/current/java/advanced/binding-order.md'
   - About:
     - Comparison: about/comparison.md 
-    - Status: about/status.md
     - License: about/license.md
     - Release Notes:
       - Android: 'about/release-notes/android.md'
