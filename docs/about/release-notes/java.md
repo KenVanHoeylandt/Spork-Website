@@ -1,5 +1,18 @@
 # Release Notes
 
+## 3.2.0
+
+### Improvements
+
+- new Spork Android init code
+
+## 3.1.0
+
+### Improvements
+
+- removed logging dependency (slf4j)
+
+
 ## 3.0.0
 
 ### Improvements

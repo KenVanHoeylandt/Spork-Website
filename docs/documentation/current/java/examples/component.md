@@ -8,13 +8,13 @@ A component can be bound directly:
 
 ```java
 @BindComponent
-private UserDatabaseService mUserService;
+private RegularUserManager regularUserManager;
 ```
 
 Or it can be bound by specifying its interface and implementation:
 ```java
-@BindComponent(UserDatabaseService.class)
-private UserService mUserService;
+@BindComponent(RegularUserManager.class)
+private UserManager userManager;
 ```
 
 Check out the [component documentation](../annotations/#bindcomponent) for more details.
@@ -23,25 +23,21 @@ Check out the [component documentation](../annotations/#bindcomponent) for more 
 
 **Services**
 ```java
-public interface UserService
-{
+public interface UserManager {
 	User getUser(long id);
 }
 
 @ComponentScope(ComponentScope.Scope.SINGLETON) // optional annotation
-public class UserDatabaseService implements UserService
+public class RegularUserManager implements UserManager
 {
-	public User getUser(long id)
-	{
+	public User getUser(long id) {
 		// return user from database
 	}
 }
 
 @ComponentScope(ComponentScope.Scope.SINGLETON) // optional annotation
-public class UserCacheService implements UserService
-{
-	public User getUser(long id)
-	{
+public class CachedUserManager implements UserManager {
+	public User getUser(long id) {
 		// return user from cache
 	}
 }
@@ -50,23 +46,21 @@ public class UserCacheService implements UserService
 
 **Application**
 ```java
-public class Application implements Runnable
-{
-	@BindComponent(UserDatabaseService.class)
-	private UserService mUserDatabaseService;
+public class Application implements Runnable {
+	
+	@BindComponent(RegularUserManager.class)
+	private UserManager regularUserManager;
 
-	@BindComponent(UserCacheService.class)
-	private UserService mUserCacheService;
+	@BindComponent(CachedUserManager.class)
+	private UserManager cachedUserManager;
 
-	public Application()
-	{
+	public Application() {
 		Spork.bind(this);
 	}
 
 	@Override
-	public void run()
-	{
-		// use mUserCacheService and mUserDatabaseService
+	public void run() {
+		// use regularUserManager and cachedUserManager
 	}
 }
 ```

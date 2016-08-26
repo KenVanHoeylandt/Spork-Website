@@ -1,5 +1,13 @@
 # Release Notes
 
+## 3.0.0
+
+### Improvements
+
+- updated Spork to 3.0.0
+- split up into `spork-android` and `spork-android-support`
+- introduced new package name `io.github.sporklibrary.android`
+
 ## 2.4.2
 
 ### Improvements

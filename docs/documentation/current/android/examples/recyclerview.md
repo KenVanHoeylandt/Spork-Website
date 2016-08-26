@@ -14,61 +14,49 @@ The following annotations are supported:
 ## Example
 
 ```java
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>
-{
-	private final List<String> mItems;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+	private final List<String> items;
 
-	public MyAdapter(List<String> items)
-	{
-		mItems = items;
+	public MyAdapter(List<String> items) {
+		this.items = items;
 	}
 
-	public class MyViewHolder extends RecyclerView.ViewHolder
-	{
+	public class MyViewHolder extends RecyclerView.ViewHolder {
+		
 		@BindView(R.id.textview)
-		private TextView mTextView;
+		private TextView textView;
 
-		public MyViewHolder(View itemView)
-		{
+		public MyViewHolder(View itemView) {
 			super(itemView);
-
 			Spork.bind(this);
 		}
 
-		public void update(String text)
-		{
-			mTextView.setText(text);
+		public void update(String text) {
+			textView.setText(text);
 		}
 
 		@BindClick(R.id.textview)
-		private void onClick()
-		{
+		private void onClick() {
 			// Your click-handling logic goes here
 		}
 	}
 
 	@Override
-	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-	{
+	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-		
 		View view = inflater.inflate(R.layout.view_recyclerview_item, parent, false);
-
 		return new MyViewHolder(view);
 	}
 
 	@Override
-	public void onBindViewHolder(MyViewHolder holder, int position)
-	{
-		String item = mItems.get(position);
-
+	public void onBindViewHolder(MyViewHolder holder, int position) {
+		String item = items.get(position);
 		holder.update(item);
 	}
 
 	@Override
-	public int getItemCount()
-	{
-		return mItems.size();
+	public int getItemCount() {
+		return items.size();
 	}
 }
 ```

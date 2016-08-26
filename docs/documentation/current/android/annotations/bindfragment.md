@@ -10,7 +10,7 @@ You can bind a fragment by specifying its id:
 
 ```java
 @BindFragment(R.id.my_fragment)
-private Fragment mMyFragment;
+private Fragment myFragment;
 ```
 
 Alternatively, you can imply the fragment id by the field name:

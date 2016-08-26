@@ -17,34 +17,30 @@ The following annotations are supported:
 
 ```java
 @BindLayout(R.layout.activity_download)
-public class DownloadActivity extends Activity
-{
+public class DownloadActivity extends Activity {
+
 	@BindView(R.id.download_button)
-	private Button mDownloadButton;
+	private Button downloadButton;
 
 	@BindFragment(R.id.details_fragment)
-	private DetailsFragment mFragment;
+	private DetailsFragment fragment;
 
 	@BindComponent
-	private DownloadService mDownloadService;
+	private DownloadManager downloadManager;
 
-	public void onCreate(Bundle savedInstanceState)
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		Spork.bind(this); // Spork does its magic
 	}
 
 	@BindClick(R.id.other_button)
-	private void onClickButton(Button someButton)
-	{
-		mDownloadService.download();
+	private void onClickButton(Button someButton) {
+		downloadManager.startDownload();
 	}
 }
 
 @ComponentScope(scope = ComponentScope.Scope.SINGLETON)
-public class DownloadService
-{
-	public void download() {}
+public class DownloadManager {
+	public void startDownload() {}
 }
 ```

@@ -8,11 +8,12 @@ The default implementation for mocks/stubs with Spork is by injecting alternativ
 
 ```java
 // Create a ComponentFactory for mocking
-MockingComponentFactory mocking_factory = new MockingComponentFactory()
+MockingComponentFactory mockingFactory = new MockingComponentFactory()
 	.register(RegularImplementationA.class, MockedImplementationA.class)
 	.register(RegularImplementationB.class, MockedImplementationB.class);
+
 // Assign the new ComponentFactory
-ComponentInstanceManager.setComponentFactory(mocking_factory);
+ComponentInstanceManager.setComponentFactory(mockingFactory);
 ```
 
 That's it! Instead of injecting `RegularImplementation*` classes, `MockedImplementation*` classes will be instantiated and injected instead!
@@ -36,27 +37,24 @@ dependencies {
 Consider the following classes:
 
 ```java
-public class Component
-{
-	public int getValue()
-	{
+public class Component {
+
+	public int getValue() {
 		return 1;
 	}
 }
 
-public class Parent
-{
-	@BindComponent
-	private Component mComponent;
+public class Parent {
 
-	public Parent()
-	{
+	@BindComponent
+	private Component component;
+
+	public Parent() {
 		Spork.bind(this);
 	}
 
-	public Component getComponent()
-	{
-		return mComponent;
+	public Component getComponent() {
+		return component;
 	}
 }
 ```
@@ -72,12 +70,12 @@ SporkMockito.initialize(Component.class);
 
 // Object instantiation
 Parent parent = new Parent();
-Component mocked_component = parent.getComponent();
+Component mockedComponent = parent.getComponent();
 
 // Run Mockito tests
-assertEquals("mocked default value", 0, mocked_component.getValue());
-when(mocked_component.getValue()).thenReturn(2);
-assertEquals("mocked overridden value", 2, mocked_component.getValue());
+assertEquals("mocked default value", 0, mockedComponent.getValue());
+when(mockedComponent.getValue()).thenReturn(2);
+assertEquals("mocked overridden value", 2, mockedComponent.getValue());
 ```
 
 ## Custom mocking
@@ -87,11 +85,10 @@ It's possible to implement your own mocking behavior.
 All you need to do is implement your own `ComponentFactory` and implement the required methods:
 
 ```java
-public class CustomMockingComponentFactory implements ComponentFactory
-{
+public class CustomMockingComponentFactory implements ComponentFactory {
+
 	@Override
-	public Object create(Class<?> classObject, Object parent)
-	{
+	public Object create(Class<?> classObject, Object parent) {
 		return CustomMockingFramework.mock(classObject);
 	}
 }
@@ -100,5 +97,5 @@ public class CustomMockingComponentFactory implements ComponentFactory
 All that is left is registering it:
 
 ```java
-ComponentInstanceManager.setComponentFactory(custom_component_factory);
+ComponentInstanceManager.setComponentFactory(customComponentFactory);
 ```

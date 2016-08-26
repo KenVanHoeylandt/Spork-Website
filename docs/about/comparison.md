@@ -9,7 +9,7 @@
 | **POJO mocking/stubbing** (4) | v | x | x | x | x |
 | **Easily extensible** (5) | v | x | x | x | x |
 | **Supported features** | fewer | more | fewer | more | more |
-| **Library size** (6) | small | large | small | small | very large |
+| **Small library** (6) | v | x | v | v | x |
 
 
 (1) No code generation
@@ -32,11 +32,12 @@ Integrated features for mocking POJO injections: during injection/binding, mocke
 
 Create new functionality without having to re-build the library.
 
-(6) Library size:
+(6) Based on method count and dex:
 
-- Spork: +- 50kB (verify [here](https://bintray.com/sporklibrary/spork/spork/_latestVersion) and [here](https://bintray.com/sporklibrary/spork/spork-android/_latestVersion) under "files")
-- Android Annotations: [+- 500kB](http://search.maven.org/#artifactdetails%7Corg.androidannotations%7Candroidannotations%7C4.0.0%7Cjar) + generated code
-- Butter Knife: [+- 50kB](http://search.maven.org/#artifactdetails%7Corg.androidannotations%7Candroidannotations%7C4.0.0%7Cjar) + generated code
-- Dagger: [+- 20kB](http://search.maven.org/#artifactdetails%7Ccom.google.dagger%7Cdagger%7C2.1%7Cjar) + generated code
-- RoboGuice [+- 1.6MB](http://search.maven.org/#artifactdetails%7Corg.roboguice%7Croboguice%7C4.0.0%7Cjar)
+- Spork: 262 methods, 45kB dex (verify [here](http://www.methodscount.com/?lib=io.github.sporklibrary%3Aspork-android%3A3.0.0)
+- Android Annotations: (excluding generated code!) +- 6029 methods, 741kB dex (verify [here](http://www.methodscount.com/?lib=org.androidannotations%3Aandroidannotations%3A4.1.0)
+- Butter Knife: (excluding generated code!) 196 methods, 37kB dex (verify [here](http://www.methodscount.com/?lib=com.jakewharton%3Abutterknife%3A8.3.0))
+- Dagger: (excluding generated code!) 117 methods, 20kB dex (verify [here](http://www.methodscount.com/?lib=com.google.dagger%3Adagger%3A2.1))
+- RoboGuice: 10280 methods, 1344kB dex (verify [here](http://www.methodscount.com/?lib=org.roboguice%3Aroboguice%3A4.0.0))
 
+In reality, Spork will very likely be the smallest one, because no code is generated.

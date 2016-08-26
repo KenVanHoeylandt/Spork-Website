@@ -22,7 +22,7 @@ You can bind a resource by specifying its id:
 
 ```java
 @BindResource(R.string.app_name)
-private String mAppName;
+private String appName;
 ```
 
 Alternatively, you can imply the view id by the field name:
@@ -35,31 +35,29 @@ private String app_name;
 ## Example
 
 ```java
-public class MyActivity extends Activity 
-{
+public class MyActivity extends Activity {
+
 	@BindResource(R.string.app_name)
-	private String mAppName;
+	private String appName;
 	
 	@BindResource
 	private String app_name;
 	
 	@BindResource(R.dimen.spork_test_dimension)
-	private float mSporkTestDimension;
+	private float sporkTestDimension;
 	
 	@BindResource
 	private Float spork_test_dimension;
 	
 	@BindResource(R.drawable.spork_test_drawable)
-	private Drawable mSporkTestDrawable;
+	private Drawable sporkTestDrawable;
 	
 	@BindResource
 	private Drawable spork_test_drawable;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		Spork.bind(this);
 	}
 }

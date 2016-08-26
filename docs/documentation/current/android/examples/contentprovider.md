@@ -10,16 +10,14 @@ The following annotations are supported:
 ## Example
 
 ```java
-public class CustomContentProvider extends ContentProvider
-{
+public class CustomContentProvider extends ContentProvider {
+	
 	@BindComponent
-	private SomeComponent mComponent;
+	private SomeComponent component;
 
 	@Override
-	public boolean onCreate()
-	{
+	public boolean onCreate() {
 		Spork.bind(this);
-
 		return true;
 	}
 

@@ -16,34 +16,30 @@ The following annotations are supported:
 
 ```java
 @BindLayout(R.layout.view_layout_binding)
-public class MyView extends FrameLayout
-{
+public class MyView extends FrameLayout {
+	
 	@BindView(R.id.some_textview)
-	private TextView mTextView;
+	private TextView textView;
 
 	@BindComponent
-	private DownloadService mDownloadService;
+	private DownloadManager downloadManager;
 
-	public MyView(Context context)
-	{
+	public MyView(Context context) {
 		super(context);
-		
 		// Note: Spork.bind() must be called in 
 		// all constructors that are implemented!
 		Spork.bind(this);
 	}
 
 	@BindClick(R.id.download_button)
-	private void onClickDownload()
-	{
-		mDownloadService.download();
+	private void onClickDownload() {
+		downloadManager.startDownload();
 	}
 
 	// BindClick can also pass the button that was clicked
 	@BindClick(R.id.other_button)
-	private void onClickOtherButton(Button otherButton)
-	{
-		mDownloadService.download();
+	private void onClickOtherButton(Button otherButton) {
+		downloadManager.startDownload();
 	}
 }
 ```

@@ -12,23 +12,20 @@ FieldBinders are used for annotations that target `ElementType.FIELD`.
 
 ### Example
 ```java
-public class BindViewBinder implements FieldBinder<BindView>
-{
+public class BindViewBinder implements FieldBinder<BindView> {
+	
 	@Override
-	public Class<BindView> getAnnotationClass()
-	{
+	public Class<BindView> getAnnotationClass() {
 		return BindView.class;
 	}
 
 	@Override
-	public void bind(final Object object, final AnnotatedField<BindView> annotatedField)
-	{
+	public void bind(final Object object, final AnnotatedField<BindView> annotatedField) {
 		// Internally retrieves a `View` from the `object`
 		// by checking its type (Activity/Fragment/View)
 		final @Nullable View view = resolveView(object, annotatedField);
 
-		if (view == null)
-		{
+		if (view == null) {
 			throw new BindException(...);
 		}
 
@@ -38,7 +35,7 @@ public class BindViewBinder implements FieldBinder<BindView>
 }
 ```
 
-Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindViewBinder.java).
+Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindViewBinder.java).
 
 ## MethodBinder
 
@@ -47,23 +44,20 @@ MethodBinders are used for annotations that target `ElementType.METHOD`.
 ### Example
 
 ```java
-public class BindClickBinder implements MethodBinder<BindClick>
-{
+public class BindClickBinder implements MethodBinder<BindClick> {
+	
 	@Override
-	public Class<BindClick> getAnnotationClass()
-	{
+	public Class<BindClick> getAnnotationClass() {
 		return BindClick.class;
 	}
 
 	@Override
-	public void bind(final Object object, AnnotatedMethod<BindClick> annotatedMethod)
-	{
+	public void bind(final Object object, AnnotatedMethod<BindClick> annotatedMethod) {
 		// Internally retrieves a 'View' from the `object`
 		// by checking its type (Activity/Fragment/View)
 		final @Nullable View view = getView(object, annotatedMethod);
 
-		if (view == null)
-		{
+		if (view == null) {
 			throw new BindException(...);
 		}
 
@@ -74,7 +68,7 @@ public class BindClickBinder implements MethodBinder<BindClick>
 }
 ```
 
-Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindClickBinder.java).
+Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindClickBinder.java).
 
 ## TypeBinder
 
@@ -83,25 +77,21 @@ TypeBinders are used for annotations that target `ElementType.TYPE`.
 ### Example
 
 ```java
-public interface IntSettable
-{
+public interface IntSettable {
 	void setValue(int value);
 }
 
-public class ValueBinder implements TypeBinder<BindValue>
-{
+public class ValueBinder implements TypeBinder<BindValue> {
+	
 	@Override
-	public Class<BindValue> getAnnotationClass()
-	{
+	public Class<BindValue> getAnnotationClass() {
 		return BindValue.class;
 	}
 
 	@Override
-	public void bind(Object object, AnnotatedType<BindValue> annotatedClass)
-	{
+	public void bind(Object object, AnnotatedType<BindValue> annotatedClass) {
 		// @BindValue only works with IntSettable implementations
-		if (!IntSettable.class.isAssignableFrom(object.getClass()))
-		{
+		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
 			throw new BindException(...);
 		}
 
@@ -116,7 +106,7 @@ public class ValueBinder implements TypeBinder<BindValue>
 
 ```
 
-Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/binders/BindLayoutBinder.java).
+Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindLayoutBinder.java).
 
 ## Binder registration
 
@@ -128,15 +118,13 @@ For binders that only bind to a single annotation target (e.g. `ElementType.FIEL
 ```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface YourAnnotation
-{
+public @interface YourAnnotation {
 }
 ```
 
 **YourAnnotationBinder.java**
 ```java
-class YourAnnotationBinder implements MethodBinder<YourAnnotation>
-{
+class YourAnnotationBinder implements MethodBinder<YourAnnotation> {
 	// implementation
 }
 ```
@@ -154,16 +142,14 @@ For binders that only bind to multiple annotation targets (e.g. `ElementType.FIE
 ```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, Element.FIELD })
-public @interface YourAnnotation
-{
+public @interface YourAnnotation {
 }
 ```
 
 **YourAnnotationBinder.java**
 ```java
 class YourAnnotationBinder
-	implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation>
-{
+	implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation> {
 	// implementation
 }
 ```

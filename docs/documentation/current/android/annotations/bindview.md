@@ -12,7 +12,7 @@ You can bind a view by specifying its id:
 
 ```java
 @BindView(R.id.my_button)
-private Button mButton;
+private Button button;
 ```
 
 Alternatively, you can imply the view id by the field name:

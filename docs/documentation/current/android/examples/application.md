@@ -10,24 +10,21 @@ The following annotations are supported:
 ## Example
 
 ```java
-public class MyApplication extends android.app.Application
-{
+public class MyApplication extends android.app.Application {
+
 	@BindComponent
-	private MyComponent mComponent;
+	private MyComponent component;
 
 	@BindResource(R.string.app_name)
-	private String mAppName;
+	private String appName;
 
 	@Override
-	public void onCreate()
-	{
+	public void onCreate() {
 		super.onCreate();
-
 		Spork.bind(this);
 	}
 }
 
-public class MyComponent
-{
+public class MyComponent {
 }
 ```

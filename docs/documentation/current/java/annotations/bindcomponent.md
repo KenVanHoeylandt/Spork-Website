@@ -9,19 +9,16 @@ Components don't need to call `Spork.bind()` itself, but it is perfectly fine to
 This is the simplest component that you could create:
 
 ```java
-public class Parent
-{
+public class Parent {
 	@BindComponent
 	private Child child;
 
-	public Parent()
-	{
+	public Parent() {
 		Spork.bind(this);
 	}
 }
 
-public class Child
-{
+public class Child {
 }
 ```
 
@@ -32,8 +29,8 @@ You can inject to any assignable type, as long as you specify the implementation
 For example:
 
 ```java
-@BindComponent(ServiceImplementation.class)
-private ServiceInterface mService;
+@BindComponent(SomethingImplementation.class)
+private SomethingInterface something;
 ```
 
 ## Scope
@@ -46,8 +43,7 @@ The singleton scope means that there will be at most 1 instance.
 
 ```java
 @ComponentScope(ComponentScope.Scope.SINGLETON)
-public class Child
-{
+public class Child {
 	// ...
 }
 ```
@@ -60,13 +56,11 @@ It is also not required to call Spork.bind() on the referenced component.
 It's important that you always use the `@ComponentParent` annotation on the parameter.
 
 ```java
-public class Child
-{
-	final private Parent mParent;
+public class Child {
+	final private Parent parent;
 
-	public Child(@ComponentParent Parent parent)
-	{
-		mParent = parent;
+	public Child(@ComponentParent Parent parent) {
+		this.parent = parent;
 	}
 }
 ```
