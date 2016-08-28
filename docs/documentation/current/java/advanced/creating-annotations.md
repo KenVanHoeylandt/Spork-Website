@@ -35,7 +35,7 @@ public class BindViewBinder implements FieldBinder<BindView> {
 }
 ```
 
-Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindViewBinder.java).
+Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindViewBinder.java).
 
 ## MethodBinder
 
@@ -68,7 +68,7 @@ public class BindClickBinder implements MethodBinder<BindClick> {
 }
 ```
 
-Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindClickBinder.java).
+Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindClickBinder.java).
 
 ## TypeBinder
 
@@ -106,7 +106,7 @@ public class ValueBinder implements TypeBinder<BindValue> {
 
 ```
 
-Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork-Android/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindLayoutBinder.java).
+Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindLayoutBinder.java).
 
 ## Binder registration
 

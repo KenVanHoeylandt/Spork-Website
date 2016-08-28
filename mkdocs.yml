@@ -18,7 +18,6 @@ google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
 pages:
   - Introduction: index.md
   - 'Android Guide':
-    - 'Getting Started': 'documentation/current/android/getting-started.md'
     - 'Annotations':
       - '@BindClick': 'documentation/current/android/annotations/bindclick.md'
       - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
@@ -41,7 +40,6 @@ pages:
       - 'ProGuard': 'documentation/current/android/advanced/proguard.md'
       - 'Binding order': 'documentation/current/android/advanced/binding-order.md'
   - 'Java Guide':
-    - 'Getting Started': 'documentation/current/java/getting-started.md'
     - 'Annotations':
       - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
     - 'Examples':

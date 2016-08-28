@@ -1,11 +1,11 @@
 # Introduction
 
-Spork is an annotation processing library to speed up development on your projects.
-It allows you to write less boilerplate code to make your code more readable and maintainable.
+Spork is an annotation processing library to speed up development on your projects:<br/>
+Write less boilerplate code and make code more readable and maintainable.
 
 Spork aims to be different by overcoming the shortcomings of its [alternatives](/about/comparison).
 
-Spork comes in two flavors: [Spork for Android](https://github.com/SporkLibrary/Spork-Android) and [Spork for Java](https://github.com/SporkLibrary/Spork).
+We created guide for [Android](/documentation/current/android/getting-started) or [Java](/documentation/current/java/getting-started).
 
 **Example:**
 
@@ -24,7 +24,6 @@ public class DownloadActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		Spork.bind(this); // Spork does its magic
 	}
 
@@ -39,3 +38,24 @@ public class DownloadManager {
 	public void startDownload() { ... }
 }
 ```
+
+Edit `build.gradle` and add the following dependency:
+
+```groovy
+dependencies {
+    compile 'io.github.sporklibrary:spork:3.2.0'
+    compile 'io.github.sporklibrary:spork-android:3.0.0@aar'
+	compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' // optional, for appcompat/v4-support
+}
+```
+
+You may also download the libraries manually through [maven.org](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
+
+That's it! Check out the menu to see some examples or the list of annotations.
+
+### Upgrading from 2.x to 3.x
+
+- Spork Android has changed its files from `io.github.sporklibrary` to `io.github.sporklibrary.android`
+- There are separate dependencies for the Android support/compat libraries:
+ - 'io.github.sporklibrary:spork-android:3.0.0'
+ - 'io.github.sporklibrary:spork-android-support:3.0.0@aar'
