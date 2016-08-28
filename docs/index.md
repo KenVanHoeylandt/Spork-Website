@@ -1,13 +1,11 @@
 # Introduction
 
-Spork is an annotation processing library to speed up development on your projects:<br/>
-Write less boilerplate code and make code more readable and maintainable.
+Spork is a free and open-source annotation processing library to speed up development on your projects:<br/>
+Write less boilerplate code to make code more readable and maintainable.
 
 Spork aims to be different by overcoming the shortcomings of its [alternatives](/about/comparison).
 
-We created guide for [Android](/documentation/current/android/getting-started) or [Java](/documentation/current/java/getting-started).
-
-**Example:**
+### Example
 
 ```java
 @BindLayout(R.layout.activity_download)
@@ -39,23 +37,24 @@ public class DownloadManager {
 }
 ```
 
-Edit `build.gradle` and add the following dependency:
+### Getting started
+
+Add the following dependencies in `build.gradle`:
 
 ```groovy
 dependencies {
     compile 'io.github.sporklibrary:spork:3.2.0'
     compile 'io.github.sporklibrary:spork-android:3.0.0@aar'
-	compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' // optional, for appcompat/v4-support
+
+    // The following dependency is optional.
+    // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7
+	compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' 
 }
 ```
 
-You may also download the libraries manually through [maven.org](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
+All dependencies are available at [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
 
-That's it! Check out the menu to see some examples or the list of annotations.
-
-### Upgrading from 2.x to 3.x
+### Upgrading from 2.x to 3.x:
 
 - Spork Android has changed its files from `io.github.sporklibrary` to `io.github.sporklibrary.android`
-- There are separate dependencies for the Android support/compat libraries:
- - 'io.github.sporklibrary:spork-android:3.0.0'
- - 'io.github.sporklibrary:spork-android-support:3.0.0@aar'
+- There are separate dependencies for the Android support/compat libraries as defined above.
