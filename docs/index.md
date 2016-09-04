@@ -1,6 +1,6 @@
 # Introduction
 
-Spork is a free and open-source annotation processing library to speed up development on your projects:<br/>
+Spork is a [fast](about/benchmarks) and [open-source](about/license) runtime annotation processing library to speed up development on your projects:<br/>
 Write less boilerplate code to make code more readable and maintainable.
 
 Spork aims to be different by overcoming the shortcomings of its [alternatives](/about/comparison).
