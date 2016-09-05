@@ -1,6 +1,6 @@
 # Benchmarks
 
-Last updated on September 4, 2016
+Last updated on September 5, 2016
 
 ## Setup
 
@@ -35,24 +35,31 @@ There are several benchmarks and all benchmarks are ran `10` times:
 
 ## Raw results
 
+ - [Nexus 5X with Android 7.0](benchmark/nexus-5x.txt)
  - [Nexus 4 with Android 5.1.1](benchmark/nexus-4.txt) (made in 2012)
  - [HTC One X with Android 4.2.2](benchmark/htc-one-x.txt) (made in 2012)
  - [Mac Mini Mid 2011 @ 2.3GHz i5](benchmark/mac-mini-2011.txt) (made in 2011)
 
 ## Conclusion
 
-Reflection is really fast on Android.  It generally takes only several microseconds on `Nexus 4` to bind an object.
+Reflection is really fast on Android.  It generally takes only several microseconds (not even milliseconds!) on `Nexus 4` to bind an object.
 
-The very first binding (of any type on any instance) is a bit slower due to cache creation and/or cache warming. This will take on average less than 10 milliseconds on 4 year old hardware and I think this is very acceptable. The fastest cold cache binding time was `3ms` on a `Nexus 4`.
+The very first binding (of any type on any instance) is a bit slower due to cache creation and/or cache warming. This will take on average less than `10 ms` on 4 year old hardware and I think this is very acceptable. The fastest cold cache binding time was `3 ms` on a `Nexus 4` and `1.354 ms` on a `Nexus 5X`.
 
 ### Averages
 
- - Binding an object took on average about `0.002ms` on the `Nexus 4` with `Android 5.1.1`
- - Binding an object took on average about `0.05ms` on the `HTC One X` with `Android 4.2.2`
+Binding on object took on average about:
+
+ - `0.0003 ms` on the `Nexus 5X` with `Android 7.0`
+ - `0.002 ms` on the `Nexus 4` with `Android 5.1.1`
+ - `0.05 ms` on the `HTC One X` with `Android 4.2.2`
 
 ### First bind speed
 
-The very first bind throughout a benchmarking session always takes a bit longer. I suspect this is due to caches being created and/or being cold.
+The very first bind throughout a benchmarking session always takes a bit longer. This is due to cold cache in Spork.
 
- - This was `3 to 12ms` on the `Nexus 4` with `Android 5.1.1`
- - This was `5 to 12ms` on the `HTC One X` with `Android 4.2.2`
+The first instance bind took:
+
+ - `1.3 ms` to `2.7 ms` on the `Nexus 5X` with `Android 7.0`
+ - `3 ms` to `12 ms` on the `Nexus 4` with `Android 5.1.1`
+ - `5 ms` to `12 ms` on the `HTC One X` with `Android 4.2.2`
