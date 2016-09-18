@@ -53,6 +53,4 @@ pages:
     - Benchmarks: about/benchmarks.md
     - Comparison: about/comparison.md 
     - License: about/license.md
-    - Release Notes:
-      - Android: 'about/release-notes/android.md'
-      - Java: 'about/release-notes/java.md'
+    - Release Notes: 'about/release-notes.md'
