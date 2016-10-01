@@ -10,7 +10,7 @@ The following annotations are supported:
  - `@BindView`
  - `@BindLayout`
  - `@BindResource`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
@@ -18,11 +18,8 @@ The following annotations are supported:
 @BindLayout(R.layout.view_layout_binding)
 public class MyView extends FrameLayout {
 	
-	@BindView(R.id.some_textview)
+	@BindView(R.id.textview)
 	private TextView textView;
-
-	@BindComponent
-	private DownloadManager downloadManager;
 
 	public MyView(Context context) {
 		super(context);
@@ -31,15 +28,15 @@ public class MyView extends FrameLayout {
 		Spork.bind(this);
 	}
 
-	@BindClick(R.id.download_button)
+	@BindClick(R.id.button_one)
 	private void onClickDownload() {
-		downloadManager.startDownload();
+		// ...
 	}
 
 	// BindClick can also pass the button that was clicked
-	@BindClick(R.id.other_button)
+	@BindClick(R.id.button_two)
 	private void onClickOtherButton(Button otherButton) {
-		downloadManager.startDownload();
+		// ...
 	}
 }
 ```

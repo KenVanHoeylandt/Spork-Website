@@ -1,6 +1,6 @@
 # @BindLayout
 
-This annotation can be used with classes derived from:
+This annotation can be used with classes inheriting:
 
 - android.app.`Activity`
 - android.view.`ViewGroup`

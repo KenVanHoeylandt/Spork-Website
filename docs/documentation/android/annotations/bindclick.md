@@ -1,12 +1,12 @@
 # @BindClick
 
-This annotation can be used with classes derived from:
+This annotation can be used with classes inheriting/implementing:
 
 - android.app.`Activity`
 - android.app.`Fragment`
-- android.support.v4.app.`Fragment`
-- android.support.v7.widget.`RecyclerView.ViewHolder`
+- android.support.v4.app.`Fragment` (with the `spork-android-support` dependency)
 - android.view.`View`
+- io.github.sporklibrary.android.interfaces.`ViewProvider`
 
 You can specify the view id as the annotation value:
 

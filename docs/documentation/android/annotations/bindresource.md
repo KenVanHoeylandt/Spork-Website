@@ -1,16 +1,16 @@
 # @BindResoure
 
-This annotation can be used with classes derived from:
+This annotation can be used with classes inheriting/implementing:
 
 - android.app.`Activity`
 - android.app.`Application`
 - android.app.`Fragment`
 - android.app.`Service`
 - android.content.`ContentProvider`
-- android.support.v4.app.`Fragment`
-- android.support.v7.widget.`RecyclerView.ViewHolder`
+- android.support.v4.app.`Fragment` (with the `spork-android-support` dependency)
 - android.view.`View`
-- io.github.sporklibrary.interfaces.`ContextProvider`
+- io.github.sporklibrary.android.interfaces.`ContextProvider`
+- io.github.sporklibrary.android.interfaces.`ViewProvider`
 
 It can bind:
 

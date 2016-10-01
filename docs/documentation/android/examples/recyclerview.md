@@ -2,14 +2,14 @@
 
 ## Introduction
 
-To bind `RecyclerView` views, you need to bind the `RecyclerView.ViewHolder`.
+To bind `RecyclerView` views, you need to make `RecyclerView.ViewHolder` implement `io.github.sporklibrary.android.interfaces.ViewProvider`.
 
 The following annotations are supported:
 
  - `@BindView`
  - `@BindClick`
  - `@BindResource`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
@@ -21,7 +21,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 		this.items = items;
 	}
 
-	public class MyViewHolder extends RecyclerView.ViewHolder {
+	public class MyViewHolder extends RecyclerView.ViewHolder implements ViewProvider {
 		
 		@BindView(R.id.textview)
 		private TextView textView;
@@ -37,7 +37,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 		@BindClick(R.id.textview)
 		private void onClick() {
-			// Your click-handling logic goes here
+			// ...
+		}
+
+		@Override
+		public View getView() {
+			return itemView;
 		}
 	}
 

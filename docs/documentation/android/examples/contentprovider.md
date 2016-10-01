@@ -5,19 +5,19 @@
 The following annotations are supported:
 
  - `@BindResource`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
 ```java
 public class CustomContentProvider extends ContentProvider {
 	
-	@BindComponent
-	private SomeComponent component;
+	@BindResource(R.string.helloworld)
+	private String helloWorld;
 
 	@Override
 	public boolean onCreate() {
-		Spork.bind(this);
+		Spork.bind(this, new Module());
 		return true;
 	}
 

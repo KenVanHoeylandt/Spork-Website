@@ -19,36 +19,33 @@ pages:
   - Introduction: index.md
   - 'Android Guide':
     - 'Annotations':
-      - '@BindClick': 'documentation/current/android/annotations/bindclick.md'
-      - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
-      - '@BindFragment': 'documentation/current/android/annotations/bindfragment.md'
-      - '@BindLayout': 'documentation/current/android/annotations/bindlayout.md'
-      - '@BindResource': 'documentation/current/android/annotations/bindresource.md'
-      - '@BindView': 'documentation/current/android/annotations/bindview.md'
+      - '@BindClick': 'documentation/android/annotations/bindclick.md'
+      - '@BindFragment': 'documentation/android/annotations/bindfragment.md'
+      - '@BindLayout': 'documentation/android/annotations/bindlayout.md'
+      - '@BindResource': 'documentation/android/annotations/bindresource.md'
+      - '@BindView': 'documentation/android/annotations/bindview.md'
+      - '@Inject': 'documentation/java/annotations/inject.md'
     - 'Examples':
-      - 'Application': 'documentation/current/android/examples/application.md'
-      - 'Activity': 'documentation/current/android/examples/activity.md'
-      - 'Component': 'documentation/current/java/examples/component.md'
-      - 'ContentProvider': 'documentation/current/android/examples/contentprovider.md'
-      - 'Fragment': 'documentation/current/android/examples/fragment.md'
-      - 'RecyclerView': 'documentation/current/android/examples/recyclerview.md'
-      - 'Service': 'documentation/current/android/examples/service.md'
-      - 'View': 'documentation/current/android/examples/view.md'
-    - 'Testing' : 'documentation/current/java/testing.md'
+      - 'Application': 'documentation/android/examples/application.md'
+      - 'Activity': 'documentation/android/examples/activity.md'
+      - 'Inject': 'documentation/java/examples/inject.md'
+      - 'ContentProvider': 'documentation/android/examples/contentprovider.md'
+      - 'Fragment': 'documentation/android/examples/fragment.md'
+      - 'RecyclerView': 'documentation/android/examples/recyclerview.md'
+      - 'Service': 'documentation/android/examples/service.md'
+      - 'View': 'documentation/android/examples/view.md'
     - 'Advanced Topics':
-      - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
-      - 'ProGuard': 'documentation/current/android/advanced/proguard.md'
-      - 'Binding order': 'documentation/current/android/advanced/binding-order.md'
+      - 'Creating Annotations': 'documentation/java/advanced/creating-annotations.md'
+      - 'ProGuard': 'documentation/android/advanced/proguard.md'
+      - 'Binding order': 'documentation/java/advanced/binding-order.md'
   - 'Java Guide':
     - 'Annotations':
-      - '@BindComponent': 'documentation/current/java/annotations/bindcomponent.md'
+      - '@Inject': 'documentation/java/annotations/inject.md'
     - 'Examples':
-      - 'Component': 'documentation/current/java/examples/component.md'
-    - 'Testing' : 'documentation/current/java/testing.md'
+      - 'Inject': 'documentation/java/examples/inject.md'
     - 'Advanced Topics':
-      - 'Creating Annotations': 'documentation/current/java/advanced/creating-annotations.md'
-      - 'ProGuard': 'documentation/current/java/advanced/proguard.md'
-      - 'Binding order': 'documentation/current/java/advanced/binding-order.md'
+      - 'Creating Annotations': 'documentation/java/advanced/creating-annotations.md'
+      - 'Binding order': 'documentation/java/advanced/binding-order.md'
   - About:
     - Benchmarks: about/benchmarks.md
     - Comparison: about/comparison.md 

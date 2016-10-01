@@ -5,15 +5,12 @@
 The following annotations are supported:
 
  - `@BindResource`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
 ```java
 public class MyApplication extends android.app.Application {
-
-	@BindComponent
-	private MyComponent component;
 
 	@BindResource(R.string.app_name)
 	private String appName;
@@ -23,8 +20,5 @@ public class MyApplication extends android.app.Application {
 		super.onCreate();
 		Spork.bind(this);
 	}
-}
-
-public class MyComponent {
 }
 ```

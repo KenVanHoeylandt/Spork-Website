@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Both `android.app.Fragment` and `android.support.v4.app.Fragment` are supported.
+You can also use `android.support.v4.app.Fragment` if you add the `spork-android-support` dependency.
 
 The following annotations are supported:
 
@@ -10,7 +10,7 @@ The following annotations are supported:
  - `@BindView`
  - `@BindResource`
  - `@BindFragment`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 

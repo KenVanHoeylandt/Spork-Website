@@ -4,7 +4,7 @@ This annotation can be used with classes derived from:
 
 - android.app.`Activity`
 - android.app.`Fragment`
-- android.support.v4.app.`Fragment`
+- android.support.v4.app.`Fragment` (with the `spork-android-support` dependency)
 
 You can bind a fragment by specifying its id:
 

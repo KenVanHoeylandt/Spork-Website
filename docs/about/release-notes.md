@@ -2,11 +2,26 @@
 
 ## 4.0.0
 
+- all package versions are from now on bumped to the same version when a release is done
+- most packages are moved (and created `.internal` package)
+- `Spork`/`SporkAndroid`/`SporkAndroidSupport` can now be instantiated (but a shared instance is available for Spork itself which suits most scenarios)
 - `@ComponentScope(Scope.SINGLETON)` is now `@Singleton`
-- now `spork-android` library now uses `support-fragment` dependency instead of `support-v4` and `appcompat-v7`
+- `spork-android` library now uses `support-fragment` dependency instead of `support-v4` and `appcompat-v7`
 - created `ViewProvider` to annotate POJO classes so they can work with `@BindView`
 - removed custom support for `RecyclerView.ViewHolder` as you can now make it implement `ViewProvider`
 - `BindResourceBinder` now uses newer Android API when possible
+- caching is now flattened (removed custom models that held a separate layer of caching)
+- caching uses less memory (`ArrayList.trimToSize()` where applicable)
+- `spork` and `spork-android` now have an extension system to automatically load known dependencies: this is simpler (more reliable) and quicker
+- updated to use new Android build tools
+- improved tests and also started using Mockito
+- `FieldBinder`, `MethodBinder` and `TypeBinder` are now more simplified
+- removed logback from tests (because it wasn't being used)
+- converted spaces into tabs where necessary
+- implemented `@Inject`, `@Nullable`, `@NonNull` and `@Lazy` annotations
+- `@BindComponent` and `@ComponentScope` are removed
+- added jacoco for code coverage
+- added dexcount plugin for `spork-android` and `spork-android-support`
 
 # Old Release Notes
 

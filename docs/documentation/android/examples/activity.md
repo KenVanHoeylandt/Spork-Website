@@ -2,8 +2,6 @@
 
 ## Introduction
 
-Both `Activity` and `AppCompatActivity` are supported.
-
 The following annotations are supported:
 
  - `@BindClick`
@@ -11,7 +9,7 @@ The following annotations are supported:
  - `@BindLayout`
  - `@BindResource`
  - `@BindFragment`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
@@ -25,9 +23,6 @@ public class DownloadActivity extends Activity {
 	@BindFragment(R.id.details_fragment)
 	private DetailsFragment fragment;
 
-	@BindComponent
-	private DownloadManager downloadManager;
-
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Spork.bind(this); // Spork does its magic
@@ -37,10 +32,5 @@ public class DownloadActivity extends Activity {
 	private void onClickButton(Button someButton) {
 		downloadManager.startDownload();
 	}
-}
-
-@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
-public class DownloadManager {
-	public void startDownload() {}
 }
 ```

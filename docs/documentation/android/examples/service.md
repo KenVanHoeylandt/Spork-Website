@@ -5,14 +5,14 @@
 The following annotations are supported:
 
  - `@BindResource`
- - `@BindComponent`
+ - `@Inject`
 
 ## Example
 
 ```java
 public class TestService extends Service {
-	@BindComponent
-	private TestComponent testComponent;
+	@BindResource(R.string.helloworld)
+	private String helloWorld;
 
 	public class LocalBinder extends Binder {
 		public TestService getLocalService() {
