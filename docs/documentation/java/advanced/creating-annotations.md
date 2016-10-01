@@ -6,7 +6,7 @@ Spork annotations are bound through one or more of:
 
 - `MethodBinder`
 - `FieldBinder`
-- `TypeBinder`.
+- `TypeBinder`
 
 These binders are registered through a `BinderRegistery` which is accessible through `Spork.sharedInstance().getBinderRegistry()`
 
