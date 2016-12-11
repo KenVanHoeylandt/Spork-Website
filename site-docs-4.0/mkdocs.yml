@@ -1,0 +1,48 @@
+# Submenus require a new version of MkDocs:
+# pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+# Reference: https://github.com/mkdocs/mkdocs/issues/6
+
+site_name: Spork Docs 4.0
+site_description: Documentation for Spork 4.0
+site_author: Ken Van Hoeylandt
+site_favicon: images/sporklogosmall.png
+site_url: https://sporklibrary.github.io
+repo_url: https://github.com/sporklibrary
+docs_dir: 'src'
+theme: mkdocs
+extra_css:
+  - css/extra.css
+site_dir: generated
+markdown_extensions:
+  - markdown.extensions.fenced_code
+google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
+pages:
+  - 'Home': index.md
+  - 'Spork Core':
+      - 'Introduction': 'spork-core/introduction.md'
+      - 'Creating Annotations': 'spork-core/creating-annotations.md'
+  - 'Spork Inject':
+    - 'Introduction': 'spork-inject/introduction.md'
+    - 'Annotations':
+      - '@Inject': 'spork-inject/annotations/inject.md'
+    - 'Examples':
+      - 'Inject': 'spork-inject/examples/inject.md'
+  - 'Spork Android':
+    - 'Introduction': 'spork-android/introduction.md'
+    - 'Annotations':
+      - '@BindClick': 'spork-android/annotations/bindclick.md'
+      - '@BindFragment': 'spork-android/annotations/bindfragment.md'
+      - '@BindLayout': 'spork-android/annotations/bindlayout.md'
+      - '@BindResource': 'spork-android/annotations/bindresource.md'
+      - '@BindView': 'spork-android/annotations/bindview.md'
+    - 'Examples':
+      - 'Application': 'spork-android/examples/application.md'
+      - 'Activity': 'spork-android/examples/activity.md'
+      - 'ContentProvider': 'spork-android/examples/contentprovider.md'
+      - 'Fragment': 'spork-android/examples/fragment.md'
+      - 'RecyclerView': 'spork-android/examples/recyclerview.md'
+      - 'Service': 'spork-android/examples/service.md'
+      - 'View': 'spork-android/examples/view.md'
+      - 'ProGuard': 'spork-android/proguard.md'
+
+

@@ -1,0 +1,52 @@
+# Submenus require a new version of MkDocs:
+# pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+# Reference: https://github.com/mkdocs/mkdocs/issues/6
+
+site_name: Spork Docs 3.x
+site_description: Documentation for Spork 3.x
+site_author: Ken Van Hoeylandt
+site_favicon: images/sporklogosmall.png
+site_url: https://sporklibrary.github.io
+repo_url: https://github.com/sporklibrary
+docs_dir: 'src'
+theme: mkdocs
+extra_css:
+  - css/extra.css
+site_dir: generated
+markdown_extensions:
+  - markdown.extensions.fenced_code
+google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
+pages:
+  - Introduction: index.md
+  - 'Android Guide':
+    - 'Annotations':
+      - '@BindClick': 'android/annotations/bindclick.md'
+      - '@BindComponent': 'java/annotations/bindcomponent.md'
+      - '@BindFragment': 'android/annotations/bindfragment.md'
+      - '@BindLayout': 'android/annotations/bindlayout.md'
+      - '@BindResource': 'android/annotations/bindresource.md'
+      - '@BindView': 'android/annotations/bindview.md'
+    - 'Examples':
+      - 'Application': 'android/examples/application.md'
+      - 'Activity': 'android/examples/activity.md'
+      - 'Component': 'java/examples/component.md'
+      - 'ContentProvider': 'android/examples/contentprovider.md'
+      - 'Fragment': 'android/examples/fragment.md'
+      - 'RecyclerView': 'android/examples/recyclerview.md'
+      - 'Service': 'android/examples/service.md'
+      - 'View': 'android/examples/view.md'
+    - 'Testing' : 'java/testing.md'
+    - 'Advanced Topics':
+      - 'Creating Annotations': 'java/advanced/creating-annotations.md'
+      - 'ProGuard': 'android/advanced/proguard.md'
+      - 'Binding order': 'android/advanced/binding-order.md'
+  - 'Java Guide':
+    - 'Annotations':
+      - '@BindComponent': 'java/annotations/bindcomponent.md'
+    - 'Examples':
+      - 'Component': 'java/examples/component.md'
+    - 'Testing' : 'java/testing.md'
+    - 'Advanced Topics':
+      - 'Creating Annotations': 'java/advanced/creating-annotations.md'
+      - 'ProGuard': 'java/advanced/proguard.md'
+      - 'Binding order': 'java/advanced/binding-order.md'

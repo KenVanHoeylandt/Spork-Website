@@ -1,0 +1,26 @@
+# Submenus require a new version of MkDocs:
+# pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+# Reference: https://github.com/mkdocs/mkdocs/issues/6
+
+site_name: Spork Library
+site_description: Spork is an annotation binding library
+site_author: Ken Van Hoeylandt
+site_favicon: images/sporklogosmall.png
+site_url: https://sporklibrary.github.io
+repo_url: https://github.com/sporklibrary
+docs_dir: 'src'
+theme: mkdocs
+extra_css:
+  - css/extra.css
+site_dir: generated
+markdown_extensions:
+  - markdown.extensions.fenced_code
+google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
+pages:
+  - Introduction: index.md
+  - Documentation: documentation.md
+  - About:
+    - Benchmarks: about/benchmarks.md
+    - Comparison: about/comparison.md 
+    - License: about/license.md
+    - Release Notes: 'about/release-notes.md'

@@ -1,0 +1,16 @@
+.bs-sidebar:after {
+	content:url('../images/sporklogomenu.png');
+	display: block;
+    margin: 40px auto 50px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.bs-sidebar.affix-bottom, .bs-sidebar.affix {
+  width: 230px;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
