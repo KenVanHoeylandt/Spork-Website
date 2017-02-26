@@ -8,14 +8,14 @@ site_author: Ken Van Hoeylandt
 site_favicon: images/sporklogosmall.png
 site_url: https://sporklibrary.github.io
 repo_url: https://github.com/sporklibrary
-docs_dir: 'src'
+docs_dir: src
+site_dir: ../docs/docs/4.0
 theme: mkdocs
 extra_css:
   - css/extra.css
-site_dir: generated
 markdown_extensions:
   - markdown.extensions.fenced_code
-google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
+#google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
 pages:
   - 'Home': index.md
   - 'Spork Core':
