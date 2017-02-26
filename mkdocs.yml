@@ -11,7 +11,8 @@ repo_url: https://github.com/sporklibrary
 theme: mkdocs
 extra_css:
   - css/extra.css
-site_dir: site
+docs_dir: src
+site_dir: docs
 markdown_extensions:
   - markdown.extensions.fenced_code
 google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
