@@ -1,7 +1,3 @@
-# Submenus require a new version of MkDocs:
-# pip install https://github.com/mkdocs/mkdocs/archive/master.zip
-# Reference: https://github.com/mkdocs/mkdocs/issues/6
-
 site_name: Spork
 site_description: Spork is an annotation binding library
 site_author: Ken Van Hoeylandt
@@ -10,7 +6,7 @@ site_url: http://spork.bytewelder.com
 repo_url: https://github.com/ByteWelder/Spork
 docs_dir: 'src'
 site_dir: '../docs'
-theme: mkdocs
+theme: spacelab  # pip install mkdocs-bootswatch --user
 extra_css:
   - css/extra.css
 markdown_extensions:
