@@ -2,12 +2,12 @@
 # pip install https://github.com/mkdocs/mkdocs/archive/master.zip
 # Reference: https://github.com/mkdocs/mkdocs/issues/6
 
-site_name: Spork Library
+site_name: Spork
 site_description: Spork is an annotation binding library
 site_author: Ken Van Hoeylandt
 site_favicon: images/sporklogosmall.png
-site_url: https://sporklibrary.github.io
-repo_url: https://github.com/sporklibrary
+site_url: http://spork.bytewelder.com
+repo_url: https://github.com/ByteWelder/Spork
 docs_dir: 'src'
 site_dir: '../docs'
 theme: mkdocs

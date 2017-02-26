@@ -6,8 +6,8 @@ site_name: Spork Docs 3.x
 site_description: Documentation for Spork 3.x
 site_author: Ken Van Hoeylandt
 site_favicon: images/sporklogosmall.png
-site_url: https://sporklibrary.github.io
-repo_url: https://github.com/sporklibrary
+site_url: http://spork.bytewelder.com
+repo_url: https://github.com/ByteWelder/Spork
 docs_dir: src
 site_dir: ../docs/docs/3.x
 theme: mkdocs
