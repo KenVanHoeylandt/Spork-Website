@@ -15,7 +15,6 @@ extra_css:
   - css/extra.css
 markdown_extensions:
   - markdown.extensions.fenced_code
-#google_analytics: ['UA-78126960-1', 'sporklibrary.github.io']
 pages:
   - Introduction: index.md
   - 'Android Guide':
