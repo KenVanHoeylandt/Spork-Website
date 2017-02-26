@@ -23,16 +23,7 @@
 	
 	<script src="./js/jquery-1.10.2.min.js"></script>
         <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-78126960-1', 'sporklibrary.github.io');
-            ga('send', 'pageview');
-        </script> 
+        <script src="./js/highlight.pack.js"></script> 
     </head>
 
     <body class="homepage">
@@ -115,9 +106,9 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#introduction">Introduction</a></li>
-            <li><a href="#android-example">Android Example</a></li>
-            <li><a href="#getting-started-with-android">Getting started with Android</a></li>
-            <li><a href="#getting-started-with-java">Getting started with Java</a></li>
+            <li><a href="#example">Example</a></li>
+            <li><a href="#getting-started">Getting started</a></li>
+            <li><a href="#upgrading-from-2x-to-3x">Upgrading from 2.x to 3.x:</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -126,7 +117,7 @@
 <p>Spork is an annotation processing library to speed up development on your projects.<br/>
 This allows you to write less boilerplate code to make code more readable and maintainable.</p>
 <p>This library is <a href="./about/benchmarks">fast</a>, <a href="./about/license">open-source</a> and it aims to be different by overcoming the shortcomings of its <a href="./about/comparison">alternatives</a>.</p>
-<h3 id="android-example">Android Example</h3>
+<h3 id="example">Example</h3>
 <pre><code class="java">@BindLayout(R.layout.activity_download)
 public class DownloadActivity extends Activity {
 
@@ -149,26 +140,62 @@ public class DownloadActivity extends Activity {
         downloadManager.startDownload();
     }
 }
-</code></pre>
 
-<h3 id="getting-started-with-android">Getting started with Android</h3>
-<p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">dependencies {
-    compile 'io.github.sporklibrary:spork-inject:4.0.0'
-    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'
-    // Optional, requires you to also add: appcompat-v7, support-v4, recyclerview-v7:
-    compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar' 
+@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
+public class DownloadManager {
+    public void startDownload() { ... }
 }
 </code></pre>
 
-<h3 id="getting-started-with-java">Getting started with Java</h3>
+<h3 id="getting-started">Getting started</h3>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
 <pre><code class="groovy">dependencies {
-    compile 'io.github.sporklibrary:spork-inject:4.0.0'
+    compile 'io.github.sporklibrary:spork:3.2.0'
+    compile 'io.github.sporklibrary:spork-android:3.0.0@aar'
+
+    // The following dependency is optional.
+    // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7
+    compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' 
 }
 </code></pre>
 
-<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22">Maven Central Repository</a>.</p></div>
+<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22">Maven Central Repository</a>.</p>
+<h3 id="upgrading-from-2x-to-3x">Upgrading from 2.x to 3.x:</h3>
+<ul>
+<li>Spork Android has changed its files from <code>io.github.sporklibrary</code> to <code>io.github.sporklibrary.android</code></li>
+<li>There are separate dependencies for the Android support/compat libraries as defined above.</li>
+</ul>
+<!-- # Introduction
+
+Spork is an annotation processing library to speed up development on your projects.<br/>
+This allows you to write less boilerplate code to make code more readable and maintainable.
+
+This library is [fast](about/benchmarks), [open-source](about/license) and it aims to be different by overcoming the shortcomings of its [alternatives](/about/comparison).
+
+### Android Example
+
+
+wzxhzdk:2
+
+
+### Getting started with Android
+
+Add the following dependencies in `build.gradle`:
+
+
+wzxhzdk:3
+
+
+### Getting started with Java
+
+Add the following dependencies in `build.gradle`:
+
+
+wzxhzdk:4
+
+
+All dependencies are available at [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
+ --></div>
         </div>
 
         <footer class="col-md-12">
@@ -207,5 +234,5 @@ public class DownloadActivity extends Activity {
 
 <!--
 MkDocs version : 0.16.1
-Build Date UTC : 2017-02-26 00:08:37
+Build Date UTC : 2017-02-26 12:11:56
 -->

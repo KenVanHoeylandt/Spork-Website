@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Introduction\n\n\nSpork is an annotation processing library to speed up development on your projects.\n\nThis allows you to write less boilerplate code to make code more readable and maintainable.\n\n\nThis library is \nfast\n, \nopen-source\n and it aims to be different by overcoming the shortcomings of its \nalternatives\n.\n\n\nAndroid Example\n\n\n@BindLayout(R.layout.activity_download)\npublic class DownloadActivity extends Activity {\n\n    @BindView(R.id.download_button)\n    private Button downloadButton;\n\n    @BindFragment(R.id.details_fragment)\n    private DetailsFragment fragment;\n\n    @BindComponent\n    private DownloadManager downloadManager;\n\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        Spork.bind(this); // Spork does its magic\n    }\n\n    @BindClick(R.id.other_button)\n    private void onClickButton(Button button) {\n        downloadManager.startDownload();\n    }\n}\n\n\n\n\nGetting started with Android\n\n\nAdd the following dependencies in \nbuild.gradle\n:\n\n\ndependencies {\n    compile 'io.github.sporklibrary:spork-inject:4.0.0'\n    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'\n    // Optional, requires you to also add: appcompat-v7, support-v4, recyclerview-v7:\n    compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar' \n}\n\n\n\n\nGetting started with Java\n\n\nAdd the following dependencies in \nbuild.gradle\n:\n\n\ndependencies {\n    compile 'io.github.sporklibrary:spork-inject:4.0.0'\n}\n\n\n\n\nAll dependencies are available at \nMaven Central Repository\n.", 
+            "text": "Introduction\n\n\nSpork is an annotation processing library to speed up development on your projects.\n\nThis allows you to write less boilerplate code to make code more readable and maintainable.\n\n\nThis library is \nfast\n, \nopen-source\n and it aims to be different by overcoming the shortcomings of its \nalternatives\n.\n\n\nExample\n\n\n@BindLayout(R.layout.activity_download)\npublic class DownloadActivity extends Activity {\n\n    @BindView(R.id.download_button)\n    private Button downloadButton;\n\n    @BindFragment(R.id.details_fragment)\n    private DetailsFragment fragment;\n\n    @BindComponent\n    private DownloadManager downloadManager;\n\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        Spork.bind(this); // Spork does its magic\n    }\n\n    @BindClick(R.id.other_button)\n    private void onClickButton(Button button) {\n        downloadManager.startDownload();\n    }\n}\n\n@ComponentScope(scope = ComponentScope.Scope.SINGLETON)\npublic class DownloadManager {\n    public void startDownload() { ... }\n}\n\n\n\n\nGetting started\n\n\nAdd the following dependencies in \nbuild.gradle\n:\n\n\ndependencies {\n    compile 'io.github.sporklibrary:spork:3.2.0'\n    compile 'io.github.sporklibrary:spork-android:3.0.0@aar'\n\n    // The following dependency is optional.\n    // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7\n    compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' \n}\n\n\n\n\nAll dependencies are available at \nMaven Central Repository\n.\n\n\nUpgrading from 2.x to 3.x:\n\n\n\n\nSpork Android has changed its files from \nio.github.sporklibrary\n to \nio.github.sporklibrary.android\n\n\nThere are separate dependencies for the Android support/compat libraries as defined above.", 
             "title": "Introduction"
         }, 
         {
@@ -11,23 +11,23 @@
             "title": "Introduction"
         }, 
         {
-            "location": "/#android-example", 
-            "text": "@BindLayout(R.layout.activity_download)\npublic class DownloadActivity extends Activity {\n\n    @BindView(R.id.download_button)\n    private Button downloadButton;\n\n    @BindFragment(R.id.details_fragment)\n    private DetailsFragment fragment;\n\n    @BindComponent\n    private DownloadManager downloadManager;\n\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        Spork.bind(this); // Spork does its magic\n    }\n\n    @BindClick(R.id.other_button)\n    private void onClickButton(Button button) {\n        downloadManager.startDownload();\n    }\n}", 
-            "title": "Android Example"
+            "location": "/#example", 
+            "text": "@BindLayout(R.layout.activity_download)\npublic class DownloadActivity extends Activity {\n\n    @BindView(R.id.download_button)\n    private Button downloadButton;\n\n    @BindFragment(R.id.details_fragment)\n    private DetailsFragment fragment;\n\n    @BindComponent\n    private DownloadManager downloadManager;\n\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        Spork.bind(this); // Spork does its magic\n    }\n\n    @BindClick(R.id.other_button)\n    private void onClickButton(Button button) {\n        downloadManager.startDownload();\n    }\n}\n\n@ComponentScope(scope = ComponentScope.Scope.SINGLETON)\npublic class DownloadManager {\n    public void startDownload() { ... }\n}", 
+            "title": "Example"
         }, 
         {
-            "location": "/#getting-started-with-android", 
-            "text": "Add the following dependencies in  build.gradle :  dependencies {\n    compile 'io.github.sporklibrary:spork-inject:4.0.0'\n    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'\n    // Optional, requires you to also add: appcompat-v7, support-v4, recyclerview-v7:\n    compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar' \n}", 
-            "title": "Getting started with Android"
+            "location": "/#getting-started", 
+            "text": "Add the following dependencies in  build.gradle :  dependencies {\n    compile 'io.github.sporklibrary:spork:3.2.0'\n    compile 'io.github.sporklibrary:spork-android:3.0.0@aar'\n\n    // The following dependency is optional.\n    // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7\n    compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' \n}  All dependencies are available at  Maven Central Repository .", 
+            "title": "Getting started"
         }, 
         {
-            "location": "/#getting-started-with-java", 
-            "text": "Add the following dependencies in  build.gradle :  dependencies {\n    compile 'io.github.sporklibrary:spork-inject:4.0.0'\n}  All dependencies are available at  Maven Central Repository .", 
-            "title": "Getting started with Java"
+            "location": "/#upgrading-from-2x-to-3x", 
+            "text": "Spork Android has changed its files from  io.github.sporklibrary  to  io.github.sporklibrary.android  There are separate dependencies for the Android support/compat libraries as defined above.", 
+            "title": "Upgrading from 2.x to 3.x:"
         }, 
         {
             "location": "/documentation/", 
-            "text": "Documentation\n\n\nVersion 4.0 (latest)\n\n\nVersion 3.x", 
+            "text": "Documentation\n\n\nVersion 4.0 Preview\n\n\nVersion 3.x", 
             "title": "Documentation"
         }, 
         {
@@ -36,9 +36,9 @@
             "title": "Documentation"
         }, 
         {
-            "location": "/documentation/#version-40-latest", 
+            "location": "/documentation/#version-40-preview", 
             "text": "", 
-            "title": "Version 4.0 (latest)"
+            "title": "Version 4.0 Preview"
         }, 
         {
             "location": "/documentation/#version-3x", 
