@@ -16,6 +16,8 @@ It can bind:
 
 - `R.dimen.*` to `Float` or `float` fields
 - `R.string.*` to `String` fields
+- `R.integer.*` to `Integer` and `int` fields
+- `R.bool.*` to `Boolean` and `boolean` fields
 - `R.drawable.*` to `Drawable` fields
 
 You can bind a resource by specifying its id:

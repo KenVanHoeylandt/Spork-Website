@@ -70,26 +70,6 @@
 <li >
     <a href="../../spork-inject/introduction/">Introduction</a>
 </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Annotations</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../spork-inject/annotations/inject/">@Inject</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Examples</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../spork-inject/examples/inject/">Inject</a>
-</li>
-    </ul>
-  </li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -238,7 +218,6 @@
 }
 </code></pre>
 
-<p>Check out the <code>@BindView</code> annotation binder: <code>BindViewBinder</code> <a href="https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindViewBinder.java">here</a>.</p>
 <h2 id="methodbinder">MethodBinder</h2>
 <p>MethodBinders are used for annotations that target <code>ElementType.METHOD</code>.</p>
 <h3 id="example_1">Example</h3>
@@ -259,7 +238,6 @@
 }
 </code></pre>
 
-<p>Check out the <code>@BindClick</code> annotation binder: <code>BindClickBinder</code> <a href="https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindClickBinder.java">here</a>.</p>
 <h2 id="typebinder">TypeBinder</h2>
 <p>TypeBinders are used for annotations that target <code>ElementType.TYPE</code>.</p>
 <h3 id="example_2">Example</h3>
@@ -270,7 +248,7 @@
 public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
 
     @Override
-    void bind(Object object, AnnotationType annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
+    void bind(Object object, IntSettable annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
         // @BindValue only works with IntSettable implementations
         if (!IntSettable.class.isAssignableFrom(object.getClass())) {
             throw new BindException(/* ... */);
@@ -292,7 +270,6 @@ public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
 
 </code></pre>
 
-<p>Check out the <code>@BindLayout</code> annotation binder: <code>BindLayoutBinder</code> <a href="https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindLayoutBinder.java">here</a>.</p>
 <h2 id="binder-registration">Binder registration</h2>
 <h3 id="single-target-binders">Single target binders</h3>
 <p>For binders that only bind to a single annotation target (e.g. <code>ElementType.FIELD</code>, <code>ElementType.METHOD</code> or <code>ElementType.TYPE</code>). The following code demonstrates this.</p>

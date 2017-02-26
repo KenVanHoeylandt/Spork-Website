@@ -2,16 +2,27 @@
 
 ### Getting started on Android
 
+**WARNING**: Spork 4.0 is only accessible as a snapshot release.<br/>This is not a final release and is subject to potential changes in its API.
+
 Add the following dependencies in `build.gradle`:
 
 ```groovy
-dependencies {
-    compile 'io.github.sporklibrary:spork:4.0.0'
-    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'
+repositories {
+    maven {
+        url  "http://dl.bintray.com/bytewelder/maven-snapshot" 
+    }
+}
 
-    // The following dependency is optional.
-    // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7
-	compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar' 
+dependencies {
+	// Spork core
+    compile 'com.bytewelder.spork:spork:4.0.0'
+
+    // Spork Dependency Injection
+    compile 'com.bytewelder.spork:spork-inject:4.0.0'
+
+    // Spork for Android (second line is optional)
+    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
+    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
 ```
 
@@ -21,7 +32,8 @@ Add the following dependencies in `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'io.github.sporklibrary:spork:4.0.0'
+    compile 'com.bytewelder.spork:spork:4.0.0'
+    compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
 ```
 
@@ -29,6 +41,7 @@ All dependencies are available at [Maven Central Repository](http://search.maven
 
 ### Migrating from 3.x to 4.0:
 
+- repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot
 - base packages moved from `io.github.sporklibrary` to `spork`
 - `@BindComponent` is now `@Inject` (with support for `@Nullable`, `@NonNull` and `@Lazy` annotations)
 - `@ComponentScope(Scope.SINGLETON)` is now `@Singleton`

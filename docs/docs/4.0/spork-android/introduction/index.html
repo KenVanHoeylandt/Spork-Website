@@ -70,26 +70,6 @@
 <li >
     <a href="../../spork-inject/introduction/">Introduction</a>
 </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Annotations</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../spork-inject/annotations/inject/">@Inject</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Examples</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../spork-inject/examples/inject/">Inject</a>
-</li>
-    </ul>
-  </li>
                         </ul>
                     </li>
                     <li class="dropdown active">
@@ -174,7 +154,7 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../../spork-inject/examples/inject/">
+                        <a rel="next" href="../../spork-inject/introduction/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -213,9 +193,14 @@
 <h2 id="dependencies">Dependencies</h2>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
 <pre><code class="groovy">dependencies {
-    compile 'io.github.sporklibrary:spork:4.0.0'
-    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'
-    compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar'  // optional
+    // Spork core
+    compile 'com.bytewelder.spork:spork:4.0.0'
+
+    // Spork for Android (second line is optional)
+    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
+
+    // Spork for Android: support libraries (optional)
+    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
 </code></pre></div>
         </div>

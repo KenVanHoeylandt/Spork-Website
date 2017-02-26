@@ -70,26 +70,6 @@
 <li class="active">
     <a href="./">Introduction</a>
 </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Annotations</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../annotations/inject/">@Inject</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Examples</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../examples/inject/">Inject</a>
-</li>
-    </ul>
-  </li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -179,7 +159,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../annotations/inject/">
+                        <a rel="prev" href="../../spork-android/introduction/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -197,6 +177,8 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#spork-inject">Spork Inject</a></li>
+            <li><a href="#dependencies">Dependencies</a></li>
+            <li><a href="#example">Example</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -207,12 +189,80 @@
 <ul>
 <li><code>javax.inject.Inject</code></li>
 <li><code>javax.inject.Singleton</code></li>
+<li><code>javax.inject.Named</code></li>
+<li><code>javax.inject.Provider</code></li>
+<li><code>javax.inject.Scope</code></li>
+<li><code>javax.inject.Qualifier</code></li>
 </ul>
 <p>Spork annotations included are:</p>
 <ul>
-<li><code>spork.inject.Lazy</code> for lazy injection of variables</li>
 <li><code>spork.inject.Provides</code> for factory methods in a module that provide injectable instances</li>
-</ul></div>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p>Add the following dependencies in <code>build.gradle</code>:</p>
+<pre><code class="groovy">dependencies {
+    compile 'com.bytewelder.spork:spork:4.0.0'
+    compile 'com.bytewelder.spork:spork-inject:4.0.0'
+}
+</code></pre>
+
+<h2 id="example">Example</h2>
+<pre><code class="java">
+public static class Module {
+    @Provides
+    public Integer provideNumber() {
+        return 1;
+    }
+
+    @Provides
+    @Named(&quot;color&quot;)
+    public String provideColor() {
+        return &quot;red&quot;;
+    }
+
+    @Provides
+    @Named(&quot;anything&quot;)
+    public String provideColor() {
+        return &quot;123&quot;;
+    }
+
+    @Provides
+    @Singleton
+    public DownloadService provideDownloadService(HttpService service) {
+        return new DownloadServiceImpl(service);
+    }
+
+    @Provides
+    @Singleton
+    public HttpService provideHttpService() {
+        return new HttpServiceImpl(service);
+    }
+}
+
+private static class Parent {
+    @Inject
+    private Integer integerValue;
+
+    @Inject
+    @Named(&quot;color&quot;)
+    private String color;
+
+    @Inject
+    @Named(&quot;anything&quot;)
+    private String anything;
+
+    @Inject
+    private DownloadService downloadService;
+
+    public Parent() {
+        ObjectGraph graph = new ObjectGraph.Builder()
+                .module(new Module())
+                .build();
+
+        Spork.bind(this, graph);
+    }
+}
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

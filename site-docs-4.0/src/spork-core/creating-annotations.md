@@ -36,8 +36,6 @@ public class BindViewBinder implements FieldBinder<BindView> {
 }
 ```
 
-Check out the `@BindView` annotation binder: `BindViewBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindViewBinder.java).
-
 ## MethodBinder
 
 MethodBinders are used for annotations that target `ElementType.METHOD`.
@@ -62,8 +60,6 @@ public class BindClickBinder implements MethodBinder<BindClick> {
 }
 ```
 
-Check out the `@BindClick` annotation binder: `BindClickBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindClickBinder.java).
-
 ## TypeBinder
 
 TypeBinders are used for annotations that target `ElementType.TYPE`.
@@ -78,7 +74,7 @@ public interface IntSettable {
 public class ValueBinder implements TypeBinder<BindValue> {
 
 	@Override
-	void bind(Object object, AnnotationType annotation, Class<?> annotatedType, Object[] modules) {
+	void bind(Object object, IntSettable annotation, Class<?> annotatedType, Object[] modules) {
 		// @BindValue only works with IntSettable implementations
 		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
 			throw new BindException(/* ... */);
@@ -99,8 +95,6 @@ public class ValueBinder implements TypeBinder<BindValue> {
 }
 
 ```
-
-Check out the `@BindLayout` annotation binder: `BindLayoutBinder` [here](https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/internal/binders/BindLayoutBinder.java).
 
 ## Binder registration
 

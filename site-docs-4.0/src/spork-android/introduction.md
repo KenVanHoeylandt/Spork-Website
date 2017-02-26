@@ -13,8 +13,13 @@ Add the following dependencies in `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'io.github.sporklibrary:spork:4.0.0'
-    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'
-	compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar'  // optional
+	// Spork core
+    compile 'com.bytewelder.spork:spork:4.0.0'
+
+    // Spork for Android (second line is optional)
+    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
+
+    // Spork for Android: support libraries (optional)
+    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
 ```
