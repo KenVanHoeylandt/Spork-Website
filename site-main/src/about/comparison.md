@@ -6,7 +6,7 @@
 | **Advanced Android support** (2) | v | v | v | x | v |
 | **Inheritance-safe** (3) | v | x | v | v | x |
 | **POJO injection** | v | v | x | v | v |
-| **POJO mocking/stubbing** (4) | v | x | x | x | x |
+| **POJO stubbing** (4) | v | x | x | v | x |
 | **Easily extensible** (5) | v | x | x | x | x |
 | **Small library** (6) | v | x | v | v | x |
 
@@ -25,7 +25,7 @@ Some libraries require you to inherit special classes before its functionality c
 
 (4) Mocking/stubbing support:
 
-Integrated features for mocking POJO injections: during injection/binding, mocked classes are bound directly.
+Integrated features for stubbing POJO injections.
 
 (5) Easily extensible:
 
