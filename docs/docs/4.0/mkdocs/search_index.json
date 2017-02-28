@@ -102,12 +102,12 @@
         }, 
         {
             "location": "/spork-inject/introduction/", 
-            "text": "Spork Inject\n\n\nThis library provides POJO dependency injection through annotations provided by the \njavax.inject\n package.\n\n\nSupported javax annotations:\n\n\n\n\njavax.inject.Inject\n\n\njavax.inject.Singleton\n\n\njavax.inject.Named\n\n\njavax.inject.Provider\n\n\njavax.inject.Scope\n\n\njavax.inject.Qualifier\n\n\n\n\nSpork annotations included are:\n\n\n\n\nspork.inject.Provides\n for factory methods in a module that provide injectable instances\n\n\n\n\nDependencies\n\n\nAdd the following dependencies in \nbuild.gradle\n:\n\n\ndependencies {\n    compile 'com.bytewelder.spork:spork:4.0.0'\n    compile 'com.bytewelder.spork:spork-inject:4.0.0'\n}\n\n\n\n\nExample\n\n\n\npublic static class Module {\n    @Provides\n    public Integer provideNumber() {\n        return 1;\n    }\n\n    @Provides\n    @Named(\ncolor\n)\n    public String provideColor() {\n        return \nred\n;\n    }\n\n    @Provides\n    @Named(\nanything\n)\n    public String provideColor() {\n        return \n123\n;\n    }\n\n    @Provides\n    @Singleton\n    public DownloadService provideDownloadService(HttpService service) {\n        return new DownloadServiceImpl(service);\n    }\n\n    @Provides\n    @Singleton\n    public HttpService provideHttpService() {\n        return new HttpServiceImpl(service);\n    }\n}\n\nprivate static class Parent {\n    @Inject\n    private Integer integerValue;\n\n    @Inject\n    @Named(\ncolor\n)\n    private String color;\n\n    @Inject\n    @Named(\nanything\n)\n    private String anything;\n\n    @Inject\n    private DownloadService downloadService;\n\n    public Parent() {\n        ObjectGraph graph = new ObjectGraph.Builder()\n                .module(new Module())\n                .build();\n\n        Spork.bind(this, graph);\n    }\n}", 
+            "text": "Spork Inject\n\n\nSpork Inject is a runtime \ndependency injection\n framework for Java and Android. It is almost fully compatible with \nDagger\n and is modeled on the \nJSR-330\n specification.\n\n\nSpork Injection aims to avoid code generation as modern platforms since Android 4.1 have grown \nfast enough\n to apply injection at runtime.\n\n\nDependencies\n\n\nAdd the following dependencies in \nbuild.gradle\n:\n\n\ndependencies {\n    compile 'com.bytewelder.spork:spork:4.0.0'\n    compile 'com.bytewelder.spork:spork-inject:4.0.0'\n}\n\n\n\n\nExample\n\n\n\npublic static class Module {\n    @Provides\n    public Integer provideNumber() {\n        return 1;\n    }\n\n    @Provides\n    @Named(\ncolor\n)\n    public String provideColor() {\n        return \nred\n;\n    }\n\n    @Provides\n    @Named(\nanything\n)\n    public String provideColor() {\n        return \n123\n;\n    }\n\n    @Provides\n    @Singleton\n    public DownloadService provideDownloadService(HttpService service) {\n        return new DownloadServiceImpl(service);\n    }\n\n    @Provides\n    @Singleton\n    public HttpService provideHttpService() {\n        return new HttpServiceImpl(service);\n    }\n}\n\nprivate static class Parent {\n    @Inject\n    private Integer integerValue;\n\n    @Inject\n    @Named(\ncolor\n)\n    private String color;\n\n    @Inject\n    @Named(\nanything\n)\n    private String anything;\n\n    @Inject\n    private DownloadService downloadService;\n\n    public Parent() {\n        ObjectGraph graph = new ObjectGraph.Builder()\n                .module(new Module())\n                .build();\n\n        Spork.bind(this, graph);\n    }\n}", 
             "title": "Introduction"
         }, 
         {
             "location": "/spork-inject/introduction/#spork-inject", 
-            "text": "This library provides POJO dependency injection through annotations provided by the  javax.inject  package.  Supported javax annotations:   javax.inject.Inject  javax.inject.Singleton  javax.inject.Named  javax.inject.Provider  javax.inject.Scope  javax.inject.Qualifier   Spork annotations included are:   spork.inject.Provides  for factory methods in a module that provide injectable instances", 
+            "text": "Spork Inject is a runtime  dependency injection  framework for Java and Android. It is almost fully compatible with  Dagger  and is modeled on the  JSR-330  specification.  Spork Injection aims to avoid code generation as modern platforms since Android 4.1 have grown  fast enough  to apply injection at runtime.", 
             "title": "Spork Inject"
         }, 
         {
@@ -119,6 +119,71 @@
             "location": "/spork-inject/introduction/#example", 
             "text": "public static class Module {\n    @Provides\n    public Integer provideNumber() {\n        return 1;\n    }\n\n    @Provides\n    @Named( color )\n    public String provideColor() {\n        return  red ;\n    }\n\n    @Provides\n    @Named( anything )\n    public String provideColor() {\n        return  123 ;\n    }\n\n    @Provides\n    @Singleton\n    public DownloadService provideDownloadService(HttpService service) {\n        return new DownloadServiceImpl(service);\n    }\n\n    @Provides\n    @Singleton\n    public HttpService provideHttpService() {\n        return new HttpServiceImpl(service);\n    }\n}\n\nprivate static class Parent {\n    @Inject\n    private Integer integerValue;\n\n    @Inject\n    @Named( color )\n    private String color;\n\n    @Inject\n    @Named( anything )\n    private String anything;\n\n    @Inject\n    private DownloadService downloadService;\n\n    public Parent() {\n        ObjectGraph graph = new ObjectGraph.Builder()\n                .module(new Module())\n                .build();\n\n        Spork.bind(this, graph);\n    }\n}", 
             "title": "Example"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/", 
+            "text": "User Guide\n\n\nUsing Spork Inject\n\n\nSpork creates instances of your classes and satisfies their dependencies. It uses the \njavax.inject.Inject\n annotation to identify which constructors and fields it is interested in.\n\n\nUse \nSpork.bind()\n in constructor or initialization methods so Spork can create instances of the dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.\n\n\nclass Car implements Vehicle {\n    private final Engine engine;\n    private final Driver driver;\n\n    @Inject\n    Car(Engine engine, Driver driver) {\n        this.engine = engine;\n        this.driver = driver;\n    }\n}\n\n\n\n\nSpork can inject fields directly. In this example it obtains an \nEngine\n instance for the \nengine\n field and a \nDriver\n instance for the \ndriver\n field.\n\n\nclass Car {\n    @Inject Engine engine;\n    @Inject Driver driver;\n\n    public Car() {\n        Spork.bind(...);\n    }\n}\n\n\n\n\nSpork also supports method injection, but Field injection is generally preferred.\n\n\nClasses that lack \n@Inject\n annotations cannot be constructed by Spork.\n\n\nDeclaring Dependencies\n\n\nIn the above sample, an \nEngine\n and \nDriver\n are injected. Of course these dependencies must come from somewhere.\n\n\nDependencies should be defined in a Module like this:\n\n\n@Provides Engine provideEngine() {\n  return new DieselEngine();\n}\n\n\n\n\nIt's possible for a \n@Provides\n method to require dependencies on its own:\n\n\n@Provides Engine provideEngine(Piston piston) {\n  return new DieselEngine(piston);\n}\n\n@Provides Piston providePiston() {\n  return new StrongPiston();\n}\n\n\n\n\nModules\n\n\nThe \n@Provides\n-annotated methods above are placed in a \nModule\n. Modules are POJO objects that define a set of dependencies:\n\n\nclass CarModule {\n    @Provides Engine provideEngine(Piston piston) {\n      return new DieselEngine(piston);\n    }\n\n    @Provides Piston providePiston() {\n      return new StrongPiston();\n    }\n}\n\n\n\n\nBuilding an ObjectGraph\n\n\nA module is used to build an object graph. Object graphs hold state such as your singletons and named instances.\n\n\nCreating an \nObjectGraph\n is easy:\n\n\nObjectGraph objectGraph = new ObjectGraph.Builder()\n    .module(new CarModule())\n    .build();\n\n\n\n\nAn \nObjectGraph\n is then used to inject an instance:\n\n\nclass Car {\n    @Inject Engine engine;\n    @Inject Driver driver;\n\n    public Car() {\n        Spork.bind(this, objectGraph);\n    }\n}\n\n\n\n\nObject graphs can be nested. An object graph can have a parent object graph:\n\n\nObjectGraph objectGraph = new ObjectGraph.Builder(applicationObjectGraph)\n    .module(new CarModule())\n    .build();\n\n\n\n\nThis way, it can resolve dependencies from its parent \nand\n from the \nCarModule\n.\n\n\nSingletons and Scoped bindings\n\n\n(docs coming soon)\n\n\nProvider injection\n\n\n(docs coming soon)\n\n\nNamed and Qualifiers\n\n\n(docs coming soon)\n\n\nAdding spork to your project\n\n\ndependencies {\n    compile 'com.bytewelder.spork:spork-inject:4.0.0'\n}\n\n\n\n\nNote\n: Before release, \nspork-inject\n is available at maven repository \nhttp://dl.bintray.com/bytewelder/maven-snapshot\n\n\nLicense\n\n\nLicensed under the Apache License, Version 2.0 (the \nLicense\n);\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \nAS IS\n BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.", 
+            "title": "User Guide"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#user-guide", 
+            "text": "", 
+            "title": "User Guide"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#using-spork-inject", 
+            "text": "Spork creates instances of your classes and satisfies their dependencies. It uses the  javax.inject.Inject  annotation to identify which constructors and fields it is interested in.  Use  Spork.bind()  in constructor or initialization methods so Spork can create instances of the dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.  class Car implements Vehicle {\n    private final Engine engine;\n    private final Driver driver;\n\n    @Inject\n    Car(Engine engine, Driver driver) {\n        this.engine = engine;\n        this.driver = driver;\n    }\n}  Spork can inject fields directly. In this example it obtains an  Engine  instance for the  engine  field and a  Driver  instance for the  driver  field.  class Car {\n    @Inject Engine engine;\n    @Inject Driver driver;\n\n    public Car() {\n        Spork.bind(...);\n    }\n}  Spork also supports method injection, but Field injection is generally preferred.  Classes that lack  @Inject  annotations cannot be constructed by Spork.", 
+            "title": "Using Spork Inject"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#declaring-dependencies", 
+            "text": "In the above sample, an  Engine  and  Driver  are injected. Of course these dependencies must come from somewhere.  Dependencies should be defined in a Module like this:  @Provides Engine provideEngine() {\n  return new DieselEngine();\n}  It's possible for a  @Provides  method to require dependencies on its own:  @Provides Engine provideEngine(Piston piston) {\n  return new DieselEngine(piston);\n}\n\n@Provides Piston providePiston() {\n  return new StrongPiston();\n}", 
+            "title": "Declaring Dependencies"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#modules", 
+            "text": "The  @Provides -annotated methods above are placed in a  Module . Modules are POJO objects that define a set of dependencies:  class CarModule {\n    @Provides Engine provideEngine(Piston piston) {\n      return new DieselEngine(piston);\n    }\n\n    @Provides Piston providePiston() {\n      return new StrongPiston();\n    }\n}", 
+            "title": "Modules"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#building-an-objectgraph", 
+            "text": "A module is used to build an object graph. Object graphs hold state such as your singletons and named instances.  Creating an  ObjectGraph  is easy:  ObjectGraph objectGraph = new ObjectGraph.Builder()\n    .module(new CarModule())\n    .build();  An  ObjectGraph  is then used to inject an instance:  class Car {\n    @Inject Engine engine;\n    @Inject Driver driver;\n\n    public Car() {\n        Spork.bind(this, objectGraph);\n    }\n}  Object graphs can be nested. An object graph can have a parent object graph:  ObjectGraph objectGraph = new ObjectGraph.Builder(applicationObjectGraph)\n    .module(new CarModule())\n    .build();  This way, it can resolve dependencies from its parent  and  from the  CarModule .", 
+            "title": "Building an ObjectGraph"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#singletons-and-scoped-bindings", 
+            "text": "(docs coming soon)", 
+            "title": "Singletons and Scoped bindings"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#provider-injection", 
+            "text": "(docs coming soon)", 
+            "title": "Provider injection"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#named-and-qualifiers", 
+            "text": "(docs coming soon)", 
+            "title": "Named and Qualifiers"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#adding-spork-to-your-project", 
+            "text": "dependencies {\n    compile 'com.bytewelder.spork:spork-inject:4.0.0'\n}  Note : Before release,  spork-inject  is available at maven repository  http://dl.bintray.com/bytewelder/maven-snapshot", 
+            "title": "Adding spork to your project"
+        }, 
+        {
+            "location": "/spork-inject/user-guide/#license", 
+            "text": "Licensed under the Apache License, Version 2.0 (the  License );\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an  AS IS  BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/spork-inject/migrating-from-dagger/", 
+            "text": "Migrating from Dagger\n\n\nThese are the main differences between Dagger and Spork:\n\n\n\n\nYou need to call \nSpork.bind()\n in your object's constructor or initialization method.\n\n\n@Provides\n is found within the Spork namespace.\n\n\nNo need to annotate your module classes.\n\n\nComponents are replaced by \nObjectGraph\n.\n\n\nSpork is able to inject \nprivate\n fields.\n\n\nLazy injection is done by using \njavax.inject.Provider\n. Ther is no \n@Lazy\n annotation.", 
+            "title": "Migrating from Dagger"
+        }, 
+        {
+            "location": "/spork-inject/migrating-from-dagger/#migrating-from-dagger", 
+            "text": "These are the main differences between Dagger and Spork:   You need to call  Spork.bind()  in your object's constructor or initialization method.  @Provides  is found within the Spork namespace.  No need to annotate your module classes.  Components are replaced by  ObjectGraph .  Spork is able to inject  private  fields.  Lazy injection is done by using  javax.inject.Provider . Ther is no  @Lazy  annotation.", 
+            "title": "Migrating from Dagger"
         }, 
         {
             "location": "/spork-android/introduction/", 
