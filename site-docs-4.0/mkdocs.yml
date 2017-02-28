@@ -22,6 +22,8 @@ pages:
       - 'Creating Annotations': 'spork-core/creating-annotations.md'
   - 'Spork Inject':
     - 'Introduction': 'spork-inject/introduction.md'
+    - 'User Guide': 'spork-inject/user-guide.md'
+    - 'Migrating from Dagger': 'spork-inject/migrating-from-dagger.md'
   - 'Spork Android':
     - 'Introduction': 'spork-android/introduction.md'
     - 'Annotations':

@@ -1,19 +1,8 @@
 # Spork Inject
 
-This library provides POJO dependency injection through annotations provided by the `javax.inject` package.
+Spork Inject is a runtime [dependency injection] [dependency_injection] framework for Java and Android. It is almost fully compatible with [Dagger] [dagger] and is modeled on the [JSR-330] [jsr-330] specification.
 
-Supported javax annotations:
-
-- `javax.inject.Inject`
-- `javax.inject.Singleton`
-- `javax.inject.Named`
-- `javax.inject.Provider`
-- `javax.inject.Scope`
-- `javax.inject.Qualifier`
-
-Spork annotations included are:
-
-- `spork.inject.Provides` for factory methods in a module that provide injectable instances
+Spork Injection aims to avoid code generation as modern platforms since Android 4.1 have grown [fast enough] [benchmarks] to apply injection at runtime.
 
 ## Dependencies
 
@@ -85,3 +74,8 @@ private static class Parent {
 	}
 }
 ```
+
+[dependency_injection]: https://en.wikipedia.org/wiki/Dependency_injection
+[dagger]: https://google.github.io/dagger/
+[benchmarks]: http://spork.bytewelder.com/about/benchmarks/
+[jsr-330]: https://jcp.org/en/jsr/detail?id=330
