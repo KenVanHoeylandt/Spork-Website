@@ -23,8 +23,8 @@ Spork can inject fields directly. In this example it obtains an `Engine` instanc
 
 ```java
 class Car {
-	@Inject Engine engine;
-	@Inject Driver driver;
+	@Inject private Engine engine;
+	@Inject private Driver driver;
 
 	public Car() {
 		Spork.bind(...);
@@ -113,15 +113,123 @@ This way, it can resolve dependencies from its parent *and* from the `CarModule`
 
 ## Singletons and Scoped bindings
 
-(docs coming soon)
+Module methods annotated with `@Provides` can also have scope annotations. Scopes can be custom-made, but `@Singleton` is one that is available by default. It can be used like this:
+
+```java
+@Provides
+@Singleton
+UserService provideUserService() {
+	return new UserServiceImpl();
+}
+```
+
+Scoped instances such as the singleton instance above are associated with the `ObjectGraph` that the `Module` belons to. This means that their scope is only valid for objects injected with that `ObjectGraph`.
+
+## Lazy injection
+
+Instead of injecting an instance directly, they can also injected on a `Lazy<T>` field. When `get()` is called on the `Lazy` field, it will retrieve the injected instance from the module. Calling `get()` multiple times will return the same instances every time.
+
+```java
+class Car {
+	@Inject private Lazy<Engine> engine;
+
+	public Car() {
+		Spork.bind(...);
+
+		engine.get().start();
+	}
+}
+```
 
 ## Provider injection
 
-(docs coming soon)
+A `Provider<T>` is similar to a `Lazy<T>` field, but injects a new instance every time it is called.
 
-## Named and Qualifiers
+Injecting `Provider<T>` is generally not advised. You might want to use the factory pattern instead or re-organize your logic and use a `Lazy<T>` field instead.
 
-(docs coming soon)
+```java
+class Car {
+	@Inject private Provider<Engine> engine;
+
+	public Car() {
+		Spork.bind(...);
+
+		engine.get().start();
+	}
+}
+```
+
+## Qualifiers
+
+Sometimes it is not sufficient to bind by type alone. In such cases, you might want to identify an injection by some kind of identifier.
+
+In such cases, you can define a new annotation and add to it a `@Qualifier` annotation.
+
+### Named
+
+The `@Named` annotation is one that is available by default:
+
+```java
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Named {
+	String value() default "";
+}
+```
+
+A module is then available to provide named injections:
+
+```java
+class CarModule {
+	@Provides
+	@Named("driver")
+	public Seat provideDriverSeat() {
+		...
+	}
+
+	@Provides
+	@Named("passenger")
+	public Seat providePassengerSeat() {
+		...
+	}
+}
+```
+
+This module can then be used to inject a Car:
+
+```java
+class Car {
+	@Inject
+	@Named("driver")
+	Seat driverSeat;
+
+	@Inject
+	@Named("passenger")
+	Seat passengerSeat;
+
+	...
+}
+```
+
+### Custom qualifiers
+
+You can also define your own qualifiers. For example:
+
+```java
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Colored {
+	Color value() default Color.WHITE;
+}
+```
+
+After defining the annotation, we have to define how it can serialize into a unique identifier:
+
+```java
+AnnotationSerializers.register(Colored.class, new ColoredSerializer());
+```
 
 ## Adding spork to your project
 
