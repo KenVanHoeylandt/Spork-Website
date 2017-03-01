@@ -12,6 +12,10 @@ Spork Android contains 2 packages:
 Add the following dependencies in `build.gradle`:
 
 ```groovy
+repositories {
+	jcenter()
+}
+
 dependencies {
 	// Spork core
     compile 'com.bytewelder.spork:spork:4.0.0'

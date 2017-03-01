@@ -9,6 +9,10 @@ It is provides annotation processing interfaces for classes("types"), fields and
 Add the following dependencies in `build.gradle`:
 
 ```groovy
+repositories {
+	jcenter()
+}
+
 dependencies {
     compile 'com.bytewelder.spork:spork:4.0.0'
 }

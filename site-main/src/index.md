@@ -98,6 +98,10 @@ public class DownloadActivity extends Activity {
 Add the following dependencies in `build.gradle`:
 
 ```groovy
+repositories {
+	jcenter()
+}
+
 dependencies {
     compile 'io.github.sporklibrary:spork-inject:4.0.0'
     compile 'io.github.sporklibrary:spork-android:4.0.0@aar'

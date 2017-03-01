@@ -9,6 +9,10 @@ Spork Injection aims to avoid code generation as modern platforms since Android 
 Add the following dependencies in `build.gradle`:
 
 ```groovy
+repositories {
+	jcenter()
+}
+
 dependencies {
     compile 'com.bytewelder.spork:spork:4.0.0'
     compile 'com.bytewelder.spork:spork-inject:4.0.0'

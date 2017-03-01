@@ -126,6 +126,10 @@ This way, it can resolve dependencies from its parent *and* from the `CarModule`
 ## Adding spork to your project
 
 ```groovy
+repositories {
+	jcenter()
+}
+
 dependencies {
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
