@@ -2,7 +2,7 @@
 
 Spork Inject is a runtime [dependency injection] [dependency_injection] framework for Java and Android. It is almost fully compatible with [Dagger] [dagger] and is modeled on the [JSR-330] [jsr-330] specification.
 
-Spork Injection aims to avoid code generation as modern platforms since Android 4.1 have grown [fast enough] [benchmarks] to apply injection at runtime.
+Spork Injection aims to avoid code generation as even mobile devices have become effective to apply injection at runtime with [great performance] [benchmarks].
 
 ## Dependencies
 
@@ -22,7 +22,6 @@ dependencies {
 ## Example
 
 ```java
-
 public static class Module {
 	@Provides
 	public Integer provideNumber() {
@@ -36,15 +35,15 @@ public static class Module {
 	}
 
 	@Provides
-	@Named("anything")
-	public String provideColor() {
-		return "123";
+	@Named("label")
+	public String provideLabel() {
+		return "Hi!";
 	}
 
 	@Provides
 	@Singleton
-	public DownloadService provideDownloadService(HttpService service) {
-		return new DownloadServiceImpl(service);
+	public RestService provideRestService(HttpService service) {
+		return new RestServiceImpl(service);
 	}
 
 	@Provides
@@ -56,18 +55,18 @@ public static class Module {
 
 private static class Parent {
 	@Inject
-	private Integer integerValue;
+	private Integer counter;
 
 	@Inject
 	@Named("color")
 	private String color;
 
 	@Inject
-	@Named("anything")
-	private String anything;
+	@Named("label")
+	private String label;
 
 	@Inject
-	private DownloadService downloadService;
+	private RestService restService;
 
 	public Parent() {
 		ObjectGraph graph = new ObjectGraph.Builder()
