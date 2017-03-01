@@ -189,8 +189,9 @@
             <li><a href="#declaring-dependencies">Declaring Dependencies</a></li>
             <li><a href="#modules">Modules</a></li>
             <li><a href="#singletons-and-scoped-bindings">Singletons and Scoped bindings</a></li>
+            <li><a href="#lazy-injection">Lazy injection</a></li>
             <li><a href="#provider-injection">Provider injection</a></li>
-            <li><a href="#named-and-qualifiers">Named and Qualifiers</a></li>
+            <li><a href="#qualifiers">Qualifiers</a></li>
             <li><a href="#adding-spork-to-your-project">Adding spork to your project</a></li>
             <li><a href="#license">License</a></li>
     </ul>
@@ -215,8 +216,8 @@
 
 <p>Spork can inject fields directly. In this example it obtains an <code>Engine</code> instance for the <code>engine</code> field and a <code>Driver</code> instance for the <code>driver</code> field.</p>
 <pre><code class="java">class Car {
-    @Inject Engine engine;
-    @Inject Driver driver;
+    @Inject private Engine engine;
+    @Inject private Driver driver;
 
     public Car() {
         Spork.bind(...);
@@ -284,13 +285,105 @@
 
 <p>This way, it can resolve dependencies from its parent <em>and</em> from the <code>CarModule</code>.</p>
 <h2 id="singletons-and-scoped-bindings">Singletons and Scoped bindings</h2>
-<p>(docs coming soon)</p>
+<p>Module methods annotated with <code>@Provides</code> can also have scope annotations. Scopes can be custom-made, but <code>@Singleton</code> is one that is available by default. It can be used like this:</p>
+<pre><code class="java">@Provides
+@Singleton
+UserService provideUserService() {
+    return new UserServiceImpl();
+}
+</code></pre>
+
+<p>Scoped instances such as the singleton instance above are associated with the <code>ObjectGraph</code> that the <code>Module</code> belons to. This means that their scope is only valid for objects injected with that <code>ObjectGraph</code>.</p>
+<h2 id="lazy-injection">Lazy injection</h2>
+<p>Instead of injecting an instance directly, they can also injected on a <code>Lazy&lt;T&gt;</code> field. When <code>get()</code> is called on the <code>Lazy</code> field, it will retrieve the injected instance from the module. Calling <code>get()</code> multiple times will return the same instances every time.</p>
+<pre><code class="java">class Car {
+    @Inject private Lazy&lt;Engine&gt; engine;
+
+    public Car() {
+        Spork.bind(...);
+
+        engine.get().start();
+    }
+}
+</code></pre>
+
 <h2 id="provider-injection">Provider injection</h2>
-<p>(docs coming soon)</p>
-<h2 id="named-and-qualifiers">Named and Qualifiers</h2>
-<p>(docs coming soon)</p>
+<p>A <code>Provider&lt;T&gt;</code> is similar to a <code>Lazy&lt;T&gt;</code> field, but injects a new instance every time it is called.</p>
+<p>Injecting <code>Provider&lt;T&gt;</code> is generally not advised. You might want to use the factory pattern instead or re-organize your logic and use a <code>Lazy&lt;T&gt;</code> field instead.</p>
+<pre><code class="java">class Car {
+    @Inject private Provider&lt;Engine&gt; engine;
+
+    public Car() {
+        Spork.bind(...);
+
+        engine.get().start();
+    }
+}
+</code></pre>
+
+<h2 id="qualifiers">Qualifiers</h2>
+<p>Sometimes it is not sufficient to bind by type alone. In such cases, you might want to identify an injection by some kind of identifier.</p>
+<p>In such cases, you can define a new annotation and add to it a <code>@Qualifier</code> annotation.</p>
+<h3 id="named">Named</h3>
+<p>The <code>@Named</code> annotation is one that is available by default:</p>
+<pre><code class="java">@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Named {
+    String value() default &quot;&quot;;
+}
+</code></pre>
+
+<p>A module is then available to provide named injections:</p>
+<pre><code class="java">class CarModule {
+    @Provides
+    @Named(&quot;driver&quot;)
+    public Seat provideDriverSeat() {
+        ...
+    }
+
+    @Provides
+    @Named(&quot;passenger&quot;)
+    public Seat providePassengerSeat() {
+        ...
+    }
+}
+</code></pre>
+
+<p>This module can then be used to inject a Car:</p>
+<pre><code class="java">class Car {
+    @Inject
+    @Named(&quot;driver&quot;)
+    Seat driverSeat;
+
+    @Inject
+    @Named(&quot;passenger&quot;)
+    Seat passengerSeat;
+
+    ...
+}
+</code></pre>
+
+<h3 id="custom-qualifiers">Custom qualifiers</h3>
+<p>You can also define your own qualifiers. For example:</p>
+<pre><code class="java">@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Colored {
+    Color value() default Color.WHITE;
+}
+</code></pre>
+
+<p>After defining the annotation, we have to define how it can serialize into a unique identifier:</p>
+<pre><code class="java">AnnotationSerializers.register(Colored.class, new ColoredSerializer());
+</code></pre>
+
 <h2 id="adding-spork-to-your-project">Adding spork to your project</h2>
-<pre><code class="groovy">dependencies {
+<pre><code class="groovy">repositories {
+    jcenter()
+}
+
+dependencies {
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
 </code></pre>

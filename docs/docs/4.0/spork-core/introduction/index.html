@@ -195,7 +195,11 @@
 <p>It is provides annotation processing interfaces for classes("types"), fields and methods.</p>
 <h2 id="dependencies">Dependencies</h2>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">dependencies {
+<pre><code class="groovy">repositories {
+    jcenter()
+}
+
+dependencies {
     compile 'com.bytewelder.spork:spork:4.0.0'
 }
 </code></pre></div>

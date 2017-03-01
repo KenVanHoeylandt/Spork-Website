@@ -196,7 +196,11 @@
 <p>Spork Injection aims to avoid code generation as modern platforms since Android 4.1 have grown <a href="http://spork.bytewelder.com/about/benchmarks/">fast enough</a> to apply injection at runtime.</p>
 <h2 id="dependencies">Dependencies</h2>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">dependencies {
+<pre><code class="groovy">repositories {
+    jcenter()
+}
+
+dependencies {
     compile 'com.bytewelder.spork:spork:4.0.0'
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
