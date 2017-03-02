@@ -4,7 +4,7 @@
     
     <url>
      <loc>http://spork.bytewelder.com/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,13 @@
         
     <url>
      <loc>http://spork.bytewelder.com/spork-core/introduction/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://spork.bytewelder.com/spork-core/creating-annotations/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,19 +29,19 @@
         
     <url>
      <loc>http://spork.bytewelder.com/spork-inject/introduction/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://spork.bytewelder.com/spork-inject/user-guide/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://spork.bytewelder.com/spork-inject/migrating-from-dagger/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,7 +51,7 @@
         
     <url>
      <loc>http://spork.bytewelder.com/spork-android/introduction/</loc>
-     <lastmod>2017-03-01</lastmod>
+     <lastmod>2017-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
