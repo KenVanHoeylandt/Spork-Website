@@ -55,7 +55,7 @@ public static class Module {
 
 private static class Parent {
 	@Inject
-	private Integer counter;
+	private Integer number;
 
 	@Inject
 	@Named("color")
