@@ -2,9 +2,14 @@
 
 These are the main differences between Dagger and Spork:
 
-1. You need to call `Spork.bind()` in your object's constructor or initialization method.
-2. `@Provides` is found within the Spork namespace.
-3. No need to annotate your module classes.
-4. Components are replaced by `ObjectGraph`.
-5. Spork is able to inject `private` fields.
-6. Lazy injection is done by using `javax.inject.Provider`. Ther is no `@Lazy` annotation.
+1. Components are replaced by `ObjectGraph` and also depends on module classes
+2. You need to call `Spork.bind(this, objectGraph)` in your object's constructor or initialization method
+3. `Provides` and `Lazy` classes are in the `spork.inject` package
+4. No need to annotate your module classes with `@Module`
+5. Spork is able to inject `private` fields and methods
+
+Dagger annotations that Spork doesn't support (yet):
+
+- `@Reusable`
+- `@ForReleasableReferences`
+- `@BindsOptionalOf`
