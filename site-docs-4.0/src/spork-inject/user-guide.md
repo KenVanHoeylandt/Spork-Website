@@ -228,7 +228,7 @@ public @interface Colored {
 After defining the annotation, we have to define how it can serialize into a unique identifier:
 
 ```java
-AnnotationSerializers.register(Colored.class, new ColoredSerializer());
+AnnotationSerializerRegistry.register(Colored.class, new ColoredSerializer());
 ```
 
 ## Adding spork to your project
