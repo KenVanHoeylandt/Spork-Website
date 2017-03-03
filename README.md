@@ -1,22 +1,45 @@
 # Spork Website
 
-The Spork website is made with [MkDocs](http://www.mkdocs.org) and the [Flatly](https://bootswatch.com/flatly/) theme.
+The Spork website is made with [Daux.io](http://daux.io).
 
-This repository hosts the source files for building it.
+## Installation
 
-Installing mkdocs on macOS:
+Install Composer:
+
 ```bash
-pip install mkdocs --user
+curl -sS https://getcomposer.org/installer | php
 ```
 
-Building a new version:
+Add a `composer` alias to your bash profile:
 
 ```bash
-python -m mkdocs build
+alias composer="php /usr/local/bin/composer.phar"
 ```
 
-Trying out the current version locally:
+Install Daux.io:
 
 ```bash
-python -m mkdocs serve
+composer global require justinwalsh/daux.io
+```
+
+Make the `daux` command available in your bash profile:
+
+```bash
+export PATH="~/.composer/vendor/bin:$PATH"
+```
+
+## Building
+
+Development:
+
+```bash
+daux serve --source=docs-main
+daux serve --source=docs-3.0
+daux serve --source=docs-4.0
+```
+
+Generation:
+
+```bash
+daux
 ```

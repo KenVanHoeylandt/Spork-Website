@@ -1,11 +1,10 @@
-cd site-main
-python -m mkdocs build
-cd ..
+rm -rf ./docs
+mkdir ./docs
 
-cd site-docs-3.x
-python -m mkdocs build
-cd ..
+daux --source=src-main --destination=docs
 
-cd site-docs-4.0
-python -m mkdocs build
-cd ..
+mkdir -p ./docs/docs/3.0
+daux --source=src-3.0 --destination=docs/docs/3.0
+
+mkdir -p ./docs/docs/4.0
+daux --source=src-4.0 --destination=docs/docs/4.0

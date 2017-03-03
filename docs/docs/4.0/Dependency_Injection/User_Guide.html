@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>User Guide - Spork 4.0 Documentation</title>
+    <meta name="description" content="Annotation processing and dependency injection for Java/Android" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../index.html">Spork 4.0 Documentation</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Android</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Introduction.html">Introduction</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Annotations/BindClick.html">BindClick</a></li><li class='Nav__item '><a href="../Android/Annotations/BindFragment.html">BindFragment</a></li><li class='Nav__item '><a href="../Android/Annotations/BindLayout.html">BindLayout</a></li><li class='Nav__item '><a href="../Android/Annotations/BindResource.html">BindResource</a></li><li class='Nav__item '><a href="../Android/Annotations/BindView.html">BindView</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Examples/Activity.html">Activity</a></li><li class='Nav__item '><a href="../Android/Examples/Application.html">Application</a></li><li class='Nav__item '><a href="../Android/Examples/ContentProvider.html">ContentProvider</a></li><li class='Nav__item '><a href="../Android/Examples/Fragment.html">Fragment</a></li><li class='Nav__item '><a href="../Android/Examples/RecyclerView.html">RecyclerView</a></li><li class='Nav__item '><a href="../Android/Examples/Service.html">Service</a></li><li class='Nav__item '><a href="../Android/Examples/View.html">View</a></li></ul></li><li class='Nav__item '><a href="../Android/ProGuard.html">ProGuard</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Dependency Injection</a><ul class='Nav'><li class='Nav__item '><a href="../Dependency_Injection/Introduction.html">Introduction</a></li><li class='Nav__item Nav__item--active'><a href="../Dependency_Injection/User_Guide.html">User Guide</a></li><li class='Nav__item '><a href="../Dependency_Injection/Migrating_from_Dagger.html">Migrating from Dagger</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotation Development</a><ul class='Nav'><li class='Nav__item '><a href="../Annotation_Development/Introduction.html">Introduction</a></li><li class='Nav__item '><a href="../Annotation_Development/Creating_Annotations.html">Creating Annotations</a></li></ul></li></ul>
+
+            <div class="Links">
+                                    <hr/>
+                                            <a href="http://spork.bytewelder.com" target="_blank">Spork Webite</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork" target="_blank">GitHub</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork/issues" target="_blank">Help/Support/Bugs</a>
+                        <br />
+                                    
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Dependency_Injection/Introduction.html">Dependency Injection</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Dependency_Injection/User_Guide.html">User Guide</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <h1 id="page_User+Guide">User Guide</h1>
+<h2 id="page_Using+Spork+Inject">Using Spork Inject</h2>
+<p>Spork creates instances of your classes and satisfies their dependencies. It uses the <code>javax.inject.Inject</code> annotation to identify which constructors and fields it is interested in.</p>
+<p>Use <code>Spork.bind()</code> in constructor or initialization methods so Spork can create instances of the dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.</p>
+<pre><code class="language-java">class Car implements Vehicle {
+	private final Engine engine;
+	private final Driver driver;
+
+	@Inject
+	Car(Engine engine, Driver driver) {
+		this.engine = engine;
+		this.driver = driver;
+	}
+}
+</code></pre>
+<p>Spork can inject fields directly. In this example it obtains an <code>Engine</code> instance for the <code>engine</code> field and a <code>Driver</code> instance for the <code>driver</code> field.</p>
+<pre><code class="language-java">class Car {
+	@Inject private Engine engine;
+	@Inject private Driver driver;
+
+	public Car() {
+		Spork.bind(...);
+	}
+}
+</code></pre>
+<p>Spork also supports method injection, but Field injection is generally preferred.</p>
+<p>Classes that lack <code>@Inject</code> annotations cannot be constructed by Spork.</p>
+<h2 id="page_Declaring+Dependencies">Declaring Dependencies</h2>
+<p>In the above sample, an <code>Engine</code> and <code>Driver</code> are injected. Of course these dependencies must come from somewhere.</p>
+<p>Dependencies should be defined in a Module like this:</p>
+<pre><code class="language-java">@Provides Engine provideEngine() {
+  return new DieselEngine();
+}
+</code></pre>
+<p>It's possible for a <code>@Provides</code> method to require dependencies on its own:</p>
+<pre><code class="language-java">@Provides Engine provideEngine(Piston piston) {
+  return new DieselEngine(piston);
+}
+
+@Provides Piston providePiston() {
+  return new StrongPiston();
+}
+</code></pre>
+<h2 id="page_Modules">Modules</h2>
+<p>The <code>@Provides</code>-annotated methods above are placed in a <code>Module</code>. Modules are POJO objects that define a set of dependencies:</p>
+<pre><code class="language-java">class CarModule {
+	@Provides Engine provideEngine(Piston piston) {
+	  return new DieselEngine(piston);
+	}
+
+	@Provides Piston providePiston() {
+	  return new StrongPiston();
+	}
+}
+</code></pre>
+<h3 id="page_Building+an+ObjectGraph">Building an ObjectGraph</h3>
+<p>A module is used to build an object graph. Object graphs hold state such as your singletons and named instances.</p>
+<p>Creating an <code>ObjectGraph</code> is easy:</p>
+<pre><code class="language-java">ObjectGraph objectGraph = new ObjectGraph.Builder()
+	.module(new CarModule())
+	.build();
+</code></pre>
+<p>An <code>ObjectGraph</code> is then used to inject an instance:</p>
+<pre><code class="language-java">class Car {
+	@Inject Engine engine;
+	@Inject Driver driver;
+
+	public Car() {
+		Spork.bind(this, objectGraph);
+	}
+}
+</code></pre>
+<p>Object graphs can be nested. An object graph can have a parent object graph:</p>
+<pre><code class="language-java">ObjectGraph objectGraph = new ObjectGraph.Builder(applicationObjectGraph)
+	.module(new CarModule())
+	.build();
+</code></pre>
+<p>This way, it can resolve dependencies from its parent <em>and</em> from the <code>CarModule</code>.</p>
+<h2 id="page_Singletons+and+Scoped+bindings">Singletons and Scoped bindings</h2>
+<p>Module methods annotated with <code>@Provides</code> can also have scope annotations. Scopes can be custom-made, but <code>@Singleton</code> is one that is available by default. It can be used like this:</p>
+<pre><code class="language-java">@Provides
+@Singleton
+UserService provideUserService() {
+	return new UserServiceImpl();
+}
+</code></pre>
+<p>Scoped instances such as the singleton instance above are associated with the <code>ObjectGraph</code> that the <code>Module</code> belons to. This means that their scope is only valid for objects injected with that <code>ObjectGraph</code>.</p>
+<h2 id="page_Lazy+injection">Lazy injection</h2>
+<p>Instead of injecting an instance directly, they can also injected on a <code>Lazy&lt;T&gt;</code> field. When <code>get()</code> is called on the <code>Lazy</code> field, it will retrieve the injected instance from the module. Calling <code>get()</code> multiple times will return the same instances every time.</p>
+<pre><code class="language-java">class Car {
+	@Inject private Lazy&lt;Engine&gt; engine;
+
+	public Car() {
+		Spork.bind(...);
+
+		engine.get().start();
+	}
+}
+</code></pre>
+<h2 id="page_Provider+injection">Provider injection</h2>
+<p>A <code>Provider&lt;T&gt;</code> is similar to a <code>Lazy&lt;T&gt;</code> field, but injects a new instance every time it is called.</p>
+<p>Injecting <code>Provider&lt;T&gt;</code> is generally not advised. You might want to use the factory pattern instead or re-organize your logic and use a <code>Lazy&lt;T&gt;</code> field instead.</p>
+<pre><code class="language-java">class Car {
+	@Inject private Provider&lt;Engine&gt; engine;
+
+	public Car() {
+		Spork.bind(...);
+
+		engine.get().start();
+	}
+}
+</code></pre>
+<h2 id="page_Qualifiers">Qualifiers</h2>
+<p>Sometimes it is not sufficient to bind by type alone. In such cases, you might want to identify an injection by some kind of identifier.</p>
+<p>In such cases, you can define a new annotation and add to it a <code>@Qualifier</code> annotation.</p>
+<h3 id="page_Named">Named</h3>
+<p>The <code>@Named</code> annotation is one that is available by default:</p>
+<pre><code class="language-java">@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Named {
+	String value() default &quot;&quot;;
+}
+</code></pre>
+<p>A module is then available to provide named injections:</p>
+<pre><code class="language-java">class CarModule {
+	@Provides
+	@Named(&quot;driver&quot;)
+	public Seat provideDriverSeat() {
+		...
+	}
+
+	@Provides
+	@Named(&quot;passenger&quot;)
+	public Seat providePassengerSeat() {
+		...
+	}
+}
+</code></pre>
+<p>This module can then be used to inject a Car:</p>
+<pre><code class="language-java">class Car {
+	@Inject
+	@Named(&quot;driver&quot;)
+	Seat driverSeat;
+
+	@Inject
+	@Named(&quot;passenger&quot;)
+	Seat passengerSeat;
+
+	...
+}
+</code></pre>
+<h3 id="page_Custom+qualifiers">Custom qualifiers</h3>
+<p>You can also define your own qualifiers. For example:</p>
+<pre><code class="language-java">@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Colored {
+	Color value() default Color.WHITE;
+}
+</code></pre>
+<p>After defining the annotation, we have to define how it can serialize into a unique identifier:</p>
+<pre><code class="language-java">AnnotationSerializerRegistry.register(Colored.class, new ColoredSerializer());
+</code></pre>
+<h2 id="page_Adding+spork+to+your+project">Adding spork to your project</h2>
+<pre><code class="language-groovy">repositories {
+	jcenter()
+}
+
+dependencies {
+    compile 'com.bytewelder.spork:spork-inject:4.0.0'
+}
+</code></pre>
+<p><strong>Note</strong>: Before release, <code>spork-inject</code> is available at maven repository <code>http://dl.bintray.com/bytewelder/maven-snapshot</code></p>
+<h2 id="page_License">License</h2>
+<pre><code class="language-text">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Dependency_Injection/Introduction.html">Previous</a></li>            <li class=Pager--next><a href="../Dependency_Injection/Migrating_from_Dagger.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

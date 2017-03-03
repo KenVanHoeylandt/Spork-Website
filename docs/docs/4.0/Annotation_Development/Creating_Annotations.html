@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Creating Annotations - Spork 4.0 Documentation</title>
+    <meta name="description" content="Annotation processing and dependency injection for Java/Android" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../index.html">Spork 4.0 Documentation</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Android</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Introduction.html">Introduction</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Annotations/BindClick.html">BindClick</a></li><li class='Nav__item '><a href="../Android/Annotations/BindFragment.html">BindFragment</a></li><li class='Nav__item '><a href="../Android/Annotations/BindLayout.html">BindLayout</a></li><li class='Nav__item '><a href="../Android/Annotations/BindResource.html">BindResource</a></li><li class='Nav__item '><a href="../Android/Annotations/BindView.html">BindView</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Examples/Activity.html">Activity</a></li><li class='Nav__item '><a href="../Android/Examples/Application.html">Application</a></li><li class='Nav__item '><a href="../Android/Examples/ContentProvider.html">ContentProvider</a></li><li class='Nav__item '><a href="../Android/Examples/Fragment.html">Fragment</a></li><li class='Nav__item '><a href="../Android/Examples/RecyclerView.html">RecyclerView</a></li><li class='Nav__item '><a href="../Android/Examples/Service.html">Service</a></li><li class='Nav__item '><a href="../Android/Examples/View.html">View</a></li></ul></li><li class='Nav__item '><a href="../Android/ProGuard.html">ProGuard</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Dependency Injection</a><ul class='Nav'><li class='Nav__item '><a href="../Dependency_Injection/Introduction.html">Introduction</a></li><li class='Nav__item '><a href="../Dependency_Injection/User_Guide.html">User Guide</a></li><li class='Nav__item '><a href="../Dependency_Injection/Migrating_from_Dagger.html">Migrating from Dagger</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotation Development</a><ul class='Nav'><li class='Nav__item '><a href="../Annotation_Development/Introduction.html">Introduction</a></li><li class='Nav__item Nav__item--active'><a href="../Annotation_Development/Creating_Annotations.html">Creating Annotations</a></li></ul></li></ul>
+
+            <div class="Links">
+                                    <hr/>
+                                            <a href="http://spork.bytewelder.com" target="_blank">Spork Webite</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork" target="_blank">GitHub</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork/issues" target="_blank">Help/Support/Bugs</a>
+                        <br />
+                                    
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Annotation_Development/Introduction.html">Annotation Development</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Annotation_Development/Creating_Annotations.html">Creating Annotations</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <h1 id="page_Creating+Annotations">Creating Annotations</h1>
+<h2 id="page_Overview">Overview</h2>
+<p>Spork annotations are bound through one or more of:</p>
+<ul>
+<li>
+<code>MethodBinder</code>
+</li>
+<li>
+<code>FieldBinder</code>
+</li>
+<li>
+<code>TypeBinder</code>
+</li>
+</ul>
+<p>These binders are registered through a <code>BinderRegistery</code> which is accessible through <code>Spork.sharedInstance().getBinderRegistry()</code></p>
+<h2 id="page_FieldBinder">FieldBinder</h2>
+<p>FieldBinders are used for annotations that target <code>ElementType.FIELD</code>.</p>
+<h3 id="page_Example">Example</h3>
+<pre><code class="language-java">public class BindViewBinder implements FieldBinder&lt;BindView&gt; {
+	
+	@Override
+	public void bind(Object object, BindView annotation, Field field, Object[] modules) {
+		if (!View.class.isAssignableFrom(field.getType())) {
+			throw new BindException(/* ... */);
+		}
+
+		View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
+
+		Reflection.setFieldValue(annotation, field, object, view);
+	}
+
+	@Override
+	public Class&lt;BindView&gt; getAnnotationClass() {
+		return BindView.class;
+	}
+}
+</code></pre>
+<h2 id="page_MethodBinder">MethodBinder</h2>
+<p>MethodBinders are used for annotations that target <code>ElementType.METHOD</code>.</p>
+<h3 id="page_Example">Example</h3>
+<pre><code class="language-java">public class BindClickBinder implements MethodBinder&lt;BindClick&gt; {
+
+	@Override
+	public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
+		View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
+		view.setOnClickListener(new OnClickListener() {
+			/* handle click */
+		});
+	}
+
+	@Override
+	public Class&lt;BindClick&gt; getAnnotationClass() {
+		return BindClick.class;
+	}
+}
+</code></pre>
+<h2 id="page_TypeBinder">TypeBinder</h2>
+<p>TypeBinders are used for annotations that target <code>ElementType.TYPE</code>.</p>
+<h3 id="page_Example">Example</h3>
+<pre><code class="language-java">public interface IntSettable {
+	void setValue(int value);
+}
+
+public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
+
+	@Override
+	void bind(Object object, IntSettable annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
+		// @BindValue only works with IntSettable implementations
+		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
+			throw new BindException(/* ... */);
+		}
+
+		// Safely convert to IntSettable
+		IntSettable value_holder = (IntSettable)object;
+
+		// Set the integer value
+		int value = annotatedClass.getAnnotation().value();
+		value_holder.setValue(value);
+	}
+
+	@Override
+	public Class&lt;BindValue&gt; getAnnotationClass() {
+		return BindValue.class;
+	}
+}
+
+</code></pre>
+<h2 id="page_Binder+registration">Binder registration</h2>
+<h3 id="page_Single+target+binders">Single target binders</h3>
+<p>For binders that only bind to a single annotation target (e.g. <code>ElementType.FIELD</code>, <code>ElementType.METHOD</code> or <code>ElementType.TYPE</code>). The following code demonstrates this.</p>
+<p><strong>YourAnnotation.java</strong></p>
+<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface YourAnnotation {
+}
+</code></pre>
+<p><strong>YourAnnotationBinder.java</strong></p>
+<pre><code class="language-java">class YourAnnotationBinder implements MethodBinder&lt;YourAnnotation&gt; {
+	// implementation
+}
+</code></pre>
+<p><strong>Main.java</strong></p>
+<pre><code class="language-java">Spork.sharedInstance().getBinderRegistry().register(new YourAnnotationBinder());
+</code></pre>
+<h3 id="page_Multi-target+binders">Multi-target binders</h3>
+<p>For binders that only bind to multiple annotation targets (e.g. <code>ElementType.FIELD</code>, <code>ElementType.METHOD</code> or <code>ElementType.TYPE</code>). The following code demonstrates this.</p>
+<p><strong>YourAnnotation.java</strong></p>
+<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, Element.FIELD })
+public @interface YourAnnotation {
+}
+</code></pre>
+<p><strong>YourAnnotationBinder.java</strong></p>
+<pre><code class="language-java">class YourAnnotationBinder
+	implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
+	// implementation
+}
+</code></pre>
+<p><strong>Main.java</strong></p>
+<pre><code class="language-java">YourAnnotationBinder binder = new YourAnnotationBinder();
+
+// register as MethodBinder
+Spork.sharedInstance().getBinderRegistry().register((MethodBinder&lt;YourAnnotation&gt;)binder);
+// register as FieldBinder
+Spork.sharedInstance().getBinderRegistry().register((FieldBinder&lt;YourAnnotation&gt;)binder);
+</code></pre>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Annotation_Development/Introduction.html">Previous</a></li>                    </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

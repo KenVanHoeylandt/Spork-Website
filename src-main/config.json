@@ -1,0 +1,12 @@
+{
+    "title": "Spork",
+    "tagline": "Annotations to increase productivity",
+    "author": "Ken Van Hoeylandt",
+    "image": "spork.png",
+    "html": {
+        "auto_landing": true,
+        "toggle_code": false,
+        "repo": "ByteWelder/Spork",
+        "google_analytics" : "UA-78126960-1"
+    }
+}

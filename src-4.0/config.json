@@ -1,0 +1,16 @@
+{
+    "title": "Spork 4.0 Documentation",
+    "tagline": "Annotation processing and dependency injection for Java/Android",
+    "author": "Ken Van Hoeylandt",
+    "image": "images/sporklogosmall.png",
+    "html": {
+        "auto_landing": false,
+        "toggle_code": false,
+        "links": {
+        	"Spork Webite": "http://spork.bytewelder.com",
+	        "GitHub": "https://github.com/ByteWelder/Spork",
+	        "Help/Support/Bugs": "https://github.com/ByteWelder/Spork/issues"
+	    }
+    },
+    "repo": "ByteWelder/Spork"
+}

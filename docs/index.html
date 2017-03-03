@@ -1,214 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Spork is an annotation binding library">
-        <meta name="author" content="Ken Van Hoeylandt">
-        <link rel="canonical" href="http://spork.bytewelder.com/">
-        <link rel="shortcut icon" href="images/sporklogosmall.png">
-        
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Spork </title>
+    <meta name="description" content="Annotations to increase productivity" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Spork</title>
-
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
-        <link href="./css/base.css" rel="stylesheet">
-        <link href="./css/extra.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-78126960-1', 'spork.bytewelder.com');
-            ga('send', 'pageview');
-        </script>
-        
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    <div class="Navbar hidden-print">
     <div class="container">
+        <a class="Navbar__brand" href="index.html">Spork</a>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+    </div>
+</div>
 
-            <!-- Main title -->
-            <a class="navbar-brand" href=".">Spork</a>
-        </div>
+<div class="Homepage">
+    <div class="HomepageTitle container">
+        <h2>Annotations to increase productivity</h2>    </div>
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            
-            
-                <li class="active">
-                    <a href=".">Introduction</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="documentation/">Documentation</a>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        
-<li >
-    <a href="about/benchmarks/">Benchmarks</a>
-</li>
+    <div class="HomepageImage container">
+        <img class="homepage-image img-responsive" src="spork.png" alt="Spork">    </div>
 
-                    
-                        
-<li >
-    <a href="about/comparison/">Comparison</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="about/license/">License</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="about/release-notes/">Release Notes</a>
-</li>
-
-                    
-                    </ul>
-                </li>
-            
-            
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                <li class="disabled">
-                    <a rel="next" >
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="documentation/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="https://github.com/ByteWelder/Spork">
-                        
-                            <i class="fa fa-github"></i>
-                        
-                        GitHub
-                    </a>
-                </li>
-                
-            </ul>
+    <div class="HomepageButtons">
+        <div class="container">
+            <a href="https://github.com/ByteWelder/Spork" class="Button Button--secondary Button--hero">View On GitHub</a><a href="Documentation.html" class="Button Button--primary Button--hero">View Documentation</a>            <div class="clearfix"></div>
         </div>
     </div>
 </div>
 
-        <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#introduction">Introduction</a></li>
-        
-            <li><a href="#example">Example</a></li>
-        
-            <li><a href="#getting-started">Getting started</a></li>
-        
-            <li><a href="#upgrading-from-2x-to-3x">Upgrading from 2.x to 3.x:</a></li>
-        
-    
-    </ul>
-</div></div>
-            <div class="col-md-9" role="main">
-
-<h1 id="introduction">Introduction</h1>
-<p>Spork is an annotation processing library to speed up development on your projects.<br/>
+<div class="HomepageContent">
+    <div class="container">
+        <div class="container--inner">
+            <div class="doc_content s-content">
+                <p>Spork is an annotation processing library to speed up development on your projects.<br/>
 This allows you to write less boilerplate code to make code more readable and maintainable.</p>
-<p>This library is <a href="./about/benchmarks">fast</a>, <a href="./about/license">open-source</a> and it aims to be different by overcoming the shortcomings of its <a href="./about/comparison">alternatives</a>.</p>
-<h3 id="example">Example</h3>
-<pre><code class="java">@BindLayout(R.layout.activity_download)
+<p>Spork is <a href="Benchmarks/index.html">fast</a>, <a href="License_details.html">open-source</a> and it aims to be different by overcoming the shortcomings of its <a href="Comparison.html">alternatives</a>.</p>
+<h3 id="page_Example">Example</h3>
+<pre><code class="language-java">@BindLayout(R.layout.activity_download)
 public class DownloadActivity extends Activity {
+	
+	@BindView(R.id.download_button)
+	private Button downloadButton;
 
-    @BindView(R.id.download_button)
-    private Button downloadButton;
+	@BindFragment(R.id.details_fragment)
+	private DetailsFragment fragment;
 
-    @BindFragment(R.id.details_fragment)
-    private DetailsFragment fragment;
+	@BindComponent
+	private DownloadManager downloadManager;
 
-    @BindComponent
-    private DownloadManager downloadManager;
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Spork.bind(this); // Spork does its magic
+	}
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Spork.bind(this); // Spork does its magic
-    }
-
-    @BindClick(R.id.other_button)
-    private void onClickButton(Button button) {
-        downloadManager.startDownload();
-    }
+	@BindClick(R.id.other_button)
+	private void onClickButton(Button button) {
+		downloadManager.startDownload();
+	}
 }
 
 @ComponentScope(scope = ComponentScope.Scope.SINGLETON)
 public class DownloadManager {
-    public void startDownload() { ... }
+	public void startDownload() { ... }
 }
 </code></pre>
-
-<h3 id="getting-started">Getting started</h3>
+<h3 id="page_Getting+started">Getting started</h3>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">dependencies {
+<pre><code class="language-groovy">dependencies {
     compile 'io.github.sporklibrary:spork:3.2.0'
     compile 'io.github.sporklibrary:spork-android:3.0.0@aar'
 
     // The following dependency is optional.
     // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7
-    compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' 
+	compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' 
 }
 </code></pre>
-
-<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22">Maven Central Repository</a>.</p>
-<h3 id="upgrading-from-2x-to-3x">Upgrading from 2.x to 3.x:</h3>
-<ul>
-<li>Spork Android has changed its files from <code>io.github.sporklibrary</code> to <code>io.github.sporklibrary.android</code></li>
-<li>There are separate dependencies for the Android support/compat libraries as defined above.</li>
-</ul>
+<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg:%22io.github.sporklibrary%22" class="external">Maven Central Repository</a>.</p>
 <!-- # Introduction
 
 Spork is an annotation processing library to speed up development on your projects.<br/>
@@ -218,66 +107,106 @@ This library is [fast](about/benchmarks), [open-source](about/license) and it ai
 
 ### Android Example
 
+```java
+@BindLayout(R.layout.activity_download)
+public class DownloadActivity extends Activity {
+	
+	@BindView(R.id.download_button)
+	private Button downloadButton;
 
-wzxhzdk:2
+	@BindFragment(R.id.details_fragment)
+	private DetailsFragment fragment;
 
+	@BindComponent
+	private DownloadManager downloadManager;
+
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Spork.bind(this); // Spork does its magic
+	}
+
+	@BindClick(R.id.other_button)
+	private void onClickButton(Button button) {
+		downloadManager.startDownload();
+	}
+}
+```
 
 ### Getting started with Android
 
 Add the following dependencies in `build.gradle`:
 
+```groovy
+repositories {
+	jcenter()
+}
 
-wzxhzdk:3
-
+dependencies {
+    compile 'io.github.sporklibrary:spork-inject:4.0.0'
+    compile 'io.github.sporklibrary:spork-android:4.0.0@aar'
+    // Optional, requires you to also add: appcompat-v7, support-v4, recyclerview-v7:
+	compile 'io.github.sporklibrary:spork-android-support:4.0.0@aar' 
+}
+```
 
 ### Getting started with Java
 
 Add the following dependencies in `build.gradle`:
 
+```groovy
+dependencies {
+    compile 'io.github.sporklibrary:spork-inject:4.0.0'
+}
+```
 
-wzxhzdk:4
-
-
-All dependencies are available at [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
- --></div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
-        </footer>
-
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
+All dependencies are available at [JCenter](https://bintray.com/bintray/jcenter).
+ -->
             </div>
         </div>
-    </body>
+    </div>
+</div>
+
+<div class="HomepageFooter">
+    <div class="container">
+        <div class="container--inner">
+            
+                    </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-78126960-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': ''
+                });
+            });
+        </script>
+    
+</body>
 </html>

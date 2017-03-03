@@ -1,209 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Documentation for Spork 4.0">
-        <meta name="author" content="Ken Van Hoeylandt">
-        <link rel="canonical" href="http://spork.bytewelder.com/">
-        <link rel="shortcut icon" href="./images/sporklogosmall.png">
-        
-        <title>Spork Docs 4.0</title>
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
-        <link href="./css/extra.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script> 
-    </head>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Spork 4.0 Documentation </title>
+    <meta name="description" content="Annotation processing and dependency injection for Java/Android" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body class="homepage">
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="index.html">Spork 4.0 Documentation</a>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href=".">Spork Docs 4.0</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href=".">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spork Core <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="spork-core/introduction/">Introduction</a>
-</li>
-                            
-<li >
-    <a href="spork-core/creating-annotations/">Creating Annotations</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spork Inject <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="spork-inject/introduction/">Introduction</a>
-</li>
-                            
-<li >
-    <a href="spork-inject/user-guide/">User Guide</a>
-</li>
-                            
-<li >
-    <a href="spork-inject/migrating-from-dagger/">Migrating from Dagger</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spork Android <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="spork-android/introduction/">Introduction</a>
-</li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Annotations</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="spork-android/annotations/bindclick/">@BindClick</a>
-</li>
-            
-<li >
-    <a href="spork-android/annotations/bindfragment/">@BindFragment</a>
-</li>
-            
-<li >
-    <a href="spork-android/annotations/bindlayout/">@BindLayout</a>
-</li>
-            
-<li >
-    <a href="spork-android/annotations/bindresource/">@BindResource</a>
-</li>
-            
-<li >
-    <a href="spork-android/annotations/bindview/">@BindView</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">Examples</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="spork-android/examples/application/">Application</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/activity/">Activity</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/contentprovider/">ContentProvider</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/fragment/">Fragment</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/recyclerview/">RecyclerView</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/service/">Service</a>
-</li>
-            
-<li >
-    <a href="spork-android/examples/view/">View</a>
-</li>
-            
-<li >
-    <a href="spork-android/proguard/">ProGuard</a>
-</li>
-    </ul>
-  </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li class="disabled">
-                        <a rel="next" >
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="spork-core/introduction/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/ByteWelder/Spork">
-                                <i class="fa fa-github"></i>GitHub
-                        </a>
-                    </li>
-            </ul>
-        </div>
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
     </div>
-</div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#spork-40">Spork 4.0</a></li>
-            <li><a href="#getting-started-on-android">Getting started on Android</a></li>
-            <li><a href="#getting-started-on-java">Getting started on Java</a></li>
-            <li><a href="#migrating-from-3x-to-40">Migrating from 3.x to 4.0:</a></li>
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Android</a><ul class='Nav'><li class='Nav__item '><a href="Android/Introduction.html">Introduction</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="Android/Annotations/BindClick.html">BindClick</a></li><li class='Nav__item '><a href="Android/Annotations/BindFragment.html">BindFragment</a></li><li class='Nav__item '><a href="Android/Annotations/BindLayout.html">BindLayout</a></li><li class='Nav__item '><a href="Android/Annotations/BindResource.html">BindResource</a></li><li class='Nav__item '><a href="Android/Annotations/BindView.html">BindView</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="Android/Examples/Activity.html">Activity</a></li><li class='Nav__item '><a href="Android/Examples/Application.html">Application</a></li><li class='Nav__item '><a href="Android/Examples/ContentProvider.html">ContentProvider</a></li><li class='Nav__item '><a href="Android/Examples/Fragment.html">Fragment</a></li><li class='Nav__item '><a href="Android/Examples/RecyclerView.html">RecyclerView</a></li><li class='Nav__item '><a href="Android/Examples/Service.html">Service</a></li><li class='Nav__item '><a href="Android/Examples/View.html">View</a></li></ul></li><li class='Nav__item '><a href="Android/ProGuard.html">ProGuard</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Dependency Injection</a><ul class='Nav'><li class='Nav__item '><a href="Dependency_Injection/Introduction.html">Introduction</a></li><li class='Nav__item '><a href="Dependency_Injection/User_Guide.html">User Guide</a></li><li class='Nav__item '><a href="Dependency_Injection/Migrating_from_Dagger.html">Migrating from Dagger</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotation Development</a><ul class='Nav'><li class='Nav__item '><a href="Annotation_Development/Introduction.html">Introduction</a></li><li class='Nav__item '><a href="Annotation_Development/Creating_Annotations.html">Creating Annotations</a></li></ul></li></ul>
 
-<h1 id="spork-40">Spork 4.0</h1>
-<h3 id="getting-started-on-android">Getting started on Android</h3>
+            <div class="Links">
+                                    <hr/>
+                                            <a href="http://spork.bytewelder.com" target="_blank">Spork Webite</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork" target="_blank">GitHub</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork/issues" target="_blank">Help/Support/Bugs</a>
+                        <br />
+                                    
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <h2 id="page_Getting+started+on+Android">Getting started on Android</h2>
 <p><strong>WARNING</strong>: Spork 4.0 is only accessible as a snapshot release.<br/>This is not a final release and is subject to potential changes in its API.</p>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">repositories {
+<pre><code class="language-groovy">repositories {
     maven {
         url  &quot;http://dl.bintray.com/bytewelder/maven-snapshot&quot; 
     }
 }
 
 dependencies {
-    // Spork core
+	// Spork core
     compile 'com.bytewelder.spork:spork:4.0.0'
 
     // Spork Dependency Injection
@@ -214,62 +93,65 @@ dependencies {
     compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
 </code></pre>
-
-<h3 id="getting-started-on-java">Getting started on Java</h3>
+<h2 id="page_Getting+started+on+Java">Getting started on Java</h2>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="groovy">dependencies {
+<pre><code class="language-groovy">dependencies {
     compile 'com.bytewelder.spork:spork:4.0.0'
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
 </code></pre>
-
-<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22">Maven Central Repository</a>.</p>
-<h3 id="migrating-from-3x-to-40">Migrating from 3.x to 4.0:</h3>
+<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg:%22io.github.sporklibrary%22" class="external">Maven Central Repository</a>.</p>
+<h2 id="page_Migrating+from+3.x+to+4.0%3A">Migrating from 3.x to 4.0:</h2>
 <ul>
 <li>repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot</li>
-<li>base packages moved from <code>io.github.sporklibrary</code> to <code>spork</code></li>
-<li><code>@BindComponent</code> is now <code>@Inject</code> (with support for <code>@Nullable</code>, <code>@NonNull</code> and <code>@Lazy</code> annotations)</li>
-<li><code>@ComponentScope(Scope.SINGLETON)</code> is now <code>@Singleton</code></li>
-<li>removed custom support for <code>RecyclerView.ViewHolder</code> as you can now make it implement <code>ViewProvider</code></li>
-<li><code>FieldBinder</code>, <code>MethodBinder</code> and <code>TypeBinder</code> interfaces are changed</li>
-</ul></div>
-        </div>
+<li>base packages moved from <code>io.github.sporklibrary</code> to <code>spork</code>
+</li>
+<li>
+<code>@BindComponent</code> is now <code>@Inject</code> (with support for <code>@Nullable</code>, <code>@NonNull</code> and <code>@Lazy</code> annotations)</li>
+<li>
+<code>@ComponentScope(Scope.SINGLETON)</code> is now <code>@Singleton</code>
+</li>
+<li>removed custom support for <code>RecyclerView.ViewHolder</code> as you can now make it implement <code>ViewProvider</code>
+</li>
+<li>
+<code>FieldBinder</code>, <code>MethodBinder</code> and <code>TypeBinder</code> interfaces are changed</li>
+</ul>
+    </div>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
+        <nav>
+        <ul class="Pager">
+                        <li class=Pager--next><a href="Android/Introduction.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
             </div>
         </div>
     </div>
 </div>
 
-    </body>
-</html>
+    
+    <!-- jQuery -->
+    <script src="themes/daux/js/jquery-1.11.3.min.js"></script>
 
-<!--
-MkDocs version : 0.16.1
-Build Date UTC : 2017-03-02 20:31:57
--->
+    <!-- hightlight.js -->
+    <script src="themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': ''
+                });
+            });
+        </script>
+    
+</body>
+</html>
