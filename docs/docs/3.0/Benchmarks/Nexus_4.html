@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Nexus 4 - Spork 3.0 Documentation</title>
+    <meta name="description" content="Annotation processing and dependency injection for Java/Android" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../index.html">Spork 3.0 Documentation</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Android</a><ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Annotations/BindClick.html">BindClick</a></li><li class='Nav__item '><a href="../Android/Annotations/BindFragment.html">BindFragment</a></li><li class='Nav__item '><a href="../Android/Annotations/BindLayout.html">BindLayout</a></li><li class='Nav__item '><a href="../Android/Annotations/BindResource.html">BindResource</a></li><li class='Nav__item '><a href="../Android/Annotations/BindView.html">BindView</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Examples/Activity.html">Activity</a></li><li class='Nav__item '><a href="../Android/Examples/Application.html">Application</a></li><li class='Nav__item '><a href="../Android/Examples/ContentProvider.html">ContentProvider</a></li><li class='Nav__item '><a href="../Android/Examples/Fragment.html">Fragment</a></li><li class='Nav__item '><a href="../Android/Examples/RecyclerView.html">RecyclerView</a></li><li class='Nav__item '><a href="../Android/Examples/Service.html">Service</a></li><li class='Nav__item '><a href="../Android/Examples/View.html">View</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Advanced</a><ul class='Nav'><li class='Nav__item '><a href="../Android/Advanced/Binding_order.html">Binding order</a></li><li class='Nav__item '><a href="../Android/Advanced/ProGuard.html">ProGuard</a></li></ul></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Dependency Injection</a><ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="../Dependency_Injection/Annotations/BindComponent.html">BindComponent</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="../Dependency_Injection/Examples/Component.html">Component</a></li></ul></li><li class='Nav__item '><a href="../Dependency_Injection/Testing.html">Testing</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Advanced</a><ul class='Nav'><li class='Nav__item '><a href="../Dependency_Injection/Advanced/Creating_annotations.html">Creating annotations</a></li><li class='Nav__item '><a href="../Dependency_Injection/Advanced/Binding_order.html">Binding order</a></li><li class='Nav__item '><a href="../Dependency_Injection/Advanced/ProGuard.html">ProGuard</a></li></ul></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="../Benchmarks/index.html" class="folder"><i class="Nav__arrow">&nbsp;</i>Benchmarks</a><ul class='Nav'><li class='Nav__item '><a href="../Benchmarks/HTC_One_X.html">HTC One X</a></li><li class='Nav__item '><a href="../Benchmarks/Mac_Mini_2011.html">Mac Mini 2011</a></li><li class='Nav__item Nav__item--active'><a href="../Benchmarks/Nexus_4.html">Nexus 4</a></li><li class='Nav__item '><a href="../Benchmarks/Nexus_5X.html">Nexus 5X</a></li></ul></li></ul>
+
+            <div class="Links">
+                                    <hr/>
+                                            <a href="http://spork.bytewelder.com" target="_blank">Spork Webite</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork" target="_blank">GitHub</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork/issues" target="_blank">Help/Support/Bugs</a>
+                        <br />
+                                    
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Benchmarks/index.html">Benchmarks</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Benchmarks/Nexus_4.html">Nexus 4</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <p>09-04 16:52:04.393 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: waiting for debugger to settle...
+09-04 16:52:04.594 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: debugger has settled (1480)
+09-04 16:52:04.721 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Spork: BinderManager created with Spork for Android
+09-04 16:52:04.722 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:04.724 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 2.869ms with 1 tasks @ 2.869ms/task]
+09-04 16:52:04.724 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:04.725 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.725 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.725 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.725 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.726 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.726 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.726 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.727 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:04.727 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:04.727 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.293ms with 1 tasks @ 0.293ms/task]
+09-04 16:52:04.728 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:04.729 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.336ms with 1 tasks @ 0.336ms/task]
+09-04 16:52:04.729 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:04.729 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.730 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.730 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.730 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:04.730 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.731 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.731 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.731 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:04.732 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:04.732 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.040ms with 1 tasks @ 0.040ms/task]
+09-04 16:52:04.755 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:04.756 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.709ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.756 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.756 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.757 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.757 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.862ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.757 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.758 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.758 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.709ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.758 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.759 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.759 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:04.759 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.673ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.782 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:04.782 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.709ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.783 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.783 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.783 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.784 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.784 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.784 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.785 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.785 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.785 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:04.785 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:04.785 6654-6654/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.596ms with 1000 tasks @ 0.002ms/task]</p>
+<p>09-04 16:52:40.409 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: waiting for debugger to settle...
+09-04 16:52:40.610 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: debugger has settled (1457)
+09-04 16:52:40.677 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Spork: BinderManager created with Spork for Android
+09-04 16:52:40.687 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:40.698 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 12.025ms with 1 tasks @ 12.025ms/task]
+09-04 16:52:40.702 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.702 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:40.703 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.703 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.703 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.704 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.704 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.704 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.704 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.705 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:40.705 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.206ms with 1 tasks @ 1.206ms/task]
+09-04 16:52:40.706 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:40.707 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.427ms with 1 tasks @ 0.427ms/task]
+09-04 16:52:40.707 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.707 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:40.707 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.708 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.708 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.708 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:52:40.708 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.709 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.709 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:52:40.709 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:40.709 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.049ms with 1 tasks @ 0.049ms/task]
+09-04 16:52:40.735 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:40.736 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 4.151ms with 1000 tasks @ 0.004ms/task]
+09-04 16:52:40.736 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.736 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.679ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.737 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.737 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.737 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.738 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.738 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.953ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.738 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.738 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.739 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:40.739 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.920ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.762 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:52:40.762 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.762 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.763 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.526ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.763 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.892ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.763 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.763 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.526ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.764 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.526ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.764 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.526ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.765 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.765 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:52:40.765 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:52:40.765 7321-7321/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.590ms with 1000 tasks @ 0.002ms/task]</p>
+<p>09-04 16:53:08.782 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: waiting for debugger to settle...
+09-04 16:53:08.983 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: debugger has settled (1446)
+09-04 16:53:09.084 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Spork: BinderManager created with Spork for Android
+09-04 16:53:09.088 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:53:09.096 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 7.081ms with 1 tasks @ 7.081ms/task]
+09-04 16:53:09.098 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.099 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.099 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.101 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.101 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.102 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.103 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.105 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.105 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:53:09.105 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:53:09.107 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 0.711ms with 1 tasks @ 0.711ms/task]
+09-04 16:53:09.115 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:53:09.117 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.580ms with 1 tasks @ 0.580ms/task]
+09-04 16:53:09.117 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.118 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.120 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.120 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.031ms with 1 tasks @ 0.031ms/task]
+09-04 16:53:09.122 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.124 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.124 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.214ms with 1 tasks @ 0.214ms/task]
+09-04 16:53:09.130 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.132 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.000ms with 1 tasks @ 0.000ms/task]
+09-04 16:53:09.133 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:53:09.133 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 0.082ms with 1 tasks @ 0.082ms/task]
+09-04 16:53:09.169 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:53:09.169 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.770ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.169 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 8.637ms with 1000 tasks @ 0.009ms/task]
+09-04 16:53:09.170 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.831ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.170 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.170 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 2.136ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.171 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.171 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 4.425ms with 1000 tasks @ 0.004ms/task]
+09-04 16:53:09.171 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.709ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.172 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.172 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.172 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:53:09.172 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder1Benchmark took 2.701ms with 1000 tasks @ 0.003ms/task]
+09-04 16:53:09.200 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Individual results:
+09-04 16:53:09.200 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.200 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 4.914ms with 1000 tasks @ 0.005ms/task]
+09-04 16:53:09.201 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.201 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.201 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.557ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.202 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 2.197ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.202 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.618ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.202 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.679ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.202 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.587ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.203 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.648ms with 1000 tasks @ 0.002ms/task]
+09-04 16:53:09.203 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: Average results:
+09-04 16:53:09.203 7821-7821/io.github.sporklibrary.androidbenchmark I/System.out: 	[FieldBinder2Benchmark took 1.987ms with 1000 tasks @ 0.002ms/task]</p>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Benchmarks/Mac_Mini_2011.html">Previous</a></li>            <li class=Pager--next><a href="../Benchmarks/Nexus_5X.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

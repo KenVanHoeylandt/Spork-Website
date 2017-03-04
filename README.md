@@ -28,18 +28,15 @@ Make the `daux` command available in your bash profile:
 export PATH="~/.composer/vendor/bin:$PATH"
 ```
 
-## Building
-
-Development:
+## Development
 
 ```bash
-daux serve --source=docs-main
-daux serve --source=docs-3.0
-daux serve --source=docs-4.0
+daux serve --source=src-3.0
+daux serve --source=src-4.0
 ```
 
-Generation:
+## Releasing
 
 ```bash
-daux
+./build.sh
 ```
