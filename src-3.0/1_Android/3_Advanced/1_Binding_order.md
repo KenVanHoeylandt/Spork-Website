@@ -10,30 +10,30 @@ When `Spork.bind()` is called, the `@BindComponent` annotations are processed fi
 
 ```java
 public class ExampleActivity extends Activity {
-	
-	@BindComponent
-	private Component component;
+    
+    @BindComponent
+    private Component component;
 
-	@BindView(R.id.test)
-	private View testView;
+    @BindView(R.id.test)
+    private View testView;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		Spork.bind(this);
-	}
+        Spork.bind(this);
+    }
 
-	public View getTestView() {
-		return testView;
-	}
+    public View getTestView() {
+        return testView;
+    }
 }
 
 public class Component {
 
-	public Component(@ComponentParent ExampleActivity activity) {
-		// at this point, activity.getView() will still return null
-	}
+    public Component(@ComponentParent ExampleActivity activity) {
+        // at this point, activity.getView() will still return null
+    }
 }
 ```
 
@@ -43,21 +43,21 @@ Store the component parent and access its properties only by reference.
 
 ```java
 public class ExampleActivity extends Activity {
-	// ...
+    // ...
 }
 
 public class Component {
-	private final ExampleActivity activity;
+    private final ExampleActivity activity;
 
-	public Component(@ComponentParent ExampleActivity activity) {
-		this.activity = activity;
-	}
+    public Component(@ComponentParent ExampleActivity activity) {
+        this.activity = activity;
+    }
 
-	public void show() {
-		// as long as show() is called after the parent's
-		// Spork.bind() then all is fine
-		activity.getView().setVisibility(View.VISIBLE);
-	}
+    public void show() {
+        // as long as show() is called after the parent's
+        // Spork.bind() then all is fine
+        activity.getView().setVisibility(View.VISIBLE);
+    }
 }
 ```
 
@@ -67,27 +67,27 @@ Cache the fields when any of the component methods are called.
 
 ```java
 public class ExampleActivity extends Activity {
-	// ...
+    // ...
 }
 
 public class Component {
-	private final ExampleActivity activity;
-	private View view;
+    private final ExampleActivity activity;
+    private View view;
 
-	public Component(@ComponentParent ExampleActivity activity) {
-		this.activity = activity;
-	}
+    public Component(@ComponentParent ExampleActivity activity) {
+        this.activity = activity;
+    }
 
-	public void show() {
-		assureViewsCached();
-		view.setVisibility(View.VISIBLE);
-	}
+    public void show() {
+        assureViewsCached();
+        view.setVisibility(View.VISIBLE);
+    }
 
-	private void assureViewsCached() {
-		if (view == null) {
-			view = activity.getView();
-		}
-	}
+    private void assureViewsCached() {
+        if (view == null) {
+            view = activity.getView();
+        }
+    }
 }
 ```
 
@@ -97,32 +97,32 @@ Give your component an initializing method and call it after the parent's `Spork
 
 ```java
 public class ExampleActivity extends Activity {
-	// ...
+    // ...
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		Spork.bind(this);
+        Spork.bind(this);
 
-		component.initialize(); // initialization after binding finished
-	}
+        component.initialize(); // initialization after binding finished
+    }
 
-	// ...
+    // ...
 }
 
 public class Component {
-	private final ExampleActivity activity;
-	private View view;
+    private final ExampleActivity activity;
+    private View view;
 
-	public Component(@ComponentParent ExampleActivity activity) {
-		this.activity = activity;
-	}
+    public Component(@ComponentParent ExampleActivity activity) {
+        this.activity = activity;
+    }
 
-	public void initialize() {
-		// Cache view
-		view = activity.getView();
-	}
+    public void initialize() {
+        // Cache view
+        view = activity.getView();
+    }
 }
 ```
 
@@ -134,26 +134,26 @@ Injection for classes that apply inheritance happens from the most top-level cla
 
 ```java
 class ComponentBase {
-	public ComponentBase() {
-		Spork.bind(this);
-	}
+    public ComponentBase() {
+        Spork.bind(this);
+    }
 }
 
 class Component extends ComponentBase {
-	@BindComponent
-	private SomeOtherComponent someOtherComponent;
+    @BindComponent
+    private SomeOtherComponent someOtherComponent;
 
-	// No need to call Spork.bind() because superclass handles that
+    // No need to call Spork.bind() because superclass handles that
 }
 
 class Parent {
-	@BindComponent
-	private Component component;
+    @BindComponent
+    private Component component;
 
-	public Parent() {
-		// Component is injected and both Component and ComponentBase
-		// annotations are processed
-		Spork.bind(this);
-	}
+    public Parent() {
+        // Component is injected and both Component and ComponentBase
+        // annotations are processed
+        Spork.bind(this);
+    }
 }
 ```

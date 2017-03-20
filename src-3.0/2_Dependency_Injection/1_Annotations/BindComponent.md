@@ -10,12 +10,12 @@ This is the simplest component that you could create:
 
 ```java
 public class Parent {
-	@BindComponent
-	private Child child;
+    @BindComponent
+    private Child child;
 
-	public Parent() {
-		Spork.bind(this);
-	}
+    public Parent() {
+        Spork.bind(this);
+    }
 }
 
 public class Child {
@@ -44,7 +44,7 @@ The singleton scope means that there will be at most 1 instance.
 ```java
 @ComponentScope(ComponentScope.Scope.SINGLETON)
 public class Child {
-	// ...
+    // ...
 }
 ```
 
@@ -57,11 +57,11 @@ It's important that you always use the `@ComponentParent` annotation on the para
 
 ```java
 public class Child {
-	final private Parent parent;
+    final private Parent parent;
 
-	public Child(@ComponentParent Parent parent) {
-		this.parent = parent;
-	}
+    public Child(@ComponentParent Parent parent) {
+        this.parent = parent;
+    }
 }
 ```
 

@@ -13,11 +13,11 @@ When using it for `ViewGroup`, a `FrameLayout` is preferred as the inflated layo
 @BindLayout(R.layout.activity_custom)
 public class CustomActivity extends Activity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Spork.bind(this);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Spork.bind(this);
+    }
 }
 ```
 
@@ -26,10 +26,10 @@ public class CustomActivity extends Activity {
 ```java
 @BindLayout(R.layout.view_custom)
 public class CustomView extends FrameLayout {
-	
-	public MyView(Context context) {
-		super(context);
-		Spork.bind(this);
-	}
+    
+    public MyView(Context context) {
+        super(context);
+        Spork.bind(this);
+    }
 }
 ```

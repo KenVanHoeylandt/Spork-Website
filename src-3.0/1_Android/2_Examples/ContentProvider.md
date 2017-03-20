@@ -11,16 +11,16 @@ The following annotations are supported:
 
 ```java
 public class CustomContentProvider extends ContentProvider {
-	
-	@BindComponent
-	private SomeComponent component;
+    
+    @BindComponent
+    private SomeComponent component;
 
-	@Override
-	public boolean onCreate() {
-		Spork.bind(this);
-		return true;
-	}
+    @Override
+    public boolean onCreate() {
+        Spork.bind(this);
+        return true;
+    }
 
-	// ContentProvider methods
+    // ContentProvider methods
 }
 ```

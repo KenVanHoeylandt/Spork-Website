@@ -9,8 +9,8 @@ The default implementation for mocks/stubs with Spork is by injecting alternativ
 ```java
 // Create a ComponentFactory for mocking
 MockingComponentFactory mockingFactory = new MockingComponentFactory()
-	.register(RegularImplementationA.class, MockedImplementationA.class)
-	.register(RegularImplementationB.class, MockedImplementationB.class);
+    .register(RegularImplementationA.class, MockedImplementationA.class)
+    .register(RegularImplementationB.class, MockedImplementationB.class);
 
 // Assign the new ComponentFactory
 ComponentInstanceManager.setComponentFactory(mockingFactory);
@@ -26,9 +26,9 @@ To enable Mockito support, add the following dependency:
 
 ```groovy
 dependencies {
-	compile ('io.github.sporklibrary:spork-mockito:1.1.0') {
-		exclude group: 'io.github.sporklibrary'
-	}
+    compile ('io.github.sporklibrary:spork-mockito:1.1.0') {
+        exclude group: 'io.github.sporklibrary'
+    }
 }
 ```
 
@@ -39,23 +39,23 @@ Consider the following classes:
 ```java
 public class Component {
 
-	public int getValue() {
-		return 1;
-	}
+    public int getValue() {
+        return 1;
+    }
 }
 
 public class Parent {
 
-	@BindComponent
-	private Component component;
+    @BindComponent
+    private Component component;
 
-	public Parent() {
-		Spork.bind(this);
-	}
+    public Parent() {
+        Spork.bind(this);
+    }
 
-	public Component getComponent() {
-		return component;
-	}
+    public Component getComponent() {
+        return component;
+    }
 }
 ```
 
@@ -87,10 +87,10 @@ All you need to do is implement your own `ComponentFactory` and implement the re
 ```java
 public class CustomMockingComponentFactory implements ComponentFactory {
 
-	@Override
-	public Object create(Class<?> classObject, Object parent) {
-		return CustomMockingFramework.mock(classObject);
-	}
+    @Override
+    public Object create(Class<?> classObject, Object parent) {
+        return CustomMockingFramework.mock(classObject);
+    }
 }
 ```
 

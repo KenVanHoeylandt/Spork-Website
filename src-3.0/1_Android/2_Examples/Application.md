@@ -12,17 +12,17 @@ The following annotations are supported:
 ```java
 public class MyApplication extends android.app.Application {
 
-	@BindComponent
-	private MyComponent component;
+    @BindComponent
+    private MyComponent component;
 
-	@BindResource(R.string.app_name)
-	private String appName;
+    @BindResource(R.string.app_name)
+    private String appName;
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		Spork.bind(this);
-	}
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Spork.bind(this);
+    }
 }
 
 public class MyComponent {
