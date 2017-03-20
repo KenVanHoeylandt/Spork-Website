@@ -10,7 +10,7 @@ Add the following dependencies in `build.gradle`:
 
 ```groovy
 repositories {
-	jcenter()
+    jcenter()
 }
 
 dependencies {

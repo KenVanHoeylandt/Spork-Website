@@ -8,39 +8,35 @@ Use `Spork.bind()` in constructor or initialization methods so Spork can create 
 
 ```java
 class Car implements Vehicle {
-	private final Engine engine;
-	private final Driver driver;
+    private Engine engine;
+    private Driver driver;
 
-	@Inject
-	Car(Engine engine, Driver driver) {
-		this.engine = engine;
-		this.driver = driver;
-	}
+    @Inject
+    Car(Engine engine, Driver driver) {
+        this.engine = engine;
+        this.driver = driver;
+    }
 }
 ```
 
-Spork can inject fields directly. In this example it obtains an `Engine` instance for the `engine` field and a `Driver` instance for the `driver` field.
+Spork can inject fields directly. In this example it obtains an `Engine` and a `Driver` instance for the respective fields:
 
 ```java
 class Car {
-	@Inject private Engine engine;
-	@Inject private Driver driver;
+    @Inject private Engine engine;
+    @Inject private Driver driver;
 
-	public Car() {
-		Spork.bind(...);
-	}
+    ...
 }
 ```
 
 Spork also supports method injection, but Field injection is generally preferred.
 
-Classes that lack `@Inject` annotations cannot be constructed by Spork.
-
 ## Declaring Dependencies
 
 In the above sample, an `Engine` and `Driver` are injected. Of course these dependencies must come from somewhere.
 
-Dependencies should be defined in a Module like this:
+Dependencies should be defined in a `Module` as follows:
 
 ```java
 @Provides Engine provideEngine() {
@@ -66,13 +62,13 @@ The `@Provides`-annotated methods above are placed in a `Module`. Modules are PO
 
 ```java
 class CarModule {
-	@Provides Engine provideEngine(Piston piston) {
-	  return new DieselEngine(piston);
-	}
+    @Provides Engine provideEngine(Piston piston) {
+      return new DieselEngine(piston);
+    }
 
-	@Provides Piston providePiston() {
-	  return new StrongPiston();
-	}
+    @Provides Piston providePiston() {
+      return new StrongPiston();
+    }
 }
 ```
 
@@ -84,32 +80,52 @@ Creating an `ObjectGraph` is easy:
 
 ```java
 ObjectGraph objectGraph = new ObjectGraph.Builder()
-	.module(new CarModule())
-	.build();
+    .module(new CarModule())
+    .build();
 ```
 
 An `ObjectGraph` is then used to inject an instance:
 
 ```java
 class Car {
-	@Inject Engine engine;
-	@Inject Driver driver;
+    @Inject Engine engine;
+    @Inject Driver driver;
 
-	public Car() {
-		Spork.bind(this, objectGraph);
-	}
+    public Car() {
+        Spork.bind(this, objectGraph);
+    }
 }
 ```
 
-Object graphs can be nested. An object graph can have a parent object graph:
+When putting it all together, the car from the sample above could be injected as follows:
+
+```java
+class Car {
+    @Inject private Engine engine;
+    @Inject private Driver driver;
+
+    public Car() {
+        ObjectGraph objectGraph = new ObjectGraph.Builder()
+            .module(new CarModule())
+            .build()
+            .inject(this);
+    }
+}
+```
+
+### ObjectGraph with parent
+
+An object graph can have a parent object graph:
 
 ```java
 ObjectGraph objectGraph = new ObjectGraph.Builder(applicationObjectGraph)
-	.module(new CarModule())
-	.build();
+    .module(new CarModule())
+    .build();
 ```
 
 This way, it can resolve dependencies from its parent *and* from the `CarModule`.
+
+An ObjectGraph's modules can override the dependencies of the parent as long as the injection signature is an exact match: its type, qualifier and nullability must match.
 
 ## Singletons and Scoped bindings
 
@@ -119,11 +135,11 @@ Module methods annotated with `@Provides` can also have scope annotations. Scope
 @Provides
 @Singleton
 UserService provideUserService() {
-	return new UserServiceImpl();
+    return new UserServiceImpl();
 }
 ```
 
-Scoped instances such as the singleton instance above are associated with the `ObjectGraph` that the `Module` belons to. This means that their scope is only valid for objects injected with that `ObjectGraph`.
+Scoped instances such as the singleton instance above are associated with the `ObjectGraph` that the `Module` belongs to. This means that their scope is only valid for objects injected with that `ObjectGraph`.
 
 ## Lazy injection
 
@@ -131,13 +147,13 @@ Instead of injecting an instance directly, they can also injected on a `Lazy<T>`
 
 ```java
 class Car {
-	@Inject private Lazy<Engine> engine;
+    @Inject private Lazy<Engine> engine;
 
-	public Car() {
-		Spork.bind(...);
+    public Car() {
+        ...
 
-		engine.get().start();
-	}
+        engine.get().start();
+    }
 }
 ```
 
@@ -149,13 +165,13 @@ Injecting `Provider<T>` is generally not advised. You might want to use the fact
 
 ```java
 class Car {
-	@Inject private Provider<Engine> engine;
+    @Inject private Provider<Engine> engine;
 
-	public Car() {
-		Spork.bind(...);
+    public Car() {
+        ...
 
-		engine.get().start();
-	}
+        engine.get().start();
+    }
 }
 ```
 
@@ -174,7 +190,7 @@ The `@Named` annotation is one that is available by default:
 @Documented
 @Retention(RUNTIME)
 public @interface Named {
-	String value() default "";
+    String value() default "";
 }
 ```
 
@@ -182,17 +198,17 @@ A module is then available to provide named injections:
 
 ```java
 class CarModule {
-	@Provides
-	@Named("driver")
-	public Seat provideDriverSeat() {
-		...
-	}
+    @Provides
+    @Named("driver")
+    public Seat provideDriverSeat() {
+        ...
+    }
 
-	@Provides
-	@Named("passenger")
-	public Seat providePassengerSeat() {
-		...
-	}
+    @Provides
+    @Named("passenger")
+    public Seat providePassengerSeat() {
+        ...
+    }
 }
 ```
 
@@ -200,15 +216,15 @@ This module can then be used to inject a Car:
 
 ```java
 class Car {
-	@Inject
-	@Named("driver")
-	Seat driverSeat;
+    @Inject
+    @Named("driver")
+    Seat driverSeat;
 
-	@Inject
-	@Named("passenger")
-	Seat passengerSeat;
+    @Inject
+    @Named("passenger")
+    Seat passengerSeat;
 
-	...
+    ...
 }
 ```
 
@@ -221,7 +237,7 @@ You can also define your own qualifiers. For example:
 @Documented
 @Retention(RUNTIME)
 public @interface Colored {
-	Color value() default Color.WHITE;
+    Color value() default Color.WHITE;
 }
 ```
 
@@ -235,7 +251,7 @@ AnnotationSerializerRegistry.register(Colored.class, new ColoredSerializer());
 
 ```groovy
 repositories {
-	jcenter()
+    jcenter()
 }
 
 dependencies {

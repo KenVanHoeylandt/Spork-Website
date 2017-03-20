@@ -39,28 +39,28 @@ private String app_name;
 ```java
 public class MyActivity extends Activity {
 
-	@BindResource(R.string.app_name)
-	private String appName;
-	
-	@BindResource
-	private String app_name;
-	
-	@BindResource(R.dimen.spork_test_dimension)
-	private float sporkTestDimension;
-	
-	@BindResource
-	private Float spork_test_dimension;
-	
-	@BindResource(R.drawable.spork_test_drawable)
-	private Drawable sporkTestDrawable;
-	
-	@BindResource
-	private Drawable spork_test_drawable;
+    @BindResource(R.string.app_name)
+    private String appName;
+    
+    @BindResource
+    private String app_name;
+    
+    @BindResource(R.dimen.spork_test_dimension)
+    private float sporkTestDimension;
+    
+    @BindResource
+    private Float spork_test_dimension;
+    
+    @BindResource(R.drawable.spork_test_drawable)
+    private Drawable sporkTestDrawable;
+    
+    @BindResource
+    private Drawable spork_test_drawable;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Spork.bind(this);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Spork.bind(this);
+    }
 }
 ```

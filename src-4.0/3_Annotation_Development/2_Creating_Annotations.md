@@ -17,22 +17,22 @@ FieldBinders are used for annotations that target `ElementType.FIELD`.
 ### Example
 ```java
 public class BindViewBinder implements FieldBinder<BindView> {
-	
-	@Override
-	public void bind(Object object, BindView annotation, Field field, Object[] modules) {
-		if (!View.class.isAssignableFrom(field.getType())) {
-			throw new BindException(/* ... */);
-		}
+    
+    @Override
+    public void bind(Object object, BindView annotation, Field field, Object[] modules) {
+        if (!View.class.isAssignableFrom(field.getType())) {
+            throw new BindException(/* ... */);
+        }
 
-		View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
+        View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
 
-		Reflection.setFieldValue(annotation, field, object, view);
-	}
+        Reflection.setFieldValue(annotation, field, object, view);
+    }
 
-	@Override
-	public Class<BindView> getAnnotationClass() {
-		return BindView.class;
-	}
+    @Override
+    public Class<BindView> getAnnotationClass() {
+        return BindView.class;
+    }
 }
 ```
 
@@ -45,18 +45,18 @@ MethodBinders are used for annotations that target `ElementType.METHOD`.
 ```java
 public class BindClickBinder implements MethodBinder<BindClick> {
 
-	@Override
-	public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
-		View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
-		view.setOnClickListener(new OnClickListener() {
-			/* handle click */
-		});
-	}
+    @Override
+    public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
+        View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
+        view.setOnClickListener(new OnClickListener() {
+            /* handle click */
+        });
+    }
 
-	@Override
-	public Class<BindClick> getAnnotationClass() {
-		return BindClick.class;
-	}
+    @Override
+    public Class<BindClick> getAnnotationClass() {
+        return BindClick.class;
+    }
 }
 ```
 
@@ -68,30 +68,30 @@ TypeBinders are used for annotations that target `ElementType.TYPE`.
 
 ```java
 public interface IntSettable {
-	void setValue(int value);
+    void setValue(int value);
 }
 
 public class ValueBinder implements TypeBinder<BindValue> {
 
-	@Override
-	void bind(Object object, IntSettable annotation, Class<?> annotatedType, Object[] modules) {
-		// @BindValue only works with IntSettable implementations
-		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
-			throw new BindException(/* ... */);
-		}
+    @Override
+    void bind(Object object, IntSettable annotation, Class<?> annotatedType, Object[] modules) {
+        // @BindValue only works with IntSettable implementations
+        if (!IntSettable.class.isAssignableFrom(object.getClass())) {
+            throw new BindException(/* ... */);
+        }
 
-		// Safely convert to IntSettable
-		IntSettable value_holder = (IntSettable)object;
+        // Safely convert to IntSettable
+        IntSettable value_holder = (IntSettable)object;
 
-		// Set the integer value
-		int value = annotatedClass.getAnnotation().value();
-		value_holder.setValue(value);
-	}
+        // Set the integer value
+        int value = annotatedClass.getAnnotation().value();
+        value_holder.setValue(value);
+    }
 
-	@Override
-	public Class<BindValue> getAnnotationClass() {
-		return BindValue.class;
-	}
+    @Override
+    public Class<BindValue> getAnnotationClass() {
+        return BindValue.class;
+    }
 }
 
 ```
@@ -113,7 +113,7 @@ public @interface YourAnnotation {
 **YourAnnotationBinder.java**
 ```java
 class YourAnnotationBinder implements MethodBinder<YourAnnotation> {
-	// implementation
+    // implementation
 }
 ```
 
@@ -137,8 +137,8 @@ public @interface YourAnnotation {
 **YourAnnotationBinder.java**
 ```java
 class YourAnnotationBinder
-	implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation> {
-	// implementation
+    implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation> {
+    // implementation
 }
 ```
 

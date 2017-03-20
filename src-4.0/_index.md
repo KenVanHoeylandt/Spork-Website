@@ -41,7 +41,7 @@ All dependencies are available at [Maven Central Repository](http://search.maven
 
 - repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot
 - base packages moved from `io.github.sporklibrary` to `spork`
-- `@BindComponent` is now `@Inject` (with support for `@Nullable`, `@NonNull` and `@Lazy` annotations)
+- `@BindComponent` is now `@Inject` and injection is done with dependencies defined by an `ObjectGraph` and its modules.
 - `@ComponentScope(Scope.SINGLETON)` is now `@Singleton`
 - removed custom support for `RecyclerView.ViewHolder` as you can now make it implement `ViewProvider`
 - `FieldBinder`, `MethodBinder` and `TypeBinder` interfaces are changed

@@ -8,7 +8,7 @@ Add the following dependencies in `build.gradle`:
 
 ```groovy
 repositories {
-	jcenter()
+    jcenter()
 }
 
 dependencies {
@@ -21,58 +21,58 @@ dependencies {
 
 ```java
 public static class Module {
-	@Provides
-	public Integer provideNumber() {
-		return 1;
-	}
+    @Provides
+    public Integer provideNumber() {
+        return 1;
+    }
 
-	@Provides
-	@Named("color")
-	public String provideColor() {
-		return "red";
-	}
+    @Provides
+    @Named("color")
+    public String provideColor() {
+        return "red";
+    }
 
-	@Provides
-	@Named("label")
-	public String provideLabel() {
-		return "Hi!";
-	}
+    @Provides
+    @Named("label")
+    public String provideLabel() {
+        return "Hi!";
+    }
 
-	@Provides
-	@Singleton
-	public RestService provideRestService(HttpService service) {
-		return new RestServiceImpl(service);
-	}
+    @Provides
+    @Singleton
+    public RestService provideRestService(HttpService service) {
+        return new RestServiceImpl(service);
+    }
 
-	@Provides
-	@Singleton
-	public HttpService provideHttpService() {
-		return new HttpServiceImpl(service);
-	}
+    @Provides
+    @Singleton
+    public HttpService provideHttpService() {
+        return new HttpServiceImpl(service);
+    }
 }
 
 private static class Parent {
-	@Inject
-	private Integer number;
+    @Inject
+    private Integer number;
 
-	@Inject
-	@Named("color")
-	private String color;
+    @Inject
+    @Named("color")
+    private String color;
 
-	@Inject
-	@Named("label")
-	private String label;
+    @Inject
+    @Named("label")
+    private String label;
 
-	@Inject
-	private RestService restService;
+    @Inject
+    private RestService restService;
 
-	public Parent() {
-		ObjectGraph graph = new ObjectGraph.Builder()
-				.module(new Module())
-				.build();
+    public Parent() {
+        ObjectGraph graph = new ObjectGraph.Builder()
+                .module(new Module())
+                .build();
 
-		Spork.bind(this, graph);
-	}
+        Spork.bind(this, graph);
+    }
 }
 ```
 
