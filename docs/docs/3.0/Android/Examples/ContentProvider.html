@@ -85,17 +85,17 @@
 </ul>
 <h2 id="page_Example">Example</h2>
 <pre><code class="language-java">public class CustomContentProvider extends ContentProvider {
-	
-	@BindComponent
-	private SomeComponent component;
+    
+    @BindComponent
+    private SomeComponent component;
 
-	@Override
-	public boolean onCreate() {
-		Spork.bind(this);
-		return true;
-	}
+    @Override
+    public boolean onCreate() {
+        Spork.bind(this);
+        return true;
+    }
 
-	// ContentProvider methods
+    // ContentProvider methods
 }
 </code></pre>
     </div>

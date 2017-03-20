@@ -78,8 +78,8 @@
 <p>The default implementation for mocks/stubs with Spork is by injecting alternative classes into objects:</p>
 <pre><code class="language-java">// Create a ComponentFactory for mocking
 MockingComponentFactory mockingFactory = new MockingComponentFactory()
-	.register(RegularImplementationA.class, MockedImplementationA.class)
-	.register(RegularImplementationB.class, MockedImplementationB.class);
+    .register(RegularImplementationA.class, MockedImplementationA.class)
+    .register(RegularImplementationB.class, MockedImplementationB.class);
 
 // Assign the new ComponentFactory
 ComponentInstanceManager.setComponentFactory(mockingFactory);
@@ -89,32 +89,32 @@ ComponentInstanceManager.setComponentFactory(mockingFactory);
 <h3 id="page_Configuration">Configuration</h3>
 <p>To enable Mockito support, add the following dependency:</p>
 <pre><code class="language-groovy">dependencies {
-	compile ('io.github.sporklibrary:spork-mockito:1.1.0') {
-		exclude group: 'io.github.sporklibrary'
-	}
+    compile ('io.github.sporklibrary:spork-mockito:1.1.0') {
+        exclude group: 'io.github.sporklibrary'
+    }
 }
 </code></pre>
 <h3 id="page_Example">Example</h3>
 <p>Consider the following classes:</p>
 <pre><code class="language-java">public class Component {
 
-	public int getValue() {
-		return 1;
-	}
+    public int getValue() {
+        return 1;
+    }
 }
 
 public class Parent {
 
-	@BindComponent
-	private Component component;
+    @BindComponent
+    private Component component;
 
-	public Parent() {
-		Spork.bind(this);
-	}
+    public Parent() {
+        Spork.bind(this);
+    }
 
-	public Component getComponent() {
-		return component;
-	}
+    public Component getComponent() {
+        return component;
+    }
 }
 </code></pre>
 <p>To start mocking, this needs to be done:</p>
@@ -138,10 +138,10 @@ assertEquals(&quot;mocked overridden value&quot;, 2, mockedComponent.getValue())
 <p>All you need to do is implement your own <code>ComponentFactory</code> and implement the required methods:</p>
 <pre><code class="language-java">public class CustomMockingComponentFactory implements ComponentFactory {
 
-	@Override
-	public Object create(Class&lt;?&gt; classObject, Object parent) {
-		return CustomMockingFramework.mock(classObject);
-	}
+    @Override
+    public Object create(Class&lt;?&gt; classObject, Object parent) {
+        return CustomMockingFramework.mock(classObject);
+    }
 }
 </code></pre>
 <p>All that is left is registering it:</p>

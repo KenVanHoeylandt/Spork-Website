@@ -80,25 +80,25 @@
 <p>FieldBinders are used for annotations that target <code>ElementType.FIELD</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public class BindViewBinder implements FieldBinder&lt;BindView&gt; {
-	
-	@Override
-	public Class&lt;BindView&gt; getAnnotationClass() {
-		return BindView.class;
-	}
+    
+    @Override
+    public Class&lt;BindView&gt; getAnnotationClass() {
+        return BindView.class;
+    }
 
-	@Override
-	public void bind(final Object object, final AnnotatedField&lt;BindView&gt; annotatedField) {
-		// Internally retrieves a `View` from the `object`
-		// by checking its type (Activity/Fragment/View)
-		final @Nullable View view = resolveView(object, annotatedField);
+    @Override
+    public void bind(final Object object, final AnnotatedField&lt;BindView&gt; annotatedField) {
+        // Internally retrieves a `View` from the `object`
+        // by checking its type (Activity/Fragment/View)
+        final @Nullable View view = resolveView(object, annotatedField);
 
-		if (view == null) {
-			throw new BindException(...);
-		}
+        if (view == null) {
+            throw new BindException(...);
+        }
 
-		// Set the value for the object given the AnnotatedField
-		AnnotatedFields.set(annotatedField, object, view);
-	}
+        // Set the value for the object given the AnnotatedField
+        AnnotatedFields.set(annotatedField, object, view);
+    }
 }
 </code></pre>
 <p>Check out the <code>@BindView</code> annotation binder: <code>BindViewBinder</code> <a href="https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindViewBinder.java" class="external">here</a>.</p>
@@ -106,26 +106,26 @@
 <p>MethodBinders are used for annotations that target <code>ElementType.METHOD</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public class BindClickBinder implements MethodBinder&lt;BindClick&gt; {
-	
-	@Override
-	public Class&lt;BindClick&gt; getAnnotationClass() {
-		return BindClick.class;
-	}
+    
+    @Override
+    public Class&lt;BindClick&gt; getAnnotationClass() {
+        return BindClick.class;
+    }
 
-	@Override
-	public void bind(final Object object, AnnotatedMethod&lt;BindClick&gt; annotatedMethod) {
-		// Internally retrieves a 'View' from the `object`
-		// by checking its type (Activity/Fragment/View)
-		final @Nullable View view = getView(object, annotatedMethod);
+    @Override
+    public void bind(final Object object, AnnotatedMethod&lt;BindClick&gt; annotatedMethod) {
+        // Internally retrieves a 'View' from the `object`
+        // by checking its type (Activity/Fragment/View)
+        final @Nullable View view = getView(object, annotatedMethod);
 
-		if (view == null) {
-			throw new BindException(...);
-		}
+        if (view == null) {
+            throw new BindException(...);
+        }
 
-		// Bind the custom OnClickListener that applies Java reflection
-		// This saves CPU-intensive reflection calls until when it's necessary
-		view.setOnClickListener(new CustomListener(annotatedMethod, object));
-	}
+        // Bind the custom OnClickListener that applies Java reflection
+        // This saves CPU-intensive reflection calls until when it's necessary
+        view.setOnClickListener(new CustomListener(annotatedMethod, object));
+    }
 }
 </code></pre>
 <p>Check out the <code>@BindClick</code> annotation binder: <code>BindClickBinder</code> <a href="https://github.com/SporkLibrary/Spork/blob/master/spork-android/src/main/java/io/github/sporklibrary/android/binders/BindClickBinder.java" class="external">here</a>.</p>
@@ -133,30 +133,30 @@
 <p>TypeBinders are used for annotations that target <code>ElementType.TYPE</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public interface IntSettable {
-	void setValue(int value);
+    void setValue(int value);
 }
 
 public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
-	
-	@Override
-	public Class&lt;BindValue&gt; getAnnotationClass() {
-		return BindValue.class;
-	}
+    
+    @Override
+    public Class&lt;BindValue&gt; getAnnotationClass() {
+        return BindValue.class;
+    }
 
-	@Override
-	public void bind(Object object, AnnotatedType&lt;BindValue&gt; annotatedClass) {
-		// @BindValue only works with IntSettable implementations
-		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
-			throw new BindException(...);
-		}
+    @Override
+    public void bind(Object object, AnnotatedType&lt;BindValue&gt; annotatedClass) {
+        // @BindValue only works with IntSettable implementations
+        if (!IntSettable.class.isAssignableFrom(object.getClass())) {
+            throw new BindException(...);
+        }
 
-		// Safely convert to IntSettable
-		IntSettable value_holder = (IntSettable)object;
+        // Safely convert to IntSettable
+        IntSettable value_holder = (IntSettable)object;
 
-		// Set the integer value
-		int value = annotatedClass.getAnnotation().value();
-		value_holder.setValue(value);
-	}
+        // Set the integer value
+        int value = annotatedClass.getAnnotation().value();
+        value_holder.setValue(value);
+    }
 }
 
 </code></pre>
@@ -172,7 +172,7 @@ public @interface YourAnnotation {
 </code></pre>
 <p><strong>YourAnnotationBinder.java</strong></p>
 <pre><code class="language-java">class YourAnnotationBinder implements MethodBinder&lt;YourAnnotation&gt; {
-	// implementation
+    // implementation
 }
 </code></pre>
 <p><strong>Main.java</strong></p>
@@ -188,8 +188,8 @@ public @interface YourAnnotation {
 </code></pre>
 <p><strong>YourAnnotationBinder.java</strong></p>
 <pre><code class="language-java">class YourAnnotationBinder
-	implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
-	// implementation
+    implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
+    // implementation
 }
 </code></pre>
 <p><strong>Main.java</strong></p>

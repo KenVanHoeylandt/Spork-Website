@@ -91,22 +91,22 @@
 <p>FieldBinders are used for annotations that target <code>ElementType.FIELD</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public class BindViewBinder implements FieldBinder&lt;BindView&gt; {
-	
-	@Override
-	public void bind(Object object, BindView annotation, Field field, Object[] modules) {
-		if (!View.class.isAssignableFrom(field.getType())) {
-			throw new BindException(/* ... */);
-		}
+    
+    @Override
+    public void bind(Object object, BindView annotation, Field field, Object[] modules) {
+        if (!View.class.isAssignableFrom(field.getType())) {
+            throw new BindException(/* ... */);
+        }
 
-		View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
+        View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
 
-		Reflection.setFieldValue(annotation, field, object, view);
-	}
+        Reflection.setFieldValue(annotation, field, object, view);
+    }
 
-	@Override
-	public Class&lt;BindView&gt; getAnnotationClass() {
-		return BindView.class;
-	}
+    @Override
+    public Class&lt;BindView&gt; getAnnotationClass() {
+        return BindView.class;
+    }
 }
 </code></pre>
 <h2 id="page_MethodBinder">MethodBinder</h2>
@@ -114,48 +114,48 @@
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public class BindClickBinder implements MethodBinder&lt;BindClick&gt; {
 
-	@Override
-	public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
-		View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
-		view.setOnClickListener(new OnClickListener() {
-			/* handle click */
-		});
-	}
+    @Override
+    public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
+        View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
+        view.setOnClickListener(new OnClickListener() {
+            /* handle click */
+        });
+    }
 
-	@Override
-	public Class&lt;BindClick&gt; getAnnotationClass() {
-		return BindClick.class;
-	}
+    @Override
+    public Class&lt;BindClick&gt; getAnnotationClass() {
+        return BindClick.class;
+    }
 }
 </code></pre>
 <h2 id="page_TypeBinder">TypeBinder</h2>
 <p>TypeBinders are used for annotations that target <code>ElementType.TYPE</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public interface IntSettable {
-	void setValue(int value);
+    void setValue(int value);
 }
 
 public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
 
-	@Override
-	void bind(Object object, IntSettable annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
-		// @BindValue only works with IntSettable implementations
-		if (!IntSettable.class.isAssignableFrom(object.getClass())) {
-			throw new BindException(/* ... */);
-		}
+    @Override
+    void bind(Object object, IntSettable annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
+        // @BindValue only works with IntSettable implementations
+        if (!IntSettable.class.isAssignableFrom(object.getClass())) {
+            throw new BindException(/* ... */);
+        }
 
-		// Safely convert to IntSettable
-		IntSettable value_holder = (IntSettable)object;
+        // Safely convert to IntSettable
+        IntSettable value_holder = (IntSettable)object;
 
-		// Set the integer value
-		int value = annotatedClass.getAnnotation().value();
-		value_holder.setValue(value);
-	}
+        // Set the integer value
+        int value = annotatedClass.getAnnotation().value();
+        value_holder.setValue(value);
+    }
 
-	@Override
-	public Class&lt;BindValue&gt; getAnnotationClass() {
-		return BindValue.class;
-	}
+    @Override
+    public Class&lt;BindValue&gt; getAnnotationClass() {
+        return BindValue.class;
+    }
 }
 
 </code></pre>
@@ -170,7 +170,7 @@ public @interface YourAnnotation {
 </code></pre>
 <p><strong>YourAnnotationBinder.java</strong></p>
 <pre><code class="language-java">class YourAnnotationBinder implements MethodBinder&lt;YourAnnotation&gt; {
-	// implementation
+    // implementation
 }
 </code></pre>
 <p><strong>Main.java</strong></p>
@@ -186,8 +186,8 @@ public @interface YourAnnotation {
 </code></pre>
 <p><strong>YourAnnotationBinder.java</strong></p>
 <pre><code class="language-java">class YourAnnotationBinder
-	implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
-	// implementation
+    implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
+    // implementation
 }
 </code></pre>
 <p><strong>Main.java</strong></p>

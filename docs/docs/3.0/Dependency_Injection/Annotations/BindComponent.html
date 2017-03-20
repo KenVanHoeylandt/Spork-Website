@@ -78,12 +78,12 @@
 <p>Components don't need to call <code>Spork.bind()</code> itself, but it is perfectly fine to do so.</p>
 <p>This is the simplest component that you could create:</p>
 <pre><code class="language-java">public class Parent {
-	@BindComponent
-	private Child child;
+    @BindComponent
+    private Child child;
 
-	public Parent() {
-		Spork.bind(this);
-	}
+    public Parent() {
+        Spork.bind(this);
+    }
 }
 
 public class Child {
@@ -101,7 +101,7 @@ private SomethingInterface something;
 <p>The singleton scope means that there will be at most 1 instance.</p>
 <pre><code class="language-java">@ComponentScope(ComponentScope.Scope.SINGLETON)
 public class Child {
-	// ...
+    // ...
 }
 </code></pre>
 <h2 id="page_Parent">Parent</h2>
@@ -109,11 +109,11 @@ public class Child {
 It is also not required to call Spork.bind() on the referenced component.</p>
 <p>It's important that you always use the <code>@ComponentParent</code> annotation on the parameter.</p>
 <pre><code class="language-java">public class Child {
-	final private Parent parent;
+    final private Parent parent;
 
-	public Child(@ComponentParent Parent parent) {
-		this.parent = parent;
-	}
+    public Child(@ComponentParent Parent parent) {
+        this.parent = parent;
+    }
 }
 </code></pre>
 <p>The default scope creates a new instance for each binding.</p>

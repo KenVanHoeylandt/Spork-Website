@@ -85,21 +85,21 @@
 <pre><code class="language-java">@BindLayout(R.layout.activity_custom)
 public class CustomActivity extends Activity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Spork.bind(this);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Spork.bind(this);
+    }
 }
 </code></pre>
 <h2 id="page_Example%3A+ViewGroup">Example: ViewGroup</h2>
 <pre><code class="language-java">@BindLayout(R.layout.view_custom)
 public class CustomView extends FrameLayout {
-	
-	public MyView(Context context) {
-		super(context);
-		Spork.bind(this);
-	}
+    
+    public MyView(Context context) {
+        super(context);
+        Spork.bind(this);
+    }
 }
 </code></pre>
     </div>

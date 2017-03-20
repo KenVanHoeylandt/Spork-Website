@@ -77,7 +77,7 @@
 <h2 id="page_Dependencies">Dependencies</h2>
 <p>Add the following dependencies in <code>build.gradle</code>:</p>
 <pre><code class="language-groovy">repositories {
-	jcenter()
+    jcenter()
 }
 
 dependencies {
@@ -87,58 +87,58 @@ dependencies {
 </code></pre>
 <h2 id="page_Example">Example</h2>
 <pre><code class="language-java">public static class Module {
-	@Provides
-	public Integer provideNumber() {
-		return 1;
-	}
+    @Provides
+    public Integer provideNumber() {
+        return 1;
+    }
 
-	@Provides
-	@Named(&quot;color&quot;)
-	public String provideColor() {
-		return &quot;red&quot;;
-	}
+    @Provides
+    @Named(&quot;color&quot;)
+    public String provideColor() {
+        return &quot;red&quot;;
+    }
 
-	@Provides
-	@Named(&quot;label&quot;)
-	public String provideLabel() {
-		return &quot;Hi!&quot;;
-	}
+    @Provides
+    @Named(&quot;label&quot;)
+    public String provideLabel() {
+        return &quot;Hi!&quot;;
+    }
 
-	@Provides
-	@Singleton
-	public RestService provideRestService(HttpService service) {
-		return new RestServiceImpl(service);
-	}
+    @Provides
+    @Singleton
+    public RestService provideRestService(HttpService service) {
+        return new RestServiceImpl(service);
+    }
 
-	@Provides
-	@Singleton
-	public HttpService provideHttpService() {
-		return new HttpServiceImpl(service);
-	}
+    @Provides
+    @Singleton
+    public HttpService provideHttpService() {
+        return new HttpServiceImpl(service);
+    }
 }
 
 private static class Parent {
-	@Inject
-	private Integer number;
+    @Inject
+    private Integer number;
 
-	@Inject
-	@Named(&quot;color&quot;)
-	private String color;
+    @Inject
+    @Named(&quot;color&quot;)
+    private String color;
 
-	@Inject
-	@Named(&quot;label&quot;)
-	private String label;
+    @Inject
+    @Named(&quot;label&quot;)
+    private String label;
 
-	@Inject
-	private RestService restService;
+    @Inject
+    private RestService restService;
 
-	public Parent() {
-		ObjectGraph graph = new ObjectGraph.Builder()
-				.module(new Module())
-				.build();
+    public Parent() {
+        ObjectGraph graph = new ObjectGraph.Builder()
+                .module(new Module())
+                .build();
 
-		Spork.bind(this, graph);
-	}
+        Spork.bind(this, graph);
+    }
 }
 </code></pre>
     </div>
