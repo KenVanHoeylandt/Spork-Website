@@ -67,11 +67,10 @@ private static class Parent {
     private RestService restService;
 
     public Parent() {
-        ObjectGraph graph = new ObjectGraph.Builder()
+        new ObjectGraph.Builder()
                 .module(new Module())
-                .build();
-
-        Spork.bind(this, graph);
+                .build()
+                .inject(this);
     }
 }
 ```

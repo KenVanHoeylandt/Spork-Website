@@ -127,19 +127,33 @@ This way, it can resolve dependencies from its parent *and* from the `CarModule`
 
 An ObjectGraph's modules can override the dependencies of the parent as long as the injection signature is an exact match: its type, qualifier and nullability must match.
 
-## Singletons and Scoped bindings
+## Scoped injection
 
-Module methods annotated with `@Provides` can also have scope annotations. Scopes can be custom-made, but `@Singleton` is one that is available by default. It can be used like this:
+A scoped instance is an instance that belongs to an `ObjectGraph` created at a specific level of the application. It is tied to the lifecycle of that `ObjectGraph`.
+
+`Singleton` is a predefined scope that is always available at the root `ObjectGraph` in your application. It is tied to the lifecycle of that `ObjectGraph`.
+
+`@Provides` methods in a module can specify a scope. It can be used like this:
 
 ```java
 @Provides
 @Singleton
 UserService provideUserService() {
-    return new UserServiceImpl();
+    return new UserService();
 }
 ```
 
-Scoped instances such as the singleton instance above are associated with the `ObjectGraph` that the `Module` belongs to. This means that their scope is only valid for objects injected with that `ObjectGraph`.
+You can also create [custom scopes](3_Custom_Scopes), which can look like this:
+
+```java
+@Provides
+@SessionScope
+Service provideService() {
+    return new Service();
+}
+```
+
+In this case, the `Service` is bound to the lifecycle of the `ObjectGraph` that defines the `SessionScope`.
 
 ## Lazy injection
 
@@ -234,18 +248,22 @@ You can also define your own qualifiers. For example:
 
 ```java
 @Qualifier
-@Documented
+@Retention(RUNTIME)
+public @interface Fancy {
+}
+```
+
+Using a `value()` method is also supported:
+
+```java
+@Qualifier
 @Retention(RUNTIME)
 public @interface Colored {
     Color value() default Color.WHITE;
 }
 ```
 
-After defining the annotation, we have to define how it can serialize into a unique identifier:
-
-```java
-AnnotationSerializerRegistry.register(Colored.class, new ColoredSerializer());
-```
+The output of `value()` is used to create a unique identifier. This is done internally by calling `toString()` on `Color`.
 
 ## Adding spork to your project
 
