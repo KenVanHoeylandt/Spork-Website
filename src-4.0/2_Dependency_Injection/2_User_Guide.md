@@ -4,7 +4,8 @@
 
 Spork creates instances of your classes and satisfies their dependencies. It uses the `javax.inject.Inject` annotation to identify which constructors and fields it is interested in.
 
-Use `Spork.bind()` in constructor or initialization methods so Spork can create instances of the dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.
+Use the `ObjectGraph.bind()` method in a constructor or initialization method to wire up all dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.
+When `bind()` is called on an `ObjectGraph`, any other registered Spork binding (e.g. @BindView) is also resolved.
 
 ```java
 class Car implements Vehicle {
@@ -79,7 +80,7 @@ A module is used to build an object graph. Object graphs hold state such as your
 Creating an `ObjectGraph` is easy:
 
 ```java
-ObjectGraph objectGraph = new ObjectGraph.Builder()
+ObjectGraph objectGraph = ObjectGraphs.builder()
     .module(new CarModule())
     .build();
 ```
@@ -105,7 +106,7 @@ class Car {
     @Inject private Driver driver;
 
     public Car() {
-        ObjectGraph objectGraph = new ObjectGraph.Builder()
+        ObjectGraphs.builder()
             .module(new CarModule())
             .build()
             .inject(this);
@@ -118,7 +119,7 @@ class Car {
 An object graph can have a parent object graph:
 
 ```java
-ObjectGraph objectGraph = new ObjectGraph.Builder(applicationObjectGraph)
+ObjectGraph objectGraph = ObjectGraphs.builder(applicationObjectGraph)
     .module(new CarModule())
     .build();
 ```

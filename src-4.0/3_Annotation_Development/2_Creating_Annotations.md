@@ -8,7 +8,7 @@ Spork annotations are bound through one or more of:
 - `FieldBinder`
 - `TypeBinder`
 
-These binders are registered through a `BinderRegistery` which is accessible through `Spork.sharedInstance().getBinderRegistry()`
+These binders are registered with `Spork.register()`
 
 ## FieldBinder
 
@@ -19,9 +19,9 @@ FieldBinders are used for annotations that target `ElementType.FIELD`.
 public class BindViewBinder implements FieldBinder<BindView> {
     
     @Override
-    public void bind(Object object, BindView annotation, Field field, Object[] modules) {
+    public void bind(Object object, BindView annotation, Field field, Object... parameters) {
         if (!View.class.isAssignableFrom(field.getType())) {
-            throw new BindException(/* ... */);
+            throw new BindFailed(...);
         }
 
         View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
@@ -46,10 +46,10 @@ MethodBinders are used for annotations that target `ElementType.METHOD`.
 public class BindClickBinder implements MethodBinder<BindClick> {
 
     @Override
-    public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
+    public void bind(Object object, BindClick annotation, Method method, Object... parameters) {
         View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
         view.setOnClickListener(new OnClickListener() {
-            /* handle click */
+            // ...
         });
     }
 
@@ -67,87 +67,67 @@ TypeBinders are used for annotations that target `ElementType.TYPE`.
 ### Example
 
 ```java
-public interface IntSettable {
+
+@Target({ ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SetValue {
+    int value();
+}
+
+public interface ValueSetter {
     void setValue(int value);
 }
 
-public class ValueBinder implements TypeBinder<BindValue> {
+public class ValueBinder implements TypeBinder<SetValue> {
 
     @Override
-    void bind(Object object, IntSettable annotation, Class<?> annotatedType, Object[] modules) {
-        // @BindValue only works with IntSettable implementations
-        if (!IntSettable.class.isAssignableFrom(object.getClass())) {
-            throw new BindException(/* ... */);
+    void bind(Object object, ValueSetter annotation, Class<?> annotatedType, Object... parameters) {
+        // @SetValue only works with ValueSetter implementations
+        if (object instanceof ValueSetter) {
+            // Safely convert to ValueSetter
+            ValueSetter value_holder = (ValueSetter)object;
+
+            // Set the integer value
+            int value = annotatedClass.getAnnotation().value();
+            value_holder.setValue(value);
+        } else {
+            throw new BindFailed(...);
         }
-
-        // Safely convert to IntSettable
-        IntSettable value_holder = (IntSettable)object;
-
-        // Set the integer value
-        int value = annotatedClass.getAnnotation().value();
-        value_holder.setValue(value);
     }
 
     @Override
-    public Class<BindValue> getAnnotationClass() {
-        return BindValue.class;
+    public Class<SetValue> getAnnotationClass() {
+        return SetValue.class;
     }
 }
 
+```
+
+Usage:
+
+```java
+
+@SetValue(123)
+class Example implements ValueSetter {
+    private int value;
+
+    public Example() {
+        Spork.bind(this); // ensures "123" is set through setValue()
+    }
+
+    @Override
+    public void setValue(int value) {
+        this.value = value;
+    }
+}
 ```
 
 ## Binder registration
 
-### Single target binders
+Registering new binders must be done before the first call to `bind()`.
 
-For binders that only bind to a single annotation target (e.g. `ElementType.FIELD`, `ElementType.METHOD` or `ElementType.TYPE`). The following code demonstrates this.
+Registration is done as follows:
 
-**YourAnnotation.java**
 ```java
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface YourAnnotation {
-}
-```
-
-**YourAnnotationBinder.java**
-```java
-class YourAnnotationBinder implements MethodBinder<YourAnnotation> {
-    // implementation
-}
-```
-
-**Main.java**
-```java
-Spork.sharedInstance().getBinderRegistry().register(new YourAnnotationBinder());
-```
-
-### Multi-target binders
-
-For binders that only bind to multiple annotation targets (e.g. `ElementType.FIELD`, `ElementType.METHOD` or `ElementType.TYPE`). The following code demonstrates this.
-
-**YourAnnotation.java**
-```java
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.METHOD, Element.FIELD })
-public @interface YourAnnotation {
-}
-```
-
-**YourAnnotationBinder.java**
-```java
-class YourAnnotationBinder
-    implements MethodBinder<YourAnnotation>, FieldBinder<YourAnnotation> {
-    // implementation
-}
-```
-
-**Main.java**
-```java
-YourAnnotationBinder binder = new YourAnnotationBinder();
-
-// register as MethodBinder
-Spork.sharedInstance().getBinderRegistry().register((MethodBinder<YourAnnotation>)binder);
-// register as FieldBinder
-Spork.sharedInstance().getBinderRegistry().register((FieldBinder<YourAnnotation>)binder);
+Spork.register(new YourAnnotationBinder());
 ```

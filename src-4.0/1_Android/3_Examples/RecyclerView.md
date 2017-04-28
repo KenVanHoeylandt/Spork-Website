@@ -2,14 +2,13 @@
 
 ## Introduction
 
-To bind `RecyclerView` views, you need to make `RecyclerView.ViewHolder` implement `io.github.sporklibrary.android.interfaces.ViewProvider`.
+To bind `RecyclerView` views, you need to make `RecyclerView.ViewHolder` implement `spork.android.ViewProvider`.
 
 The following annotations are supported:
 
  - `@BindView`
  - `@BindClick`
  - `@BindResource`
- - `@Inject`
 
 ## Example
 

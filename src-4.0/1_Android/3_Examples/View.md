@@ -10,7 +10,6 @@ The following annotations are supported:
  - `@BindView`
  - `@BindLayout`
  - `@BindResource`
- - `@Inject`
 
 ## Example
 

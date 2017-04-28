@@ -12,13 +12,10 @@ repositories {
 }
 
 dependencies {
-	// Spork core
-    compile 'com.bytewelder.spork:spork:4.0.0'
-
     // Spork Dependency Injection
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 
-    // Spork for Android (second line is optional)
+    // Spork for Android (pick one of the dependencies below)
     compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
     compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
@@ -30,7 +27,6 @@ Add the following dependencies in `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.bytewelder.spork:spork:4.0.0'
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
 ```
@@ -40,7 +36,7 @@ All dependencies are available at [Maven Central Repository](http://search.maven
 ## Migrating from 3.x to 4.0:
 
 - repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot
-- base packages moved from `io.github.sporklibrary` to `spork`
+- base packages renamed from `io.github.sporklibrary` to `spork`
 - `@BindComponent` is now `@Inject` and injection is done with dependencies defined by an `ObjectGraph` and its modules.
 - `@ComponentScope(Scope.SINGLETON)` is now `@Singleton`
 - removed custom support for `RecyclerView.ViewHolder` as you can now make it implement `ViewProvider`

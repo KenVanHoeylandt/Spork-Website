@@ -5,7 +5,6 @@
 The following annotations are supported:
 
  - `@BindResource`
- - `@Inject`
 
 ## Example
 

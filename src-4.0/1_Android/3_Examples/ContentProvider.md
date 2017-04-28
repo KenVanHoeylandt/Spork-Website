@@ -5,7 +5,6 @@
 The following annotations are supported:
 
  - `@BindResource`
- - `@Inject`
 
 ## Example
 
@@ -17,7 +16,7 @@ public class CustomContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        Spork.bind(this, new Module());
+        Spork.bind(this);
         return true;
     }
 

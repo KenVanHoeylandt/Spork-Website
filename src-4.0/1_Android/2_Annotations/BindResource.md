@@ -9,8 +9,8 @@ This annotation can be used with classes inheriting/implementing:
 - android.content.`ContentProvider`
 - android.support.v4.app.`Fragment` (with the `spork-android-support` dependency)
 - android.view.`View`
-- io.github.sporklibrary.android.interfaces.`ContextProvider`
-- io.github.sporklibrary.android.interfaces.`ViewProvider`
+- spork.android.`ContextProvider`
+- spork.android.`ViewProvider`
 
 It can bind:
 

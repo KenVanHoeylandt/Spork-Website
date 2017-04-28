@@ -9,7 +9,6 @@ The following annotations are supported:
  - `@BindLayout`
  - `@BindResource`
  - `@BindFragment`
- - `@Inject`
 
 ## Example
 
@@ -25,7 +24,7 @@ public class DownloadActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Spork.bind(this); // Spork does its magic
+        Spork.bind(this);
     }
 
     @BindClick(R.id.other_button)

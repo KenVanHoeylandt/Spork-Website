@@ -15,13 +15,8 @@ repositories {
 }
 
 dependencies {
-    // Spork core
-    compile 'com.bytewelder.spork:spork:4.0.0'
-    
-    // Spork for Android (second line is optional)
+    // Spork for Android (pick one of the dependencies below)
     compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
-    
-    // Spork for Android: support libraries (optional)
     compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
 }
 ```

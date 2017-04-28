@@ -1,11 +1,8 @@
 # ProGuard & DexGuard
 
-ProGuard's shrinking process _might_ remove your dependencies, because they are indirectly instantiated by means of reflection.
-To avoid this, you need to specify the classes and interfaces to keep in your proguard configuration.
+When using `spork-android` or `spork-android-support`, your ProGuard configurations are provided by the library.
 
-## Example
-
-You can ensure that your classes and interfaces are kept in an Android ProGuard/DexGuard configuration file:
+When using `spork-inject`, you should manually configure ProGuard/DexGuard for the injectable classes. For example:
 
 ```java
 -keep class com.yourapp.modules.** { *; }

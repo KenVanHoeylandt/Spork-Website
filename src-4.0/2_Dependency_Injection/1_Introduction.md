@@ -12,7 +12,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.bytewelder.spork:spork:4.0.0'
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }
 ```
@@ -67,7 +66,7 @@ private static class Parent {
     private RestService restService;
 
     public Parent() {
-        new ObjectGraph.Builder()
+        ObjectGraphs.builder()
                 .module(new Module())
                 .build()
                 .inject(this);
