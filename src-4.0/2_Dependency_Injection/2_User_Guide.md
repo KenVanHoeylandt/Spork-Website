@@ -39,7 +39,8 @@ In the above sample, an `Coffee` and `Mug` are injected. Of course these depende
 Dependencies should be defined in a `Module` as follows:
 
 ```java
-@Provides Coffee provideCoffee() {
+@Provides
+public Coffee provideCoffee() {
     return new BlackCoffee();
 }
 ```
@@ -47,11 +48,13 @@ Dependencies should be defined in a `Module` as follows:
 It's possible for a `@Provides` method to require dependencies on its own:
 
 ```java
-@Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+@Provides
+public Coffee provideCoffee(Water water, CoffeeBeans beans) {
     return new BlackCoffee(water, beans);
 }
 
-@Provides Mug provideMug() {
+@Provides
+public Mug provideMug() {
     return new MugWithPrint("Input Java, output Java.");
 }
 ```
@@ -62,19 +65,23 @@ The `@Provides`-annotated methods above are placed in a `Module`. Modules are PO
 
 ```java
 class BrewModule {
-    @Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+    @Provides
+    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
         return new BlackCoffee(water, beans);
     }
 
-    @Provides Mug provideMug() {
+    @Provides
+    public Mug provideMug() {
         return new MugWithPrint("Input Java, output Java.");
     }
 
-    @Provides Water provideWater() {
+    @Provides
+    public Water provideWater() {
         return new BoilingWater();
     }
 
-    @Provides Beans provideBeans() {
+    @Provides
+    public Beans provideBeans() {
         return new ArabicaBeans();
     }
 }
@@ -88,7 +95,7 @@ Creating an `ObjectGraph` is easy:
 
 ```java
 ObjectGraph objectGraph = ObjectGraphs.builder()
-    .module(new CoffeeMugModule())
+    .module(new BrewModule())
     .build();
 ```
 
@@ -103,7 +110,7 @@ class CoffeeMug {
         ObjectGraphs.builder()
             .module(new BrewModule())
             .build()
-            .inject(this);
+            .inject(this); // same as Spork.inject(this, objectGraph)
     }
 }
 ```
