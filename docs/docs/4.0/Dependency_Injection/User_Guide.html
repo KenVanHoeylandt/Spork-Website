@@ -99,35 +99,42 @@ When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other reg
 <h2 id="page_Declaring+Dependencies">Declaring Dependencies</h2>
 <p>In the above sample, an <code>Coffee</code> and <code>Mug</code> are injected. Of course these dependencies must come from somewhere.</p>
 <p>Dependencies should be defined in a <code>Module</code> as follows:</p>
-<pre><code class="language-java">@Provides Coffee provideCoffee() {
+<pre><code class="language-java">@Provides
+public Coffee provideCoffee() {
     return new BlackCoffee();
 }
 </code></pre>
 <p>It's possible for a <code>@Provides</code> method to require dependencies on its own:</p>
-<pre><code class="language-java">@Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+<pre><code class="language-java">@Provides
+public Coffee provideCoffee(Water water, CoffeeBeans beans) {
     return new BlackCoffee(water, beans);
 }
 
-@Provides Mug provideMug() {
+@Provides
+public Mug provideMug() {
     return new MugWithPrint(&quot;Input Java, output Java.&quot;);
 }
 </code></pre>
 <h2 id="page_Modules">Modules</h2>
 <p>The <code>@Provides</code>-annotated methods above are placed in a <code>Module</code>. Modules are POJO objects that define a set of dependencies:</p>
 <pre><code class="language-java">class BrewModule {
-    @Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+    @Provides
+    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
         return new BlackCoffee(water, beans);
     }
 
-    @Provides Mug provideMug() {
+    @Provides
+    public Mug provideMug() {
         return new MugWithPrint(&quot;Input Java, output Java.&quot;);
     }
 
-    @Provides Water provideWater() {
+    @Provides
+    public Water provideWater() {
         return new BoilingWater();
     }
 
-    @Provides Beans provideBeans() {
+    @Provides
+    public Beans provideBeans() {
         return new ArabicaBeans();
     }
 }
@@ -136,7 +143,7 @@ When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other reg
 <p>A module is used to build an object graph. Object graphs hold state such as your singletons and named instances.</p>
 <p>Creating an <code>ObjectGraph</code> is easy:</p>
 <pre><code class="language-java">ObjectGraph objectGraph = ObjectGraphs.builder()
-    .module(new CoffeeMugModule())
+    .module(new BrewModule())
     .build();
 </code></pre>
 <p>When putting it all together, the <code>CoffeeMug</code> from the sample above could be injected as follows:</p>
@@ -148,7 +155,7 @@ When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other reg
         ObjectGraphs.builder()
             .module(new BrewModule())
             .build()
-            .inject(this);
+            .inject(this); // same as Spork.inject(this, objectGraph)
     }
 }
 </code></pre>
