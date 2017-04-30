@@ -55,7 +55,7 @@ body {
             </button>
             
             <ul class="dropdown-menu">
-                <li><a href="docs/4.0">Version 4.0 (Preview)</a></li>
+                <li><a href="docs/4.0">Version 4.0 (latest)</a></li>
                 <li><a href="docs/3.0">Version 3.0</a></li>
             </ul>
             &nbsp;
@@ -78,6 +78,8 @@ body {
             </div>
 
             <h2>Spork for Android</h2>
+            <p>The spork-android dependency contains a lot of annotations to write less boilerplate code in Android:</p>
+
 <pre class="prettyprint lang-java">
 @BindLayout(R.layout.activity_download)
 public class YourActivity extends Activity {
@@ -99,34 +101,74 @@ public class YourActivity extends Activity {
         // handle click
     }
 }</pre>
+
+If you want to see more, check out the <a href="docs/4.0/Android/Introduction.html">spork-android documentation</a>.
+
             <h2>Spork Dependency Injection</h2>
 
+            <p>The spork-inject dependency is a JSR-303 DI library that works with Spork.</p>
+
 <pre class="prettyprint lang-java">
-public class Pojo {
+class CoffeeMug {
+    @Inject private Coffee coffee;
+    @Inject private Mug mug;
 
-    @BindComponent
-    private RestService restService;
-
-    public Pojo() {
-        Spork.bind(this);
+    public CoffeeMug() {
+        ObjectGraphs.builder()
+            .module(new BrewModule())
+            .build()
+            .bind(this); // same as Spork.inject(this, objectGraph)
     }
 }
 
-@ComponentScope(scope = ComponentScope.Scope.SINGLETON)
-public class DownloadManager {
-    public void startDownload() { ... }
+class BrewModule {
+    @Provides
+    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
+        return new BlackCoffee(water, beans);
+    }
+
+    @Provides
+    public Mug provideMug() {
+        return new MugWithPrint("Input Java, output Java.");
+    }
+
+    @Provides
+    public Water provideWater() {
+        return new BoilingWater();
+    }
+
+    @Provides
+    public Beans provideBeans() {
+        return new ArabicaBeans();
+    }
 }</pre>
 
-            <h2>Download</h2>
-            
-<pre class="prettyprint lang-groovy">
-dependencies {
-  compile 'io.github.sporklibrary:spork:3.2.0'
-  compile 'io.github.sporklibrary:spork-android:3.0.0@aar'
+If you like this, make sure to check out the <a href="docs/4.0/Dependency_Injection/User_Guide.html">Dependency Injection User Guide</a>.
 
-  // The following dependency is optional.
-  // It requires you to also add: appcompat-v7, support-v4, recyclerview-v7
-  compile 'io.github.sporklibrary:spork-android-support:3.0.0@aar' 
+            <h2>Libraries</h2>
+            
+            <b>Android build.gradle</b>
+
+<pre class="prettyprint lang-groovy">
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // Pick one of the following:
+    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
+    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
+}</pre>
+
+            <b>Dependency Injection build.gradle</b>
+
+<pre class="prettyprint lang-groovy">
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.bytewelder.spork:spork-inject:4.0.0'
 }</pre>
 
             <h2>License</h2>
