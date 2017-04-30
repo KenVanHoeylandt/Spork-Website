@@ -8,24 +8,23 @@ Use the `ObjectGraph.bind()` method in a constructor or initialization method to
 When `bind()` is called on an `ObjectGraph`, any other registered Spork binding (e.g. @BindView) is also resolved.
 
 ```java
-class Car implements Vehicle {
-    private Engine engine;
-    private Driver driver;
+class CoffeeMug {
+    private Coffee coffee;
+    private Mug mug;
 
-    @Inject
-    Car(Engine engine, Driver driver) {
-        this.engine = engine;
-        this.driver = driver;
+    CoffeeMug(Coffee coffee, Mug mug) {
+        this.coffee = coffee;
+        this.mug = mug;
     }
 }
 ```
 
-Spork can inject fields directly. In this example it obtains an `Engine` and a `Driver` instance for the respective fields:
+Spork can inject fields directly. In this example it obtains an `Coffee` and a `Mug` instance for the respective fields:
 
 ```java
-class Car {
-    @Inject private Engine engine;
-    @Inject private Driver driver;
+class CoffeeMug {
+    @Inject private Coffee coffee;
+    @Inject private Mug mug;
 
     ...
 }
@@ -35,25 +34,25 @@ Spork also supports method injection, but Field injection is generally preferred
 
 ## Declaring Dependencies
 
-In the above sample, an `Engine` and `Driver` are injected. Of course these dependencies must come from somewhere.
+In the above sample, an `Coffee` and `Mug` are injected. Of course these dependencies must come from somewhere.
 
 Dependencies should be defined in a `Module` as follows:
 
 ```java
-@Provides Engine provideEngine() {
-  return new DieselEngine();
+@Provides Coffee provideCoffee() {
+    return new BlackCoffee();
 }
 ```
 
 It's possible for a `@Provides` method to require dependencies on its own:
 
 ```java
-@Provides Engine provideEngine(Piston piston) {
-  return new DieselEngine(piston);
+@Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+    return new BlackCoffee(water, beans);
 }
 
-@Provides Piston providePiston() {
-  return new StrongPiston();
+@Provides Mug provideMug() {
+    return new MugWithPrint("Input Java, output Java.");
 }
 ```
 
@@ -62,13 +61,21 @@ It's possible for a `@Provides` method to require dependencies on its own:
 The `@Provides`-annotated methods above are placed in a `Module`. Modules are POJO objects that define a set of dependencies:
 
 ```java
-class CarModule {
-    @Provides Engine provideEngine(Piston piston) {
-      return new DieselEngine(piston);
+class BrewModule {
+    @Provides Coffee provideCoffee(Water water, CoffeeBeans beans) {
+        return new BlackCoffee(water, beans);
     }
 
-    @Provides Piston providePiston() {
-      return new StrongPiston();
+    @Provides Mug provideMug() {
+        return new MugWithPrint("Input Java, output Java.");
+    }
+
+    @Provides Water provideWater() {
+        return new BoilingWater();
+    }
+
+    @Provides Beans provideBeans() {
+        return new ArabicaBeans();
     }
 }
 ```
@@ -81,33 +88,20 @@ Creating an `ObjectGraph` is easy:
 
 ```java
 ObjectGraph objectGraph = ObjectGraphs.builder()
-    .module(new CarModule())
+    .module(new CoffeeMugModule())
     .build();
 ```
 
-An `ObjectGraph` is then used to inject an instance:
+When putting it all together, the `CoffeeMug` from the sample above could be injected as follows:
 
 ```java
-class Car {
-    @Inject Engine engine;
-    @Inject Driver driver;
+class CoffeeMug {
+    @Inject private Coffee coffee;
+    @Inject private Mug mug;
 
-    public Car() {
-        Spork.bind(this, objectGraph);
-    }
-}
-```
-
-When putting it all together, the car from the sample above could be injected as follows:
-
-```java
-class Car {
-    @Inject private Engine engine;
-    @Inject private Driver driver;
-
-    public Car() {
+    public CoffeeMug() {
         ObjectGraphs.builder()
-            .module(new CarModule())
+            .module(new BrewModule())
             .build()
             .inject(this);
     }
@@ -120,11 +114,11 @@ An object graph can have a parent object graph:
 
 ```java
 ObjectGraph objectGraph = ObjectGraphs.builder(applicationObjectGraph)
-    .module(new CarModule())
+    .module(new BrewModule())
     .build();
 ```
 
-This way, it can resolve dependencies from its parent *and* from the `CarModule`.
+This way, it can resolve dependencies from its parent *and* from the `BrewModule`.
 
 An ObjectGraph's modules can override the dependencies of the parent as long as the injection signature is an exact match: its type, qualifier and nullability must match.
 
@@ -139,8 +133,8 @@ A scoped instance is an instance that belongs to an `ObjectGraph` created at a s
 ```java
 @Provides
 @Singleton
-UserService provideUserService() {
-    return new UserService();
+CoffeeService provideCoffeeService() {
+    return new CoffeeServiceImpl();
 }
 ```
 
@@ -148,26 +142,26 @@ You can also create [custom scopes](3_Custom_Scopes), which can look like this:
 
 ```java
 @Provides
-@SessionScope
-Service provideService() {
-    return new Service();
+@LocationScope(AMSTERDAM)
+CoffeeService provideCoffeeService() {
+    return new CoffeeServiceImpl();
 }
 ```
 
-In this case, the `Service` is bound to the lifecycle of the `ObjectGraph` that defines the `SessionScope`.
+In this case, the `Service` is bound to the lifecycle of the `ObjectGraph` that defines the `LocationScope`.
 
 ## Lazy injection
 
 Instead of injecting an instance directly, they can also injected on a `Lazy<T>` field. When `get()` is called on the `Lazy` field, it will retrieve the injected instance from the module. Calling `get()` multiple times will return the same instances every time.
 
 ```java
-class Car {
-    @Inject private Lazy<Engine> engine;
+class Programmer {
+    @Inject private Lazy<CoffeeMug> coffeeMug;
 
-    public Car() {
+    public Programmer() {
         ...
 
-        engine.get().start();
+        drink(coffeeMug.get());
     }
 }
 ```
@@ -179,13 +173,13 @@ A `Provider<T>` is similar to a `Lazy<T>` field, but injects a new instance ever
 Injecting `Provider<T>` is generally not advised. You might want to use the factory pattern instead or re-organize your logic and use a `Lazy<T>` field instead.
 
 ```java
-class Car {
-    @Inject private Provider<Engine> engine;
+class Programmer {
+    @Inject private Provider<CoffeeMug> coffeeMug;
 
-    public Car() {
+    public Programmer() {
         ...
 
-        engine.get().start();
+        drink(coffeeMug.get());
     }
 }
 ```
@@ -212,32 +206,32 @@ public @interface Named {
 A module is then available to provide named injections:
 
 ```java
-class CarModule {
+class WaterModule {
     @Provides
-    @Named("driver")
-    public Seat provideDriverSeat() {
+    @Named("cold")
+    public Water provideColdWater() {
         ...
     }
 
     @Provides
-    @Named("passenger")
-    public Seat providePassengerSeat() {
+    @Named("hot")
+    public Water provideHotWater() {
         ...
     }
 }
 ```
 
-This module can then be used to inject a Car:
+This module can then be used to inject a `Faucet` class:
 
 ```java
-class Car {
+class Faucet {
     @Inject
-    @Named("driver")
-    Seat driverSeat;
+    @Named("cold")
+    Water coldWater;
 
     @Inject
-    @Named("passenger")
-    Seat passengerSeat;
+    @Named("hot")
+    Water hotWater;
 
     ...
 }
@@ -250,7 +244,7 @@ You can also define your own qualifiers. For example:
 ```java
 @Qualifier
 @Retention(RUNTIME)
-public @interface Fancy {
+public @interface Colored {
 }
 ```
 
