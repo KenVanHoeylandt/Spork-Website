@@ -79,9 +79,6 @@
 <li>
 <code>@BindResource</code>
 </li>
-<li>
-<code>@Inject</code>
-</li>
 </ul>
 <h2 id="page_Example">Example</h2>
 <pre><code class="language-java">public class CustomContentProvider extends ContentProvider {
@@ -91,7 +88,7 @@
 
     @Override
     public boolean onCreate() {
-        Spork.bind(this, new Module());
+        Spork.bind(this);
         return true;
     }
 

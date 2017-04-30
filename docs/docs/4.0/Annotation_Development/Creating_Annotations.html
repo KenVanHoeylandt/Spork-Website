@@ -86,16 +86,16 @@
 <code>TypeBinder</code>
 </li>
 </ul>
-<p>These binders are registered through a <code>BinderRegistery</code> which is accessible through <code>Spork.sharedInstance().getBinderRegistry()</code></p>
+<p>These binders are registered with <code>Spork.register()</code></p>
 <h2 id="page_FieldBinder">FieldBinder</h2>
 <p>FieldBinders are used for annotations that target <code>ElementType.FIELD</code>.</p>
 <h3 id="page_Example">Example</h3>
 <pre><code class="language-java">public class BindViewBinder implements FieldBinder&lt;BindView&gt; {
     
     @Override
-    public void bind(Object object, BindView annotation, Field field, Object[] modules) {
+    public void bind(Object object, BindView annotation, Field field, Object... parameters) {
         if (!View.class.isAssignableFrom(field.getType())) {
-            throw new BindException(/* ... */);
+            throw new BindFailed(...);
         }
 
         View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
@@ -115,10 +115,10 @@
 <pre><code class="language-java">public class BindClickBinder implements MethodBinder&lt;BindClick&gt; {
 
     @Override
-    public void bind(Object object, BindClick annotation, Method method, @Nullable Object[] modules) {
+    public void bind(Object object, BindClick annotation, Method method, Object... parameters) {
         View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
         view.setOnClickListener(new OnClickListener() {
-            /* handle click */
+            // ...
         });
     }
 
@@ -131,72 +131,61 @@
 <h2 id="page_TypeBinder">TypeBinder</h2>
 <p>TypeBinders are used for annotations that target <code>ElementType.TYPE</code>.</p>
 <h3 id="page_Example">Example</h3>
-<pre><code class="language-java">public interface IntSettable {
+<pre><code class="language-java">
+@Target({ ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SetValue {
+    int value();
+}
+
+public interface ValueSetter {
     void setValue(int value);
 }
 
-public class ValueBinder implements TypeBinder&lt;BindValue&gt; {
+public class ValueBinder implements TypeBinder&lt;SetValue&gt; {
 
     @Override
-    void bind(Object object, IntSettable annotation, Class&lt;?&gt; annotatedType, Object[] modules) {
-        // @BindValue only works with IntSettable implementations
-        if (!IntSettable.class.isAssignableFrom(object.getClass())) {
-            throw new BindException(/* ... */);
+    void bind(Object object, ValueSetter annotation, Class&lt;?&gt; annotatedType, Object... parameters) {
+        // @SetValue only works with ValueSetter implementations
+        if (object instanceof ValueSetter) {
+            // Safely convert to ValueSetter
+            ValueSetter value_holder = (ValueSetter)object;
+
+            // Set the integer value
+            int value = annotatedClass.getAnnotation().value();
+            value_holder.setValue(value);
+        } else {
+            throw new BindFailed(...);
         }
-
-        // Safely convert to IntSettable
-        IntSettable value_holder = (IntSettable)object;
-
-        // Set the integer value
-        int value = annotatedClass.getAnnotation().value();
-        value_holder.setValue(value);
     }
 
     @Override
-    public Class&lt;BindValue&gt; getAnnotationClass() {
-        return BindValue.class;
+    public Class&lt;SetValue&gt; getAnnotationClass() {
+        return SetValue.class;
     }
 }
 
+</code></pre>
+<p>Usage:</p>
+<pre><code class="language-java">
+@SetValue(123)
+class Example implements ValueSetter {
+    private int value;
+
+    public Example() {
+        Spork.bind(this); // ensures &quot;123&quot; is set through setValue()
+    }
+
+    @Override
+    public void setValue(int value) {
+        this.value = value;
+    }
+}
 </code></pre>
 <h2 id="page_Binder+registration">Binder registration</h2>
-<h3 id="page_Single+target+binders">Single target binders</h3>
-<p>For binders that only bind to a single annotation target (e.g. <code>ElementType.FIELD</code>, <code>ElementType.METHOD</code> or <code>ElementType.TYPE</code>). The following code demonstrates this.</p>
-<p><strong>YourAnnotation.java</strong></p>
-<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface YourAnnotation {
-}
-</code></pre>
-<p><strong>YourAnnotationBinder.java</strong></p>
-<pre><code class="language-java">class YourAnnotationBinder implements MethodBinder&lt;YourAnnotation&gt; {
-    // implementation
-}
-</code></pre>
-<p><strong>Main.java</strong></p>
-<pre><code class="language-java">Spork.sharedInstance().getBinderRegistry().register(new YourAnnotationBinder());
-</code></pre>
-<h3 id="page_Multi-target+binders">Multi-target binders</h3>
-<p>For binders that only bind to multiple annotation targets (e.g. <code>ElementType.FIELD</code>, <code>ElementType.METHOD</code> or <code>ElementType.TYPE</code>). The following code demonstrates this.</p>
-<p><strong>YourAnnotation.java</strong></p>
-<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.METHOD, Element.FIELD })
-public @interface YourAnnotation {
-}
-</code></pre>
-<p><strong>YourAnnotationBinder.java</strong></p>
-<pre><code class="language-java">class YourAnnotationBinder
-    implements MethodBinder&lt;YourAnnotation&gt;, FieldBinder&lt;YourAnnotation&gt; {
-    // implementation
-}
-</code></pre>
-<p><strong>Main.java</strong></p>
-<pre><code class="language-java">YourAnnotationBinder binder = new YourAnnotationBinder();
-
-// register as MethodBinder
-Spork.sharedInstance().getBinderRegistry().register((MethodBinder&lt;YourAnnotation&gt;)binder);
-// register as FieldBinder
-Spork.sharedInstance().getBinderRegistry().register((FieldBinder&lt;YourAnnotation&gt;)binder);
+<p>Registering new binders must be done before the first call to <code>bind()</code>.</p>
+<p>Registration is done as follows:</p>
+<pre><code class="language-java">Spork.register(new YourAnnotationBinder());
 </code></pre>
     </div>
 

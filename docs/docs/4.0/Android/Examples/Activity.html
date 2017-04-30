@@ -91,9 +91,6 @@
 <li>
 <code>@BindFragment</code>
 </li>
-<li>
-<code>@Inject</code>
-</li>
 </ul>
 <h2 id="page_Example">Example</h2>
 <pre><code class="language-java">@BindLayout(R.layout.activity_download)
@@ -107,7 +104,7 @@ public class DownloadActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Spork.bind(this); // Spork does its magic
+        Spork.bind(this);
     }
 
     @BindClick(R.id.other_button)
