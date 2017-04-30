@@ -45,7 +45,7 @@ private static class Application {
     ...
 
     public Application() {
-        appGraph = new ObjectGraphBuilder()
+        appGraph = ObjectGraphs.builder()
                 .module(new ApplicationModule())
                 .build();
 
@@ -59,7 +59,7 @@ private static class Session {
 
     // create an ObjectGraph based on AppGraph, using SessionScope as scope
     public Session(ObjectGraph appGraph) {
-        ObjectGraph sessionGraph = new ObjectGraphBuilder(appGraph)
+        ObjectGraph sessionGraph = ObjectGraphs.builder()
                 .scope(SessionScope.class)
                 .module(new SessionModule())
                 .build();
@@ -73,7 +73,7 @@ private static class Screen {
     @Inject Integer sessionId;
 
     public Screen(ObjectGraph sessionGraph) {
-        screenGraph = new ObjectGraphBuilder(sessionGraph)
+        screenGraph = ObjectGraphs.builder()
             .module(new ScreenModule())
             .build();
 
