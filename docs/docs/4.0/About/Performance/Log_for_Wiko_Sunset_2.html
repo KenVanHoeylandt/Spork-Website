@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Log for Wiko Sunset 2 - Spork 4.0 Documentation</title>
+    <meta name="description" content="Annotation processing and dependency injection for Java/Android" />
+    <meta name="author" content="Ken Van Hoeylandt">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../../index.html">Spork 4.0 Documentation</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="../../Android/index.html" class="folder"><i class="Nav__arrow">&nbsp;</i>Android</a><ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Annotations</a><ul class='Nav'><li class='Nav__item '><a href="../../Android/Annotations/BindClick.html">BindClick</a></li><li class='Nav__item '><a href="../../Android/Annotations/BindFragment.html">BindFragment</a></li><li class='Nav__item '><a href="../../Android/Annotations/BindLayout.html">BindLayout</a></li><li class='Nav__item '><a href="../../Android/Annotations/BindResource.html">BindResource</a></li><li class='Nav__item '><a href="../../Android/Annotations/BindView.html">BindView</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Examples</a><ul class='Nav'><li class='Nav__item '><a href="../../Android/Examples/Activity.html">Activity</a></li><li class='Nav__item '><a href="../../Android/Examples/Application.html">Application</a></li><li class='Nav__item '><a href="../../Android/Examples/ContentProvider.html">ContentProvider</a></li><li class='Nav__item '><a href="../../Android/Examples/Fragment.html">Fragment</a></li><li class='Nav__item '><a href="../../Android/Examples/RecyclerView.html">RecyclerView</a></li><li class='Nav__item '><a href="../../Android/Examples/Service.html">Service</a></li><li class='Nav__item '><a href="../../Android/Examples/View.html">View</a></li></ul></li><li class='Nav__item '><a href="../../Android/ProGuard.html">ProGuard</a></li></ul></li><li class='Nav__item  has-children'><a href="../../Dependency_Injection/index.html" class="folder"><i class="Nav__arrow">&nbsp;</i>Dependency Injection</a><ul class='Nav'><li class='Nav__item '><a href="../../Dependency_Injection/User_Guide.html">User Guide</a></li><li class='Nav__item '><a href="../../Dependency_Injection/Custom_Scopes.html">Custom Scopes</a></li><li class='Nav__item '><a href="../../Dependency_Injection/Migrating_from_Dagger.html">Migrating from Dagger</a></li></ul></li><li class='Nav__item  has-children'><a href="../../Annotation_Development/index.html" class="folder"><i class="Nav__arrow">&nbsp;</i>Annotation Development</a><ul class='Nav'><li class='Nav__item '><a href="../../Annotation_Development/Creating_Annotations.html">Creating Annotations</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>About</a><ul class='Nav'><li class='Nav__item Nav__item--open has-children'><a href="../../About/Performance/index.html" class="folder"><i class="Nav__arrow">&nbsp;</i>Performance</a><ul class='Nav'><li class='Nav__item '><a href="../../About/Performance/Log_for_Nexus_4.html">Log for Nexus 4</a></li><li class='Nav__item '><a href="../../About/Performance/Log_for_Nexus_5X.html">Log for Nexus 5X</a></li><li class='Nav__item Nav__item--active'><a href="../../About/Performance/Log_for_Wiko_Sunset_2.html">Log for Wiko Sunset 2</a></li></ul></li></ul></li></ul>
+
+            <div class="Links">
+                                    <hr/>
+                                            <a href="http://spork.bytewelder.com" target="_blank">Spork Webite</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork" target="_blank">GitHub</a>
+                        <br />
+                                            <a href="https://github.com/ByteWelder/Spork/issues" target="_blank">Help/Support/Bugs</a>
+                        <br />
+                                    
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../../About/Performance/index.html">About</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../About/Performance/index.html">Performance</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../About/Performance/Log_for_Wiko_Sunset_2.html">Log for Wiko Sunset 2</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <p>Specs (<a href="http://www.gsmarena.com/wiko_sunset2-7457.php" class="external">full</a>):</p>
+<ul>
+<li>Released in 2015</li>
+<li>Android 4.4.2</li>
+<li>512MB RAM</li>
+<li>Dual-core 1.3 GHz Cortex-A7 CPU</li>
+</ul>
+<pre><code class="language-raw">05-04 21:00:13.677 Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
+05-04 21:00:13.677 	- benchmark repeat: 100 time(s)
+05-04 21:00:13.678 	- work items:       1 per benchmark
+05-04 21:00:13.678 	- work item time:   0.327ms average
+05-04 21:00:13.761 Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
+05-04 21:00:13.761 	- benchmark repeat: 10 time(s)
+05-04 21:00:13.761 	- work items:       1000 per benchmark
+05-04 21:00:13.761 	- work item time:   0.007ms average
+05-04 21:00:13.901 Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
+05-04 21:00:13.901 	- benchmark repeat: 10 time(s)
+05-04 21:00:13.901 	- work items:       1000 per benchmark
+05-04 21:00:13.901 	- work item time:   0.013ms average
+05-04 21:00:14.032 Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
+05-04 21:00:14.032 	- benchmark repeat: 100 time(s)
+05-04 21:00:14.032 	- work items:       1 per benchmark
+05-04 21:00:14.032 	- work item time:   0.558ms average
+05-04 21:00:14.287 Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
+05-04 21:00:14.287 	- benchmark repeat: 10 time(s)
+05-04 21:00:14.287 	- work items:       1000 per benchmark
+05-04 21:00:14.287 	- work item time:   0.023ms average
+05-04 21:00:15.125 Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
+05-04 21:00:15.125 	- benchmark repeat: 10 time(s)
+05-04 21:00:15.125 	- work items:       1000 per benchmark
+05-04 21:00:15.125 	- work item time:   0.079ms average
+05-04 21:00:15.197 Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
+05-04 21:00:15.197 	- benchmark repeat: 100 time(s)
+05-04 21:00:15.198 	- work items:       1 per benchmark
+05-04 21:00:15.198 	- work item time:   0.197ms average
+05-04 21:00:15.525 Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
+05-04 21:00:15.525 	- benchmark repeat: 10 time(s)
+05-04 21:00:15.525 	- work items:       1000 per benchmark
+05-04 21:00:15.525 	- work item time:   0.031ms average
+05-04 21:00:16.812 Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
+05-04 21:00:16.812 	- benchmark repeat: 10 time(s)
+05-04 21:00:16.812 	- work items:       1000 per benchmark
+05-04 21:00:16.812 	- work item time:   0.126ms average
+05-04 21:00:18.073 Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
+05-04 21:00:18.073 	- benchmark repeat: 10 time(s)
+05-04 21:00:18.074 	- work items:       1000 per benchmark
+05-04 21:00:18.074 	- work item time:   0.123ms average
+</code></pre>
+<pre><code class="language-raw">05-04 21:01:28.484 Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
+05-04 21:01:28.484 	- benchmark repeat: 100 time(s)
+05-04 21:01:28.485 	- work items:       1 per benchmark
+05-04 21:01:28.493 	- work item time:   0.408ms average
+05-04 21:01:28.610 Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
+05-04 21:01:28.610 	- benchmark repeat: 10 time(s)
+05-04 21:01:28.610 	- work items:       1000 per benchmark
+05-04 21:01:28.610 	- work item time:   0.009ms average
+05-04 21:01:28.739 Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
+05-04 21:01:28.739 	- benchmark repeat: 10 time(s)
+05-04 21:01:28.739 	- work items:       1000 per benchmark
+05-04 21:01:28.739 	- work item time:   0.012ms average
+05-04 21:01:28.852 Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
+05-04 21:01:28.852 	- benchmark repeat: 100 time(s)
+05-04 21:01:28.852 	- work items:       1 per benchmark
+05-04 21:01:28.852 	- work item time:   0.335ms average
+05-04 21:01:29.104 Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
+05-04 21:01:29.104 	- benchmark repeat: 10 time(s)
+05-04 21:01:29.104 	- work items:       1000 per benchmark
+05-04 21:01:29.104 	- work item time:   0.023ms average
+05-04 21:01:29.921 Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
+05-04 21:01:29.921 	- benchmark repeat: 10 time(s)
+05-04 21:01:29.921 	- work items:       1000 per benchmark
+05-04 21:01:29.921 	- work item time:   0.078ms average
+05-04 21:01:29.993 Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
+05-04 21:01:29.993 	- benchmark repeat: 100 time(s)
+05-04 21:01:29.993 	- work items:       1 per benchmark
+05-04 21:01:29.993 	- work item time:   0.197ms average
+05-04 21:01:30.311 Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
+05-04 21:01:30.311 	- benchmark repeat: 10 time(s)
+05-04 21:01:30.311 	- work items:       1000 per benchmark
+05-04 21:01:30.311 	- work item time:   0.030ms average
+05-04 21:01:31.544 Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
+05-04 21:01:31.544 	- benchmark repeat: 10 time(s)
+05-04 21:01:31.544 	- work items:       1000 per benchmark
+05-04 21:01:31.544 	- work item time:   0.121ms average
+05-04 21:01:32.737 Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
+05-04 21:01:32.737 	- benchmark repeat: 10 time(s)
+05-04 21:01:32.737 	- work items:       1000 per benchmark
+05-04 21:01:32.737 	- work item time:   0.116ms average
+</code></pre>
+<pre><code class="language-raw">05-04 21:01:46.937 Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
+05-04 21:01:46.937 	- benchmark repeat: 100 time(s)
+05-04 21:01:46.937 	- work items:       1 per benchmark
+05-04 21:01:46.937 	- work item time:   0.407ms average
+05-04 21:01:47.072 Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
+05-04 21:01:47.072 	- benchmark repeat: 10 time(s)
+05-04 21:01:47.072 	- work items:       1000 per benchmark
+05-04 21:01:47.072 	- work item time:   0.011ms average
+05-04 21:01:47.203 Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
+05-04 21:01:47.203 	- benchmark repeat: 10 time(s)
+05-04 21:01:47.203 	- work items:       1000 per benchmark
+05-04 21:01:47.203 	- work item time:   0.010ms average
+05-04 21:01:47.322 Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
+05-04 21:01:47.322 	- benchmark repeat: 100 time(s)
+05-04 21:01:47.322 	- work items:       1 per benchmark
+05-04 21:01:47.322 	- work item time:   0.338ms average
+05-04 21:01:47.570 Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
+05-04 21:01:47.570 	- benchmark repeat: 10 time(s)
+05-04 21:01:47.570 	- work items:       1000 per benchmark
+05-04 21:01:47.570 	- work item time:   0.023ms average
+05-04 21:01:48.388 Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
+05-04 21:01:48.388 	- benchmark repeat: 10 time(s)
+05-04 21:01:48.388 	- work items:       1000 per benchmark
+05-04 21:01:48.388 	- work item time:   0.079ms average
+05-04 21:01:48.462 Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
+05-04 21:01:48.462 	- benchmark repeat: 100 time(s)
+05-04 21:01:48.462 	- work items:       1 per benchmark
+05-04 21:01:48.462 	- work item time:   0.195ms average
+05-04 21:01:48.767 Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
+05-04 21:01:48.767 	- benchmark repeat: 10 time(s)
+05-04 21:01:48.767 	- work items:       1000 per benchmark
+05-04 21:01:48.767 	- work item time:   0.029ms average
+05-04 21:01:49.997 Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
+05-04 21:01:49.997 	- benchmark repeat: 10 time(s)
+05-04 21:01:49.997 	- work items:       1000 per benchmark
+05-04 21:01:49.997 	- work item time:   0.119ms average
+05-04 21:01:51.202 Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
+05-04 21:01:51.202 	- benchmark repeat: 10 time(s)
+05-04 21:01:51.202 	- work items:       1000 per benchmark
+05-04 21:01:51.202 	- work item time:   0.115ms average
+</code></pre>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../../About/Performance/Log_for_Nexus_5X.html">Previous</a></li>                    </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../../'
+                });
+            });
+        </script>
+    
+</body>
+</html>
