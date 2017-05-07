@@ -1,5 +1,3 @@
-# User Guide
-
 ## Using Spork Inject
 
 Spork creates instances of your classes and satisfies their dependencies. It uses the `javax.inject.Inject` annotation to identify which constructors and fields it is interested in.
@@ -64,12 +62,7 @@ public Mug provideMug() {
 The `@Provides`-annotated methods above are placed in a `Module`. Modules are POJO objects that define a set of dependencies:
 
 ```java
-class BrewModule {
-    @Provides
-    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
-        return new BlackCoffee(water, beans);
-    }
-
+public class BrewModule {
     @Provides
     public Mug provideMug() {
         return new MugWithPrint("Input Java, output Java.");
@@ -83,6 +76,11 @@ class BrewModule {
     @Provides
     public Beans provideBeans() {
         return new ArabicaBeans();
+    }
+
+    @Provides
+    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
+        return new BlackCoffee(water, beans);
     }
 }
 ```
@@ -206,7 +204,7 @@ The `@Named` annotation is one that is available by default:
 @Documented
 @Retention(RUNTIME)
 public @interface Named {
-    String value() default "";
+    String value();
 }
 ```
 
@@ -250,6 +248,7 @@ You can also define your own qualifiers. For example:
 
 ```java
 @Qualifier
+@Documented
 @Retention(RUNTIME)
 public @interface Colored {
 }
@@ -259,6 +258,7 @@ Using a `value()` method is also supported:
 
 ```java
 @Qualifier
+@Documented
 @Retention(RUNTIME)
 public @interface Colored {
     Color value() default Color.WHITE;

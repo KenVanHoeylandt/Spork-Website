@@ -1,6 +1,14 @@
-# Spork Inject
+## Introduction
 
-Spork Inject is a runtime [dependency injection][dependency_injection] framework for Java and Android. It is almost fully compatible with [Dagger][dagger] and is modeled on the [JSR-330][jsr-330] specification.
+Spork Inject is a [fast][spork_performance] runtime [dependency injection][dependency_injection] framework for Java and Android. It is almost fully compatible with [Dagger][dagger] and is modeled on the [JSR-330][jsr-330] specification.
+
+Some advantages of Spork Inject:
+- Write less boilerplate code
+- Manage your dependencies more easily
+- Improve testability: swap or override dependencies for tests
+- No code generation, which makes the code easier to review
+- Decrease coupling between a class and its dependencies
+- Forces you to think about your class dependencies, which can lead to better application design
 
 ## Dependencies
 
@@ -19,61 +27,42 @@ dependencies {
 ## Example
 
 ```java
-public static class Module {
+public class BrewModule {
     @Provides
-    public Integer provideNumber() {
-        return 1;
+    public Mug provideMug() {
+        return new MugWithPrint("Input Java, output Java.");
     }
 
     @Provides
-    @Named("color")
-    public String provideColor() {
-        return "red";
+    public Water provideWater() {
+        return new BoilingWater();
     }
 
     @Provides
-    @Named("label")
-    public String provideLabel() {
-        return "Hi!";
+    public Beans provideBeans() {
+        return new ArabicaBeans();
     }
 
     @Provides
-    @Singleton
-    public RestService provideRestService(HttpService service) {
-        return new RestServiceImpl(service);
-    }
-
-    @Provides
-    @Singleton
-    public HttpService provideHttpService() {
-        return new HttpServiceImpl(service);
+    public Coffee provideCoffee(Water water, CoffeeBeans beans) {
+        return new BlackCoffee(water, beans);
     }
 }
 
-private static class Parent {
-    @Inject
-    private Integer number;
+class CoffeeMug {
+    @Inject private Coffee coffee;
+    @Inject private Mug mug;
 
-    @Inject
-    @Named("color")
-    private String color;
-
-    @Inject
-    @Named("label")
-    private String label;
-
-    @Inject
-    private RestService restService;
-
-    public Parent() {
+    public CoffeeMug() {
         ObjectGraphs.builder()
-                .module(new Module())
-                .build()
-                .inject(this);
+            .module(new BrewModule())
+            .build()
+            .inject(this); // same as Spork.inject(this, objectGraph)
     }
 }
 ```
 
+[spork_performance]: ../4_About/1_Performance/index
 [dependency_injection]: https://en.wikipedia.org/wiki/Dependency_injection
 [dagger]: https://google.github.io/dagger/
 [benchmarks]: http://spork.bytewelder.com/about/benchmarks/
