@@ -73,9 +73,8 @@
 
     <div class="s-content">
         <h2 id="page_Using+Spork+Inject">Using Spork Inject</h2>
-<p>Spork creates instances of your classes and satisfies their dependencies. It uses the <code>javax.inject.Inject</code> annotation to identify which constructors and fields it is interested in.</p>
-<p>Use the <code>ObjectGraph.bind()</code> method in a constructor or initialization method to wire up all dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.
-When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other registered Spork binding (e.g. @BindView) is also resolved.</p>
+<p>The <code>spork-inject</code> library creates instances of your classes and satisfies their dependencies.</p>
+<p>Let's first take a look at a standard constructor injection without <code>spork-inject</code>:</p>
 <pre><code class="language-java">class CoffeeMug {
     private Coffee coffee;
     private Mug mug;
@@ -86,7 +85,10 @@ When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other reg
     }
 }
 </code></pre>
-<p>Spork can inject fields directly. In this example it obtains an <code>Coffee</code> and a <code>Mug</code> instance for the respective fields:</p>
+<p>Creating a <code>CoffeeMug</code> requires you to pass along its dependencies manually.
+This is not a difficult task for a simple object with simple dependencies,
+but it gets a lot more tedious with scopes and lifecycle considerations. Spork takes care of all that.</p>
+<p>Spork can inject fields directly. In this example it obtains a <code>Coffee</code> and a <code>Mug</code> instance for the respective fields:</p>
 <pre><code class="language-java">class CoffeeMug {
     @Inject private Coffee coffee;
     @Inject private Mug mug;
@@ -96,22 +98,17 @@ When <code>bind()</code> is called on an <code>ObjectGraph</code>, any other reg
 </code></pre>
 <p>Spork also supports method injection, but Field injection is generally preferred.</p>
 <h2 id="page_Declaring+Dependencies">Declaring Dependencies</h2>
-<p>In the above sample, an <code>Coffee</code> and <code>Mug</code> are injected. Of course these dependencies must come from somewhere.</p>
-<p>Dependencies should be defined in a <code>Module</code> as follows:</p>
+<p>In the above sample, a <code>Coffee</code> and <code>Mug</code> are injected. Of course these dependencies must come from somewhere.</p>
+<p>Dependencies should be defined in a <code>Module</code>:</p>
 <pre><code class="language-java">@Provides
 public Coffee provideCoffee() {
     return new BlackCoffee();
 }
 </code></pre>
-<p>It's possible for a <code>@Provides</code> method to require dependencies on its own:</p>
+<p>It's possible for a <code>@Provides</code> method to require dependencies on its own by passing them as method arguments:</p>
 <pre><code class="language-java">@Provides
 public Coffee provideCoffee(Water water, CoffeeBeans beans) {
     return new BlackCoffee(water, beans);
-}
-
-@Provides
-public Mug provideMug() {
-    return new MugWithPrint(&quot;Input Java, output Java.&quot;);
 }
 </code></pre>
 <h2 id="page_Modules">Modules</h2>
@@ -139,13 +136,13 @@ public Mug provideMug() {
 }
 </code></pre>
 <h3 id="page_Building+an+ObjectGraph">Building an ObjectGraph</h3>
-<p>A module is used to build an object graph. Object graphs hold state such as your singletons and named instances.</p>
+<p>One or more modules are used to build an object graph. Object graphs hold state such as your singletons and named instances.</p>
 <p>Creating an <code>ObjectGraph</code> is easy:</p>
 <pre><code class="language-java">ObjectGraph objectGraph = ObjectGraphs.builder()
     .module(new BrewModule())
     .build();
 </code></pre>
-<p>When putting it all together, the <code>CoffeeMug</code> from the sample above could be injected as follows:</p>
+<p>When putting it all together, the <code>CoffeeMug</code> can now be injected with an <code>ObjectGraph</code> made with the <code>BrewModule</code>:</p>
 <pre><code class="language-java">class CoffeeMug {
     @Inject private Coffee coffee;
     @Inject private Mug mug;
@@ -167,7 +164,7 @@ public Mug provideMug() {
 <p>This way, it can resolve dependencies from its parent <em>and</em> from the <code>BrewModule</code>.</p>
 <p>An ObjectGraph's modules can override the dependencies of the parent as long as the injection signature is an exact match: its type, qualifier and nullability must match.</p>
 <h2 id="page_Scoped+injection">Scoped injection</h2>
-<p>A scoped instance is an instance that belongs to an <code>ObjectGraph</code> created at a specific level of the application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
+<p>A scoped instance is an instance that belongs to a specific <code>ObjectGraph</code> created at a specific level of the application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
 <p><code>Singleton</code> is a predefined scope that is always available at the root <code>ObjectGraph</code> in your application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
 <p><code>@Provides</code> methods in a module can specify a scope. It can be used like this:</p>
 <pre><code class="language-java">@Provides
@@ -210,18 +207,8 @@ CoffeeService provideCoffeeService() {
 }
 </code></pre>
 <h2 id="page_Qualifiers">Qualifiers</h2>
-<p>Sometimes it is not sufficient to bind by type alone. In such cases, you might want to identify an injection by some kind of identifier.</p>
-<p>In such cases, you can define a new annotation and add to it a <code>@Qualifier</code> annotation.</p>
-<h3 id="page_Named">Named</h3>
-<p>The <code>@Named</code> annotation is one that is available by default:</p>
-<pre><code class="language-java">@Qualifier
-@Documented
-@Retention(RUNTIME)
-public @interface Named {
-    String value();
-}
-</code></pre>
-<p>A module is then available to provide named injections:</p>
+<p>In some cases, you might want to identify an injection by some kind of identifier. This is done with a qualifier.</p>
+<p>The <code>@Named</code> annotation is a qualifier that is available by default. It can be used in a module:</p>
 <pre><code class="language-java">class WaterModule {
     @Provides
     @Named(&quot;cold&quot;)
@@ -236,15 +223,11 @@ public @interface Named {
     }
 }
 </code></pre>
-<p>This module can then be used to inject a <code>Faucet</code> class:</p>
+<p><code>WaterModule</code> can then be used to inject a <code>Faucet</code> class with the same annotation:</p>
 <pre><code class="language-java">class Faucet {
-    @Inject
-    @Named(&quot;cold&quot;)
-    Water coldWater;
+    @Inject @Named(&quot;cold&quot;) Water coldWater;
 
-    @Inject
-    @Named(&quot;hot&quot;)
-    Water hotWater;
+    @Inject @Named(&quot;hot&quot;) Water hotWater;
 
     ...
 }
@@ -252,14 +235,12 @@ public @interface Named {
 <h3 id="page_Custom+qualifiers">Custom qualifiers</h3>
 <p>You can also define your own qualifiers. For example:</p>
 <pre><code class="language-java">@Qualifier
-@Documented
 @Retention(RUNTIME)
 public @interface Colored {
 }
 </code></pre>
 <p>Using a <code>value()</code> method is also supported:</p>
 <pre><code class="language-java">@Qualifier
-@Documented
 @Retention(RUNTIME)
 public @interface Colored {
     Color value() default Color.WHITE;

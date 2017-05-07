@@ -1,9 +1,8 @@
 ## Using Spork Inject
 
-Spork creates instances of your classes and satisfies their dependencies. It uses the `javax.inject.Inject` annotation to identify which constructors and fields it is interested in.
+The `spork-inject` library creates instances of your classes and satisfies their dependencies.
 
-Use the `ObjectGraph.bind()` method in a constructor or initialization method to wire up all dependencies. When a new instance is requested, Spork will obtain the required parameters values and invoke its constructor.
-When `bind()` is called on an `ObjectGraph`, any other registered Spork binding (e.g. @BindView) is also resolved.
+Let's first take a look at a standard constructor injection without `spork-inject`:
 
 ```java
 class CoffeeMug {
@@ -17,7 +16,11 @@ class CoffeeMug {
 }
 ```
 
-Spork can inject fields directly. In this example it obtains an `Coffee` and a `Mug` instance for the respective fields:
+Creating a `CoffeeMug` requires you to pass along its dependencies manually.
+This is not a difficult task for a simple object with simple dependencies,
+but it gets a lot more tedious with scopes and lifecycle considerations. Spork takes care of all that.
+
+Spork can inject fields directly. In this example it obtains a `Coffee` and a `Mug` instance for the respective fields:
 
 ```java
 class CoffeeMug {
@@ -32,9 +35,9 @@ Spork also supports method injection, but Field injection is generally preferred
 
 ## Declaring Dependencies
 
-In the above sample, an `Coffee` and `Mug` are injected. Of course these dependencies must come from somewhere.
+In the above sample, a `Coffee` and `Mug` are injected. Of course these dependencies must come from somewhere.
 
-Dependencies should be defined in a `Module` as follows:
+Dependencies should be defined in a `Module`:
 
 ```java
 @Provides
@@ -43,17 +46,12 @@ public Coffee provideCoffee() {
 }
 ```
 
-It's possible for a `@Provides` method to require dependencies on its own:
+It's possible for a `@Provides` method to require dependencies on its own by passing them as method arguments:
 
 ```java
 @Provides
 public Coffee provideCoffee(Water water, CoffeeBeans beans) {
     return new BlackCoffee(water, beans);
-}
-
-@Provides
-public Mug provideMug() {
-    return new MugWithPrint("Input Java, output Java.");
 }
 ```
 
@@ -87,7 +85,7 @@ public class BrewModule {
 
 ### Building an ObjectGraph
 
-A module is used to build an object graph. Object graphs hold state such as your singletons and named instances.
+One or more modules are used to build an object graph. Object graphs hold state such as your singletons and named instances.
 
 Creating an `ObjectGraph` is easy:
 
@@ -97,7 +95,7 @@ ObjectGraph objectGraph = ObjectGraphs.builder()
     .build();
 ```
 
-When putting it all together, the `CoffeeMug` from the sample above could be injected as follows:
+When putting it all together, the `CoffeeMug` can now be injected with an `ObjectGraph` made with the `BrewModule`:
 
 ```java
 class CoffeeMug {
@@ -129,7 +127,7 @@ An ObjectGraph's modules can override the dependencies of the parent as long as 
 
 ## Scoped injection
 
-A scoped instance is an instance that belongs to an `ObjectGraph` created at a specific level of the application. It is tied to the lifecycle of that `ObjectGraph`.
+A scoped instance is an instance that belongs to a specific `ObjectGraph` created at a specific level of the application. It is tied to the lifecycle of that `ObjectGraph`.
 
 `Singleton` is a predefined scope that is always available at the root `ObjectGraph` in your application. It is tied to the lifecycle of that `ObjectGraph`.
 
@@ -191,24 +189,9 @@ class Programmer {
 
 ## Qualifiers
 
-Sometimes it is not sufficient to bind by type alone. In such cases, you might want to identify an injection by some kind of identifier.
+In some cases, you might want to identify an injection by some kind of identifier. This is done with a qualifier.
 
-In such cases, you can define a new annotation and add to it a `@Qualifier` annotation.
-
-### Named
-
-The `@Named` annotation is one that is available by default:
-
-```java
-@Qualifier
-@Documented
-@Retention(RUNTIME)
-public @interface Named {
-    String value();
-}
-```
-
-A module is then available to provide named injections:
+The `@Named` annotation is a qualifier that is available by default. It can be used in a module:
 
 ```java
 class WaterModule {
@@ -226,17 +209,13 @@ class WaterModule {
 }
 ```
 
-This module can then be used to inject a `Faucet` class:
+`WaterModule` can then be used to inject a `Faucet` class with the same annotation:
 
 ```java
 class Faucet {
-    @Inject
-    @Named("cold")
-    Water coldWater;
+    @Inject @Named("cold") Water coldWater;
 
-    @Inject
-    @Named("hot")
-    Water hotWater;
+    @Inject @Named("hot") Water hotWater;
 
     ...
 }
@@ -248,7 +227,6 @@ You can also define your own qualifiers. For example:
 
 ```java
 @Qualifier
-@Documented
 @Retention(RUNTIME)
 public @interface Colored {
 }
@@ -258,7 +236,6 @@ Using a `value()` method is also supported:
 
 ```java
 @Qualifier
-@Documented
 @Retention(RUNTIME)
 public @interface Colored {
     Color value() default Color.WHITE;
