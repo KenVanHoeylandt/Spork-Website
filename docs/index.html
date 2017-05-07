@@ -72,9 +72,9 @@ body {
             <h2>Introduction</h2>
 
             <div>
-              <p>Spork is an annotation processing library. It comes with subprojects for Android and dependency injection.<br/>
+              <p>Spork is a runtime annotation processing library. It comes with subprojects for Android and dependency injection.<br/>
               These libraries allow you to write less boilerplate code which makes your code easier to read and maintain.</p>
-              <p>Spork is fast, open-source and it aims to be different by overcoming the shortcomings of its alternatives</a>.</p>
+              <p>Spork is <a href="docs/4.0/About/Performance/index.html">fast</a>, <a href="https://www.apache.org/licenses/LICENSE-2.0.html">open source</a> and it aims to be different by overcoming the shortcomings of its alternatives</a>.</p>
             </div>
 
             <h2>Spork for Android</h2>
@@ -102,11 +102,11 @@ public class YourActivity extends Activity {
     }
 }</pre>
 
-If you want to see more, check out the <a href="docs/4.0/Android/Introduction.html">spork-android documentation</a>.
+If you want to see more, check out the <a href="docs/4.0/Android/index.html">spork-android documentation</a>.
 
             <h2>Spork Dependency Injection</h2>
 
-            <p>The spork-inject dependency is a JSR-303 DI library that works with Spork.</p>
+            <p>The spork-inject library is built upon the annotations from javax.inject (JSR-303).</p>
 
 <pre class="prettyprint lang-java">
 class CoffeeMug {
@@ -147,29 +147,33 @@ If you like this, make sure to check out the <a href="docs/4.0/Dependency_Inject
 
             <h2>Libraries</h2>
             
-            <b>Android build.gradle</b>
+            <p>All dependencies are hosted on jcenter, which is already the default repository for Android projects.</p>
+
+            <p>To use dependency injection:</p>
 
 <pre class="prettyprint lang-groovy">
-repositories {
-    jcenter()
-}
-
-dependencies {
-    // Pick one of the following:
-    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
-    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
-}</pre>
-
-            <b>Dependency Injection build.gradle</b>
-
-<pre class="prettyprint lang-groovy">
-repositories {
-    jcenter()
-}
-
 dependencies {
     compile 'com.bytewelder.spork:spork-inject:4.0.0'
-}</pre>
+}
+</pre>
+
+            To use Android bindings:
+
+<pre class="prettyprint lang-groovy">
+dependencies {
+    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
+}
+</pre>
+
+            To use Android bindings with AppCompat/Support:
+
+<pre class="prettyprint lang-groovy">
+dependencies {
+    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar' {
+        exclude group: 'com.android.support'
+    }
+}
+</pre>
 
             <h2>License</h2>
 <pre>
