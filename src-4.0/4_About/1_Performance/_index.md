@@ -1,5 +1,19 @@
 # Performance
 
+## TL;DR
+
+Spork's core binding speed is *really* fast. Depending on the hardware, binding a field with warm cache takes:
+- about `2 μs` on a `Nexus 5X` (that's `0.000002 s`!)
+- about `5 μs` on a `Nexus 4` (a device from 2012!)
+- about `7 μs` to `23 μs` on a `Wiko Sunset 2` (bought new for 50 euro or less in 2016)
+
+Spork Android bindings are expected to be in line with the above measurements.
+
+Spork Dependency Injection is a bit slower, but still very fast. When injecting 5 five fields, the total cost per field was:
+- `7 μs` to `8 μs` on a `Nexus 5X`
+- `32 μs` on a `Nexus 4` (slower, but this is a > 4.5 year old device after all - and still fast enough for binding Activity/Fragment/etc.)
+- `14 μs` to `16 μs` on a `Wiko Sunset 2` (impressive for a such a cheap device from 2 years ago)
+
 ## Setup
 
 Several benchmarks were carefully crafted to test performance. You can find them on [GitHub][github] in the support directory.
@@ -87,7 +101,7 @@ Injecting a mixed object with `warm` cache:
 - `Nexus 4`: `0.155 ms` to `0.160 ms`
 - `Sunset 2`: `0.101 ms` to `0.106 ms`
 
-In conclusion, injection is pretty fast: they generally take somewhere between `0.007 ms` and `0.033 ms` per field depending on the device.
+In conclusion, injection is pretty fast: they generally take somewhere between `0.007 ms` and `0.032 ms` per field depending on the device.
 Method injection is slightly slower at `0.010 ms` to '0.041 ms`.
 
 The very first bind on the first class might take a bit longer, but it will generally stay below `0.5 ms`. On newer hardware, it will `0.1 ms` or less

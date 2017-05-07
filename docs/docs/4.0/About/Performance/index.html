@@ -73,6 +73,24 @@
 
     <div class="s-content">
         <h1 id="page_Performance">Performance</h1>
+<h2 id="page_TL%3BDR">TL;DR</h2>
+<p>Spork's core binding speed is <em>really</em> fast. Depending on the hardware, binding a field with warm cache takes:</p>
+<ul>
+<li>about <code>2 μs</code> on a <code>Nexus 5X</code> (that's <code>0.000002 s</code>!)</li>
+<li>about <code>5 μs</code> on a <code>Nexus 4</code> (a device from 2012!)</li>
+<li>about <code>7 μs</code> to <code>23 μs</code> on a <code>Wiko Sunset 2</code> (bought new for 50 euro or less in 2016)</li>
+</ul>
+<p>Spork Android bindings are expected to be in line with the above measurements.</p>
+<p>Spork Dependency Injection is a bit slower, but still very fast. When injecting 5 five fields, the total cost per field was:</p>
+<ul>
+<li>
+<code>7 μs</code> to <code>8 μs</code> on a <code>Nexus 5X</code>
+</li>
+<li>
+<code>32 μs</code> on a <code>Nexus 4</code> (slower, but this is a &gt; 4.5 year old device after all - and still fast enough for binding Activity/Fragment/etc.)</li>
+<li>
+<code>14 μs</code> to <code>16 μs</code> on a <code>Wiko Sunset 2</code> (impressive for a such a cheap device from 2 years ago)</li>
+</ul>
 <h2 id="page_Setup">Setup</h2>
 <p>Several benchmarks were carefully crafted to test performance. You can find them on <a href="https://github.com/ByteWelder/Spork" class="external">GitHub</a> in the support directory.</p>
 <p>There are generally two kinds of benchmarks involved:</p>
@@ -225,7 +243,7 @@ Every measurement here includes Spork's core Annotation processing time includin
 <code>Sunset 2</code>: <code>0.101 ms</code> to <code>0.106 ms</code>
 </li>
 </ul>
-<p>In conclusion, injection is pretty fast: they generally take somewhere between <code>0.007 ms</code> and <code>0.033 ms</code> per field depending on the device.
+<p>In conclusion, injection is pretty fast: they generally take somewhere between <code>0.007 ms</code> and <code>0.032 ms</code> per field depending on the device.
 Method injection is slightly slower at <code>0.010 ms</code> to '0.041 ms`.</p>
 <p>The very first bind on the first class might take a bit longer, but it will generally stay below <code>0.5 ms</code>. On newer hardware, it will <code>0.1 ms</code> or less</p>
 <p>Field injection seems to be noticably faster than method injection with speed improvements at around 30%.
