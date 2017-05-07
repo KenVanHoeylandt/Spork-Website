@@ -77,12 +77,12 @@ Injecting `1` method with `warm` cache:
 - `Nexus 4`: `0.041 ms` to `0.042 ms`
 - `Sunset 2`: `0.024 ms` to `0.027 ms`
 
-Injecting `5` method with warm cache:
+Injecting `5` method with `warm` cache:
 - `Nexus 5X`: `0.051 ms` to `0.053 ms`
 - `Nexus 4`: `0.200 ms` to `0.204 ms`
 - `Sunset 2`: `0.105 ms` to `0.109 ms`
 
-Injecting a mixed object with warm cache:
+Injecting a mixed object with `warm` cache:
 - `Nexus 5X`: `0.039 ms`
 - `Nexus 4`: `0.155 ms` to `0.160 ms`
 - `Sunset 2`: `0.101 ms` to `0.106 ms`

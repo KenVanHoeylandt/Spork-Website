@@ -83,21 +83,14 @@
 </li>
 </ul>
 <h2 id="page_Dependencies">Dependencies</h2>
-<p><strong>Regular</strong></p>
-<pre><code class="language-groovy">repositories {
-    jcenter()
-}
-
-dependencies {
+<p>All dependencies are published to jcenter.</p>
+<p>When <strong>not</strong> using AppCompat/Support libraries:</p>
+<pre><code class="language-groovy">dependencies {
     compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
 }
 </code></pre>
-<p><strong>For Applications with AppCompat/Support libraries:</strong></p>
-<pre><code class="language-groovy">repositories {
-    jcenter()
-}
-
-dependencies {
+<p>When using AppCompat/Support libraries:</p>
+<pre><code class="language-groovy">dependencies {
     compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar' {
         exclude group: 'com.android.support'
     }

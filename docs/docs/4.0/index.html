@@ -72,32 +72,33 @@
 
 
     <div class="s-content">
-        <h2 id="page_Getting+started+on+Android">Getting started on Android</h2>
-<p><strong>WARNING</strong>: Spork 4.0 is only accessible as a snapshot release.<br/>This is not a final release and is subject to potential changes in its API.</p>
-<p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="language-groovy">repositories {
-    maven {
-        url  &quot;http://dl.bintray.com/bytewelder/maven-snapshot&quot; 
-    }
-}
-
-dependencies {
-    // Spork Dependency Injection
-    compile 'com.bytewelder.spork:spork-inject:4.0.0'
-
-    // Spork for Android (pick one of the dependencies below)
-    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
-    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
-}
-</code></pre>
-<h2 id="page_Getting+started+on+Java">Getting started on Java</h2>
-<p>Add the following dependencies in <code>build.gradle</code>:</p>
-<pre><code class="language-groovy">dependencies {
-    compile 'com.bytewelder.spork:spork-inject:4.0.0'
-}
-</code></pre>
-<p>All dependencies are available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg:%22io.github.sporklibrary%22" class="external">Maven Central Repository</a>.</p>
-<h2 id="page_Migrating+from+3.x+to+4.0%3A">Migrating from 3.x to 4.0:</h2>
+        <h2 id="page_Welcome">Welcome</h2>
+<p>Welcome to the Spork documentation website. The menu on the left will cover all main Spork projects.</p>
+<h2 id="page_Projects">Projects</h2>
+<h3 id="page_Main">Main</h3>
+<ul>
+<li>
+<code>spork</code>: the annotation processing core</li>
+<li>
+<code>spork-android</code> and <code>spork-android-support</code>: Android bindings similar to Butterknife</li>
+<li>
+<code>spork-inject</code>: dependency injectino similar to Dagger</li>
+</ul>
+<h3 id="page_Support">Support</h3>
+<p>Spork contains several support projects which are not published on jcenter, but are available in the <a href="https://github.com/ByteWelder/Spork/tree/master/support" class="external">repository</a>:</p>
+<ul>
+<li>
+<code>spork-android-example</code>: an example project of how to use Spork on Android</li>
+<li>
+<code>spork-benchmark</code>: Java benchmarks</li>
+<li>
+<code>spork-benchmark-android</code>: Android application with Java benchmarks</li>
+<li>
+<code>spork-matchers</code>: Hamcrest matchers for Spork tests</li>
+<li>
+<code>spork-proguard</code>: Test application for ProGuard (will be migrated to <code>spork-android-example</code> in the future)</li>
+</ul>
+<h2 id="page_Migrating+from+3.x">Migrating from 3.x</h2>
 <ul>
 <li>repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot</li>
 <li>base packages renamed from <code>io.github.sporklibrary</code> to <code>spork</code>

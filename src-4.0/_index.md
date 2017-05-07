@@ -1,39 +1,26 @@
-## Getting started on Android
+## Welcome
 
-**WARNING**: Spork 4.0 is only accessible as a snapshot release.<br/>This is not a final release and is subject to potential changes in its API.
+Welcome to the Spork documentation website. The menu on the left will cover all main Spork projects.
 
-Add the following dependencies in `build.gradle`:
+## Projects
 
-```groovy
-repositories {
-    maven {
-        url  "http://dl.bintray.com/bytewelder/maven-snapshot" 
-    }
-}
+### Main
 
-dependencies {
-    // Spork Dependency Injection
-    compile 'com.bytewelder.spork:spork-inject:4.0.0'
+- `spork`: the annotation processing core
+- `spork-android` and `spork-android-support`: Android bindings similar to Butterknife
+- `spork-inject`: dependency injectino similar to Dagger
 
-    // Spork for Android (pick one of the dependencies below)
-    compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
-    compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar'
-}
-```
+### Support
 
-## Getting started on Java
+Spork contains several support projects which are not published on jcenter, but are available in the [repository][support_projects]:
 
-Add the following dependencies in `build.gradle`:
+- `spork-android-example`: an example project of how to use Spork on Android
+- `spork-benchmark`: Java benchmarks
+- `spork-benchmark-android`: Android application with Java benchmarks
+- `spork-matchers`: Hamcrest matchers for Spork tests
+- `spork-proguard`: Test application for ProGuard (will be migrated to `spork-android-example` in the future)
 
-```groovy
-dependencies {
-    compile 'com.bytewelder.spork:spork-inject:4.0.0'
-}
-```
-
-All dependencies are available at [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.sporklibrary%22).
-
-## Migrating from 3.x to 4.0:
+## Migrating from 3.x
 
 - repository is moved to jCenter with snapshots at http://dl.bintray.com/bytewelder/maven-snapshot
 - base packages renamed from `io.github.sporklibrary` to `spork`
@@ -41,3 +28,5 @@ All dependencies are available at [Maven Central Repository](http://search.maven
 - `@ComponentScope(Scope.SINGLETON)` is now `@Singleton`
 - removed custom support for `RecyclerView.ViewHolder` as you can now make it implement `ViewProvider`
 - `FieldBinder`, `MethodBinder` and `TypeBinder` interfaces are changed
+
+[support_projects]: https://github.com/ByteWelder/Spork/tree/master/support

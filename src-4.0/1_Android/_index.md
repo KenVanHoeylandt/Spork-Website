@@ -9,23 +9,17 @@ Spork for Android dependencies come in 2 flavors:
 
 ## Dependencies
 
-**Regular**
-```groovy
-repositories {
-    jcenter()
-}
+All dependencies are published to jcenter.
 
+When **not** using AppCompat/Support libraries:
+```groovy
 dependencies {
     compile 'com.bytewelder.spork:spork-android:4.0.0@aar'
 }
 ```
 
-**For Applications with AppCompat/Support libraries:**
+When using AppCompat/Support libraries:
 ```groovy
-repositories {
-    jcenter()
-}
-
 dependencies {
     compile 'com.bytewelder.spork:spork-android-support:4.0.0@aar' {
         exclude group: 'com.android.support'
