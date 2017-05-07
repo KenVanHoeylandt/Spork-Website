@@ -1,4 +1,4 @@
-# Spork Core
+## Introduction
 
 Spork Core contains the basic building blocks where the other Spork libraries are built upon.
 
