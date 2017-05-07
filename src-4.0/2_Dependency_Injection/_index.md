@@ -1,6 +1,6 @@
 ## Introduction
 
-Spork Inject is a [fast][spork_performance] runtime [dependency injection][dependency_injection] framework for Java and Android. It is almost fully compatible with [Dagger][dagger] and is modeled on the [JSR-330][jsr-330] specification.
+Spork Inject is a [fast][spork_performance] runtime [dependency injection][dependency_injection] framework for Java/Android and is modeled on the [JSR-330][jsr-330] specification.
 
 Some advantages of Spork Inject:
 - Write less boilerplate code
