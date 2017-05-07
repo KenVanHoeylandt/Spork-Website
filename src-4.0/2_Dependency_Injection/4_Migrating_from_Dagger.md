@@ -12,3 +12,5 @@ Dagger annotations that Spork doesn't support (yet):
 - `@Reusable`
 - `@ForReleasableReferences`
 - `@BindsOptionalOf`
+- Multibindings (`@IntoSet`, `@IntoMap`)
+- Producers (`@ProducerModule`, `@Produces`)
