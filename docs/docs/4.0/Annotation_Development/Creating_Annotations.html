@@ -90,17 +90,23 @@
 <h2 id="page_FieldBinder">FieldBinder</h2>
 <p>FieldBinders are used for annotations that target <code>ElementType.FIELD</code>.</p>
 <h3 id="page_Example">Example</h3>
+<p>Note: this is not the real implementation of Spork's <code>BindViewBinder</code>.</p>
 <pre><code class="language-java">public class BindViewBinder implements FieldBinder&lt;BindView&gt; {
     
     @Override
-    public void bind(Object object, BindView annotation, Field field, Object... parameters) {
-        if (!View.class.isAssignableFrom(field.getType())) {
-            throw new BindFailed(...);
+    public void bind(Object object, BindView annotation, Field field, Object... parameters) throws BindFailed {
+        if (!Activity.class.isAssignableFrom(object.getClass())) {
+            throw new BindFailed(&quot;Parent object is not an Activity&quot;);
         }
 
-        View view = Views.getView(viewResolver, annotation.value(), field.getName(), object);
+        if (!View.class.isAssignableFrom(field.getType())) {
+            throw new BindFailed(&quot;Field is not a View&quot;);
+        }
 
-        Reflection.setFieldValue(annotation, field, object, view);
+        Activity activity = (Activity) object;
+        View view = activity.findViewById(annotation.value());
+
+        Reflection.setFieldValue(field, object, view);
     }
 
     @Override
@@ -112,11 +118,22 @@
 <h2 id="page_MethodBinder">MethodBinder</h2>
 <p>MethodBinders are used for annotations that target <code>ElementType.METHOD</code>.</p>
 <h3 id="page_Example">Example</h3>
+<p>Note: this is not the real implementation of Spork's <code>BindClickBinder</code>.</p>
 <pre><code class="language-java">public class BindClickBinder implements MethodBinder&lt;BindClick&gt; {
 
     @Override
-    public void bind(Object object, BindClick annotation, Method method, Object... parameters) {
-        View view = Views.getView(viewResolver, annotation.value(), method.getName(), object);
+    public void bind(Object object, BindClick annotation, Method method, Object... parameters) throws BindFailed {
+        if (!Activity.class.isAssignableFrom(object.getClass())) {
+            throw new BindFailed(&quot;Parent object is not an Activity&quot;);
+        }
+
+        if (!View.class.isAssignableFrom(field.getType())) {
+            throw new BindFailed(&quot;Field is not a View&quot;);
+        }
+
+        Activity activity = (Activity) object;
+        View view = activity.findViewById(annotation.value());
+
         view.setOnClickListener(new OnClickListener() {
             // ...
         });
@@ -145,7 +162,7 @@ public interface ValueSetter {
 public class ValueBinder implements TypeBinder&lt;SetValue&gt; {
 
     @Override
-    void bind(Object object, ValueSetter annotation, Class&lt;?&gt; annotatedType, Object... parameters) {
+    void bind(Object object, ValueSetter annotation, Class&lt;?&gt; annotatedType, Object... parameters) throws BindFailed {
         // @SetValue only works with ValueSetter implementations
         if (object instanceof ValueSetter) {
             // Safely convert to ValueSetter
@@ -155,7 +172,7 @@ public class ValueBinder implements TypeBinder&lt;SetValue&gt; {
             int value = annotatedClass.getAnnotation().value();
             value_holder.setValue(value);
         } else {
-            throw new BindFailed(...);
+            throw new BindFailed(&quot;Field is not a ValueSetter&quot;);
         }
     }
 
@@ -183,8 +200,7 @@ class Example implements ValueSetter {
 }
 </code></pre>
 <h2 id="page_Binder+registration">Binder registration</h2>
-<p>Registering new binders must be done before the first call to <code>bind()</code>.</p>
-<p>Registration is done as follows:</p>
+<p>Registering new binders must be done before the first call to <code>bind()</code>:</p>
 <pre><code class="language-java">Spork.register(new YourAnnotationBinder());
 </code></pre>
     </div>
