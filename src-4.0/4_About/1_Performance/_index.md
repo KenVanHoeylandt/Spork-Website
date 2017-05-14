@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-Spork's core binding speed is *really* fast. Depending on the hardware, binding a field with warm cache was measured at:
+Spork's core binding speed is *very* fast. Binding a field with warm cache was measured at:
 - about `1 μs` on a `Nexus 5X`
 - about `3 μs` on a `Nexus 4` (a device from 2012!)
 - about `6 μs` on a `Wiko Sunset 2` (bought new for 50 euro or less in 2016)
