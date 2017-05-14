@@ -74,16 +74,16 @@
     <div class="s-content">
         <h1 id="page_Performance">Performance</h1>
 <h2 id="page_TL%3BDR">TL;DR</h2>
-<p>Spork's core binding speed is <em>really</em> fast. Depending on the hardware, binding a field with warm cache takes:</p>
+<p>Spork's core binding speed is <em>really</em> fast. Depending on the hardware, binding a field with warm cache was measured at:</p>
 <ul>
-<li>about <code>1 μs</code> to <code>2 μs</code> on a <code>Nexus 5X</code>
+<li>about <code>1 μs</code> on a <code>Nexus 5X</code>
 </li>
-<li>about <code>3 μs</code> to <code>4 μs</code> on a <code>Nexus 4</code> (a device from 2012!)</li>
-<li>about <code>6 μs</code> to <code>8 μs</code> on a <code>Wiko Sunset 2</code> (bought new for 50 euro or less in 2016)</li>
+<li>about <code>3 μs</code> on a <code>Nexus 4</code> (a device from 2012!)</li>
+<li>about <code>6 μs</code> on a <code>Wiko Sunset 2</code> (bought new for 50 euro or less in 2016)</li>
 </ul>
 <p>Spork Android bindings are expected to be in line with the above measurements.
 The core binding speed implies that Android View injection can be done very quickly and for many Views that you create on the fly.</p>
-<p>Spork Dependency Injection is slower, but still very fast. When injecting <code>5</code> fields, the best average cost <code>per field</code> was:</p>
+<p>Spork Dependency Injection is slower, but still very fast. When injecting <code>5</code> fields, the duration <code>per field</code> was measured at:</p>
 <ul>
 <li>
 <code>10 μs</code> on a <code>Nexus 5X</code>
