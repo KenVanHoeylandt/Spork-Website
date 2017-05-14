@@ -5,130 +5,82 @@ Specs ([full](http://www.gsmarena.com/wiko_sunset2-7457.php)):
 - Dual-core 1.3 GHz Cortex-A7 CPU
 
 ```raw
-05-06 20:26:34.248 I/System.out: Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
-05-06 20:26:34.248 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:26:34.249 I/System.out: 	- work items:       1 per benchmark
-05-06 20:26:34.250 I/System.out: 	- work item time:   0.160ms average
-05-06 20:26:34.530 I/System.out: Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
-05-06 20:26:34.530 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:34.530 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:34.530 I/System.out: 	- work item time:   0.023ms average
-05-06 20:26:34.670 I/System.out: Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
-05-06 20:26:34.670 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:34.670 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:34.670 I/System.out: 	- work item time:   0.013ms average
-05-06 20:26:34.762 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
-05-06 20:26:34.762 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:26:34.762 I/System.out: 	- work items:       1 per benchmark
-05-06 20:26:34.762 I/System.out: 	- work item time:   0.454ms average
-05-06 20:26:35.015 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
-05-06 20:26:35.015 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:35.015 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:35.015 I/System.out: 	- work item time:   0.024ms average
-05-06 20:26:35.758 I/System.out: Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
-05-06 20:26:35.758 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:35.758 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:35.758 I/System.out: 	- work item time:   0.073ms average
-05-06 20:26:35.819 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
-05-06 20:26:35.819 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:26:35.820 I/System.out: 	- work items:       1 per benchmark
-05-06 20:26:35.820 I/System.out: 	- work item time:   0.253ms average
-05-06 20:26:36.107 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
-05-06 20:26:36.107 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:36.107 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:36.107 I/System.out: 	- work item time:   0.027ms average
-05-06 20:26:37.203 I/System.out: Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
-05-06 20:26:37.203 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:37.203 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:37.203 I/System.out: 	- work item time:   0.105ms average
-05-06 20:26:38.274 I/System.out: Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
-05-06 20:26:38.274 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:26:38.274 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:26:38.274 I/System.out: 	- work item time:   0.101ms average
+05-14 14:08:49.441 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldCold:
+05-14 14:08:49.441 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.441 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.162 ms
+05-14 14:08:49.444 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldWarm:
+05-14 14:08:49.444 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.444 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.008 ms
+05-14 14:08:49.447 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreFiveFieldWarm:
+05-14 14:08:49.447 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.447 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.008 ms
+05-14 14:08:49.454 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectOneFieldWarm:
+05-14 14:08:49.454 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.454 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.022 ms
+05-14 14:08:49.476 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectFiveFieldWarm:
+05-14 14:08:49.476 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.476 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.100 ms
+05-14 14:08:49.488 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectOneMethodWarm:
+05-14 14:08:49.488 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.488 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.048 ms
+05-14 14:08:49.529 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectFiveMethodWarm:
+05-14 14:08:49.529 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.529 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.182 ms
+05-14 14:08:49.552 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.complex.InjectComplex:
+05-14 14:08:49.552 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:08:49.552 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.091 ms
 ```
 
 ```raw
-05-06 20:27:28.663 I/System.out: Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
-05-06 20:27:28.663 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:27:28.663 I/System.out: 	- work items:       1 per benchmark
-05-06 20:27:28.663 I/System.out: 	- work item time:   0.136ms average
-05-06 20:27:28.752 I/System.out: Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
-05-06 20:27:28.752 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:28.752 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:28.752 I/System.out: 	- work item time:   0.007ms average
-05-06 20:27:28.964 I/System.out: Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
-05-06 20:27:28.964 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:28.964 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:28.965 I/System.out: 	- work item time:   0.017ms average
-05-06 20:27:29.132 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
-05-06 20:27:29.132 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:27:29.133 I/System.out: 	- work items:       1 per benchmark
-05-06 20:27:29.133 I/System.out: 	- work item time:   0.641ms average
-05-06 20:27:29.397 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
-05-06 20:27:29.397 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:29.397 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:29.397 I/System.out: 	- work item time:   0.023ms average
-05-06 20:27:30.142 I/System.out: Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
-05-06 20:27:30.142 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:30.142 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:30.142 I/System.out: 	- work item time:   0.071ms average
-05-06 20:27:30.223 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
-05-06 20:27:30.223 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:27:30.223 I/System.out: 	- work items:       1 per benchmark
-05-06 20:27:30.223 I/System.out: 	- work item time:   0.261ms average
-05-06 20:27:30.475 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
-05-06 20:27:30.475 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:30.475 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:30.475 I/System.out: 	- work item time:   0.024ms average
-05-06 20:27:31.588 I/System.out: Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
-05-06 20:27:31.588 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:31.588 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:31.588 I/System.out: 	- work item time:   0.109ms average
-05-06 20:27:32.699 I/System.out: Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
-05-06 20:27:32.699 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:27:32.699 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:27:32.699 I/System.out: 	- work item time:   0.106ms average
+05-14 14:09:13.388 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldCold:
+05-14 14:09:13.388 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.389 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.207 ms
+05-14 14:09:13.391 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldWarm:
+05-14 14:09:13.392 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.392 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.006 ms
+05-14 14:09:13.395 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreFiveFieldWarm:
+05-14 14:09:13.395 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.395 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.009 ms
+05-14 14:09:13.401 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectOneFieldWarm:
+05-14 14:09:13.401 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.402 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.017 ms
+05-14 14:09:13.417 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectFiveFieldWarm:
+05-14 14:09:13.417 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.418 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.064 ms
+05-14 14:09:13.424 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectOneMethodWarm:
+05-14 14:09:13.424 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.425 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.022 ms
+05-14 14:09:13.446 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectFiveMethodWarm:
+05-14 14:09:13.446 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.447 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.092 ms
+05-14 14:09:13.470 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.complex.InjectComplex:
+05-14 14:09:13.470 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:13.471 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.092 ms
 ```
 
 ```raw
-05-06 20:31:34.566 I/System.out: Ran benchmark spork.benchmark.core.OneFieldNewSporkBenchmark:
-05-06 20:31:34.566 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:31:34.567 I/System.out: 	- work items:       1 per benchmark
-05-06 20:31:34.567 I/System.out: 	- work item time:   0.099ms average
-05-06 20:31:34.740 I/System.out: Ran benchmark spork.benchmark.core.OneFieldSharedSporkInstance:
-05-06 20:31:34.740 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:34.741 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:34.741 I/System.out: 	- work item time:   0.012ms average
-05-06 20:31:34.907 I/System.out: Ran benchmark spork.benchmark.core.FiveFieldSharedSporkBenchmark:
-05-06 20:31:34.907 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:34.907 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:34.907 I/System.out: 	- work item time:   0.014ms average
-05-06 20:31:34.961 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldNewSporkBenchmark:
-05-06 20:31:34.961 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:31:34.961 I/System.out: 	- work items:       1 per benchmark
-05-06 20:31:34.961 I/System.out: 	- work item time:   0.258ms average
-05-06 20:31:35.188 I/System.out: Ran benchmark spork.benchmark.inject.field.OneFieldSharedSporkBenchmark:
-05-06 20:31:35.188 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:35.188 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:35.188 I/System.out: 	- work item time:   0.021ms average
-05-06 20:31:35.990 I/System.out: Ran benchmark spork.benchmark.inject.field.FiveFieldSharedSporkBenchmark:
-05-06 20:31:35.990 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:35.990 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:35.990 I/System.out: 	- work item time:   0.079ms average
-05-06 20:31:36.037 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodNewSporkBenchmark:
-05-06 20:31:36.037 I/System.out: 	- benchmark repeat: 100 time(s)
-05-06 20:31:36.037 I/System.out: 	- work items:       1 per benchmark
-05-06 20:31:36.037 I/System.out: 	- work item time:   0.187ms average
-05-06 20:31:36.315 I/System.out: Ran benchmark spork.benchmark.inject.method.OneMethodSharedSporkBenchmark:
-05-06 20:31:36.315 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:36.315 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:36.315 I/System.out: 	- work item time:   0.026ms average
-05-06 20:31:37.386 I/System.out: Ran benchmark spork.benchmark.inject.method.FiveMethodSharedSporkBenchmark:
-05-06 20:31:37.386 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:37.386 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:37.386 I/System.out: 	- work item time:   0.105ms average
-05-06 20:31:38.477 I/System.out: Ran benchmark spork.benchmark.inject.complex.ComplexInjectBenchmark:
-05-06 20:31:38.477 I/System.out: 	- benchmark repeat: 10 time(s)
-05-06 20:31:38.477 I/System.out: 	- work items:       1000 per benchmark
-05-06 20:31:38.477 I/System.out: 	- work item time:   0.104ms average
+05-14 14:09:48.106 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldCold:
+05-14 14:09:48.106 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.107 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.181 ms
+05-14 14:09:48.109 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreOneFieldWarm:
+05-14 14:09:48.110 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.110 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.006 ms
+05-14 14:09:48.113 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.core.CoreFiveFieldWarm:
+05-14 14:09:48.113 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.114 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.008 ms
+05-14 14:09:48.119 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectOneFieldWarm:
+05-14 14:09:48.119 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.119 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.017 ms
+05-14 14:09:48.136 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.field.InjectFiveFieldWarm:
+05-14 14:09:48.136 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.137 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.072 ms
+05-14 14:09:48.144 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectOneMethodWarm:
+05-14 14:09:48.144 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.144 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.025 ms
+05-14 14:09:48.166 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.method.InjectFiveMethodWarm:
+05-14 14:09:48.166 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.167 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.096 ms
+05-14 14:09:48.194 7873-7873/spork.benchmark.android I/System.out: Ran benchmark spork.benchmark.inject.complex.InjectComplex:
+05-14 14:09:48.199 7873-7873/spork.benchmark.android I/System.out: 	- work items:      200
+05-14 14:09:48.199 7873-7873/spork.benchmark.android I/System.out: 	- avg. time/item:  0.119 ms
 ```

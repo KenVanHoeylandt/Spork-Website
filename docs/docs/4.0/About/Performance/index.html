@@ -76,38 +76,40 @@
 <h2 id="page_TL%3BDR">TL;DR</h2>
 <p>Spork's core binding speed is <em>really</em> fast. Depending on the hardware, binding a field with warm cache takes:</p>
 <ul>
-<li>about <code>2 μs</code> on a <code>Nexus 5X</code> (that's <code>0.000002 s</code>!)</li>
-<li>about <code>5 μs</code> on a <code>Nexus 4</code> (a device from 2012!)</li>
-<li>about <code>7 μs</code> to <code>23 μs</code> on a <code>Wiko Sunset 2</code> (bought new for 50 euro or less in 2016)</li>
+<li>about <code>1 μs</code> to <code>2 μs</code> on a <code>Nexus 5X</code>
+</li>
+<li>about <code>3 μs</code> to <code>4 μs</code> on a <code>Nexus 4</code> (a device from 2012!)</li>
+<li>about <code>6 μs</code> to <code>8 μs</code> on a <code>Wiko Sunset 2</code> (bought new for 50 euro or less in 2016)</li>
 </ul>
-<p>Spork Android bindings are expected to be in line with the above measurements.</p>
-<p>Spork Dependency Injection is a bit slower, but still very fast. When injecting 5 five fields, the total cost per field was:</p>
+<p>Spork Android bindings are expected to be in line with the above measurements.
+The core binding speed implies that Android View injection can be done very quickly and for many Views that you create on the fly.</p>
+<p>Spork Dependency Injection is slower, but still very fast. When injecting <code>5</code> fields, the best average cost <code>per field</code> was:</p>
 <ul>
 <li>
-<code>7 μs</code> to <code>8 μs</code> on a <code>Nexus 5X</code>
+<code>10 μs</code> on a <code>Nexus 5X</code>
 </li>
 <li>
-<code>32 μs</code> on a <code>Nexus 4</code> (slower, but this is a &gt; 4.5 year old device after all - and still fast enough for binding Activity/Fragment/etc.)</li>
+<code>34 μs</code> on a <code>Nexus 4</code> (slower, but this is a &gt; 4.5 year old device after all - and still fast enough for binding Activity/Fragment/etc.)</li>
 <li>
-<code>14 μs</code> to <code>16 μs</code> on a <code>Wiko Sunset 2</code> (impressive for a such a cheap device from 2 years ago)</li>
+<code>13 μs</code> on a <code>Wiko Sunset 2</code> (impressive for a such a cheap device from 2 years ago)</li>
 </ul>
+<p>Spork Dependency Injection is slower, but it is still very fast in absolute terms: unless you're using an ancient device,
+injecting <code>5</code> fields will generally stay well below <code>100 μs</code>. That means you could inject well over <code>50k fields/second</code> on a single core.</p>
+<p>Using all your CPU power for injection is not a great idea though, so I advise using <code>spork-inject</code> on your main objects
+including services, view controllers, main views, presenters, and other main objects.</p>
 <h2 id="page_Setup">Setup</h2>
 <p>Several benchmarks were carefully crafted to test performance. You can find them on <a href="https://github.com/ByteWelder/Spork" class="external">GitHub</a> in the support directory.</p>
-<p>There are generally two kinds of benchmarks involved:</p>
-<ul>
-<li>cold cache benchmarks (contains <code>100</code> repetitions of cold cache scenario)</li>
-<li>warm cache benchmarks (contains <code>1000</code> repetitions of warm cache scenario, but starts off with cold cache)</li>
-</ul>
-<p>Each benchmark is then repeated <code>10</code> times and outputs are averages over those repetitions.</p>
 <p>Benchmarks are run on the following devices:</p>
 <ul>
-<li>
-<code>Nexus 5X</code>: Nexus 5X with Android 7.1.1</li>
-<li>
-<code>Nexus 4</code>: Nexus 4 with Android 5.1.1</li>
-<li>
-<code>Sunset 2</code>: Wiko Sunset 2 with Android 4.4.2</li>
+<li>LG <code>Nexus 5X</code> with <code>Android 7.1.1</code>
+</li>
+<li>LG <code>Nexus 4</code> with <code>Android 5.1.1</code>
+</li>
+<li>Wiko <code>Sunset 2</code> with <code>Android 4.4.2</code>
+</li>
 </ul>
+<p>Duration can be influenced by factors such as garbage collection being triggered during the test.
+That's why the benchmark was run 3 times on each device and the best measurements can be found below.</p>
 <h2 id="page_Core+annotation+processing+speed">Core annotation processing speed</h2>
 <p>This part describes Spork core performance: the ability to do runtime anotation processing.
 Measurements exclude the actual binding implementation like resolving a View from an Object,
@@ -115,25 +117,25 @@ as the performance of such operations are not determined by Spork itself.</p>
 <p>Binding <code>1</code> field with <code>cold</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.069 ms</code> to <code>0.072 ms</code>
+<code>Nexus 5X</code>: <code>0.065 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.218 ms</code> to <code>0.236 ms</code>
+<code>Nexus 4</code>: <code>0.209 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.099</code> to <code>0.160 ms</code>
+<code>Sunset 2</code>: <code>0.162 ms</code>
 </li>
 </ul>
 <p>Binding <code>1</code> field with <code>warm</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.002 ms</code>
+<code>Nexus 5X</code>: <code>0.001 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.005 ms</code>
+<code>Nexus 4</code>: <code>0.003 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.007 ms</code> to <code>0.023 ms</code>
+<code>Sunset 2</code>: <code>0.006 ms</code>
 </li>
 </ul>
 <p>Binding <code>5</code> fields with warm cache:</p>
@@ -142,15 +144,15 @@ as the performance of such operations are not determined by Spork itself.</p>
 <code>Nexus 5X</code>: <code>0.002 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.004 ms</code> to <code>0.005 ms</code>
+<code>Nexus 4</code>: <code>0.005 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.013 ms</code> to <code>0.017 ms</code>
+<code>Sunset 2</code>: <code>0.008 ms</code>
 </li>
 </ul>
 <p>In conclusion, Spork's annotation processing core is extremely fast. The very first (cold cache) bind was done
-in <code>0.069 ms</code> to <code>0.236 ms</code> and a warm cache bind on a single field was done in <code>0.002 ms</code> to <code>0.017 ms</code>.
-Binding 5 fields with a warm cache increases binding time only with a few microseconds.</p>
+in <code>0.065 ms</code> to <code>0.216 ms</code> and a warm cache bind on a single field was done in <code>0.001 ms</code> to <code>0.008 ms</code>.
+Binding 5 fields with a warm cache took between <code>0.002 ms</code> and <code>0.009 ms</code> which shows that the cost per extra field is very low.</p>
 <h2 id="page_Android+annotation+processing+speed">Android annotation processing speed</h2>
 <p>A benchmark with Android bindings wouldn't be of much use, as we would mostly be measuring the performance of methods such
 as <code>findViewById()</code> and <code>setContentView()</code>. The numbers for the core annotation processing give a decent impression of how fast
@@ -159,94 +161,69 @@ injecting Spork Views/Fragments/etc. but this is negligable.</p>
 <h2 id="page_Dependency+injection+speed">Dependency injection speed</h2>
 <p>This part describes the performance of the <code>spork-inject</code> library.
 Every measurement here includes Spork's core Annotation processing time including the dependency injection implementation's time.</p>
-<p>Injecting <code>1</code> field with <code>cold</code> cache:</p>
-<ul>
-<li>
-<code>Nexus 5X</code>: <code>0.087 ms</code> to <code>0.105 ms</code>
-</li>
-<li>
-<code>Nexus 4</code>: <code>0.508 ms</code> to <code>0.562 ms</code>
-</li>
-<li>
-<code>Sunset 2</code>:  <code>0.258 ms</code> to <code>0.641 ms</code>
-</li>
-</ul>
 <p>Injecting <code>1</code> field with <code>warm</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.008 ms</code>
+<code>Nexus 5X</code>: <code>0.013 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.037 ms</code>
+<code>Nexus 4</code>: <code>0.036 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.021 ms</code> to <code>0.024 ms</code>
+<code>Sunset 2</code>: <code>0.017 ms</code>
 </li>
 </ul>
 <p>Injecting <code>5</code> fields with warm cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.037 ms</code> to <code>0.038 ms</code>
+<code>Nexus 5X</code>: <code>0.052 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.158 ms</code> to <code>0.161 ms</code>
+<code>Nexus 4</code>: <code>0.168 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.071 ms</code> to <code>0.079 ms</code>
-</li>
-</ul>
-<p>Injecting <code>1</code> method with <code>cold</code> cache:</p>
-<ul>
-<li>
-<code>Nexus 5X</code>: <code>0.062 ms</code> to <code>0.071 ms</code>
-</li>
-<li>
-<code>Nexus 4</code>: <code>0.221 ms</code> to <code>0.236 ms</code>
-</li>
-<li>
-<code>Sunset 2</code>: <code>0.187 ms</code> to <code>0.261 ms</code>
+<code>Sunset 2</code>: <code>0.064 ms</code>
 </li>
 </ul>
 <p>Injecting <code>1</code> method with <code>warm</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.011 ms</code>
+<code>Nexus 5X</code>: <code>0.014 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.041 ms</code> to <code>0.042 ms</code>
+<code>Nexus 4</code>: <code>0.041 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.024 ms</code> to <code>0.027 ms</code>
+<code>Sunset 2</code>: <code>0.022 ms</code>
 </li>
 </ul>
 <p>Injecting <code>5</code> method with <code>warm</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.051 ms</code> to <code>0.053 ms</code>
+<code>Nexus 5X</code>: <code>0.059 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.200 ms</code> to <code>0.204 ms</code>
+<code>Nexus 4</code>: <code>0.183 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.105 ms</code> to <code>0.109 ms</code>
+<code>Sunset 2</code>: <code>0.092 ms</code>
 </li>
 </ul>
 <p>Injecting a mixed object with <code>warm</code> cache:</p>
 <ul>
 <li>
-<code>Nexus 5X</code>: <code>0.039 ms</code>
+<code>Nexus 5X</code>: <code>0.038 ms</code>
 </li>
 <li>
-<code>Nexus 4</code>: <code>0.155 ms</code> to <code>0.160 ms</code>
+<code>Nexus 4</code>: <code>0.145 ms</code>
 </li>
 <li>
-<code>Sunset 2</code>: <code>0.101 ms</code> to <code>0.106 ms</code>
+<code>Sunset 2</code>: <code>0.091 ms</code>
 </li>
 </ul>
-<p>In conclusion, injection is pretty fast: they generally take somewhere between <code>0.007 ms</code> and <code>0.032 ms</code> per field depending on the device.
-Method injection is slightly slower at <code>0.010 ms</code> to '0.041 ms`.</p>
-<p>The very first bind on the first class might take a bit longer, but it will generally stay below <code>0.5 ms</code>. On newer hardware, it will <code>0.1 ms</code> or less</p>
-<p>Field injection seems to be noticably faster than method injection with speed improvements at around 30%.
+<p>Dependency injection is pretty fast. It generally took somewhere between <code>0.010 ms</code> and <code>0.034 ms</code> per field (when injecting 5) depending on the device.
+Method injection was a little bit slower at <code>0.012 ms</code> to <code>0.036 ms</code> per method (when injecting 5).</p>
+<p>Field injection seems to be noticably faster than method injection.
 This is great, considering that field injection is generally the preferred way of injecting anyway.</p>
     </div>
 
