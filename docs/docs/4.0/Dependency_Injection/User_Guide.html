@@ -165,7 +165,7 @@ public Coffee provideCoffee(Water water, CoffeeBeans beans) {
 <p>An ObjectGraph's modules can override the dependencies of the parent as long as the injection signature is an exact match: its type, qualifier and nullability must match.</p>
 <h2 id="page_Scoped+injection">Scoped injection</h2>
 <p>A scoped instance is an instance that belongs to a specific <code>ObjectGraph</code> created at a specific level of the application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
-<p><code>Singleton</code> is a predefined scope that is always available at the root <code>ObjectGraph</code> in your application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
+<p><code>@Singleton</code> is a predefined scope that is always available at the root <code>ObjectGraph</code> in your application. It is tied to the lifecycle of that <code>ObjectGraph</code>.</p>
 <p><code>@Provides</code> methods in a module can specify a scope. It can be used like this:</p>
 <pre><code class="language-java">@Provides
 @Singleton

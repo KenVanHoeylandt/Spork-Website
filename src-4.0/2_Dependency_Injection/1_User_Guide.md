@@ -129,7 +129,7 @@ An ObjectGraph's modules can override the dependencies of the parent as long as 
 
 A scoped instance is an instance that belongs to a specific `ObjectGraph` created at a specific level of the application. It is tied to the lifecycle of that `ObjectGraph`.
 
-`Singleton` is a predefined scope that is always available at the root `ObjectGraph` in your application. It is tied to the lifecycle of that `ObjectGraph`.
+`@Singleton` is a predefined scope that is always available at the root `ObjectGraph` in your application. It is tied to the lifecycle of that `ObjectGraph`.
 
 `@Provides` methods in a module can specify a scope. It can be used like this:
 
