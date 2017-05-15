@@ -1,13 +1,27 @@
-|   | Spork | Android Annotations | Butter Knife | Dagger | RoboGuice |
-|---|---|---|---|---|---|
-| **No code generation** (1) | x |  |  |  |  |
-| **Android injection** (2) | x | x | x |  | x |
-| **Inheritance-safe** (3) | x |  | x | x |  |
-| **POJO injection** | x | x |  | x | x |
-| **DI overridible** (4) | x |  |  | x |  |
-| **Easily extensible** (5) | x |  |  |  |  |
-| **Small library** (6) | x |  | x | x |  |
-| **Performance** (7) | lower | higher | higher | higher | ?	 |
+# Android Annotations
+
+Comparison of libraries that provide bindings for Android.
+(e.g. binding views to fields.)
+
+|   | Spork | Android Annotations | Butter Knife |
+|---|---|---|---|
+| **Code generation** (1) |  | x | x |
+| **Inheritance-safe** (3) | x |  | x |
+| **Easily extensible** (5) | x |  |  |
+| **Small library** (6) | x |  | x |
+| **Performance** (7) | lower | higher | higher |
+
+
+# Dependency Injection
+
+|   | Spork | Android Annotations | Dagger |
+|---|---|---|---|---|
+| **Code generation** (1) |  | x | x |
+| **Inheritance-safe** (3) | x |  | x |
+| **DI overridible** (4) | x |  | x |
+| **Easily extensible** (5) | x |  |  |
+| **Small library** (6) | x |  | x |
+| **Performance** (7) | lower | higher | higher |
 
 
 
