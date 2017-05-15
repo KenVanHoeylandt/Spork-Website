@@ -1,4 +1,4 @@
-# Android Annotations
+# Android Bindings
 
 Comparison of libraries that provide bindings for Android.
 (e.g. binding views to fields.)
