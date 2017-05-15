@@ -72,32 +72,23 @@
 
 
     <div class="s-content">
-        <table>
+        <h1 id="page_Android+Annotations">Android Annotations</h1>
+<p>Comparison of libraries that provide bindings for Android.
+(e.g. binding views to fields.)</p>
+<table>
 <thead>
 <tr>
 <th></th>
 <th>Spork</th>
 <th>Android Annotations</th>
 <th>Butter Knife</th>
-<th>Dagger</th>
-<th>RoboGuice</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>No code generation</strong> (1)</td>
+<td><strong>Code generation</strong> (1)</td>
+<td></td>
 <td>x</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Android injection</strong> (2)</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td></td>
 <td>x</td>
 </tr>
 <tr>
@@ -105,21 +96,56 @@
 <td>x</td>
 <td></td>
 <td>x</td>
+</tr>
+<tr>
+<td><strong>Easily extensible</strong> (5)</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Small library</strong> (6)</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><strong>Performance</strong> (7)</td>
+<td>lower</td>
+<td>higher</td>
+<td>higher</td>
+</tr>
+</tbody>
+</table>
+<h1 id="page_Dependency+Injection">Dependency Injection</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Spork</th>
+<th>Android Annotations</th>
+<th>Dagger</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code generation</strong> (1)</td>
+<td></td>
+<td>x</td>
 <td>x</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>POJO injection</strong></td>
-<td>x</td>
+<td><strong>Inheritance-safe</strong> (3)</td>
 <td>x</td>
 <td></td>
 <td>x</td>
-<td>x</td>
+<td></td>
 </tr>
 <tr>
 <td><strong>DI overridible</strong> (4)</td>
 <td>x</td>
-<td></td>
 <td></td>
 <td>x</td>
 <td></td>
@@ -130,13 +156,11 @@
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>Small library</strong> (6)</td>
 <td>x</td>
 <td></td>
-<td>x</td>
 <td>x</td>
 <td></td>
 </tr>
@@ -145,8 +169,7 @@
 <td>lower</td>
 <td>higher</td>
 <td>higher</td>
-<td>higher</td>
-<td>?</td>
+<td></td>
 </tr>
 </tbody>
 </table>
