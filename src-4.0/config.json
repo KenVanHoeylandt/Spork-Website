@@ -10,8 +10,7 @@
         	"Spork Webite": "http://spork.bytewelder.com",
 	        "GitHub": "https://github.com/ByteWelder/Spork",
 	        "Help/Support/Bugs": "https://github.com/ByteWelder/Spork/issues"
-	    },
-        "google_analytics": "UA-78126960-1"
+	    }
     },
     "repo": "ByteWelder/Spork"
 }
